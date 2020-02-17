@@ -14,7 +14,7 @@ public_folder: /img
 collections:
   - name: "writers"
     label: "Writers"
-    files: "src/pages/writers"
+    folder: "src/pages/writers"
     create: true
     fields:
       - {label: "Layout", name: 'layout', widget: "hidden", default: "writer"}
@@ -23,27 +23,37 @@ collections:
       - {label: "Birth Data", name: "birthData", widget: "date"}
       - {label: "Death Date", name: "deathDate", widget: "date"}
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Timeline", name: "timeline", widget: "object", fields: 
+      - label: "Timeline"
+        name: "timeline"
+        widget: "list"
+        fields:
         - {label: "Date Start", name: "dateStart", widget: "date"}
         - {label: "Date End", name: "dateEnd", widget: "date"}
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Description", name: "description", widget: "text"}
-        }
-      - {label: "Works", name: "works", widget: "object", fields: 
+      - label: "Works"
+        name: "works"
+        widget: "list"
+        fields: 
         - {label: "Date", name: "date", widget: "date"}
         - {label: "Title", name: "title", widget: "string"}
-        }
-      - {label: "Gallery", name: "gallery", widget: "list", fields: 
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
         - {label: "Image", name: "image", widget: "image"}
         - {label: "Alt", name: "alt", widget: "string"}
-        }
-      - {label: "Video", name: "video", widget: "list", fields: 
+      - label: "Video"
+        name: "video"
+        widget: "list"
+        fields: 
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Video URL", name: "videoURL", widget: "string"}
-        }
-      - {label: "Map", name: "map", widget: "list", fields: 
+      - label: "Map"
+        name: "map"
+        widget: "list"
+        fields: 
         - {label: "Latitude", name: "lat", widget: "number", valueType: "float"}
         - {label: "Longitude", name: "lon", widget: "number", valueType: "float"}
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Description", name: "description", widget: "text"}
-        }
