@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+      "module": "commonjs", // As we're using Node.js and import our NPM packages the CommonJS way, we want to make sure this option is set to commonjs
+      "target": "esnext", // ECMA script target
+      "jsx": "preserve", // The preserve option would normally make sure the JSX code wouldn't be compiled.
+      "lib": ["dom", "esnext"], // The lib option will tell TypeScript which libraries to support.
+      "strict": true, // This option enables a bunch of strict type-checking options like noImplitAny, noImplicitThis and strictFunctionTypes.
+      "noEmit": true, // As we don't want TypeScript to create any new files because we're leaving that to the Gatsby Babel setup, it's important not to forget about this option.
+      "esModuleInterop": true,
+      "noUnusedLocals": false // Both of these options are mainly used to keep proper compatibility with Babel.
+  },
+  "exclude": ["node_modules", "public", ".cache"]
+}
