@@ -12,6 +12,16 @@ module.exports = {
   settings: {
     react: {
       version: 'detect'
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
     }
   },
   env: {
@@ -30,9 +40,13 @@ module.exports = {
   rules: {
     'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'react/jsx-filename-extension': [
-      2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }
-    ]
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    "import/extensions": ["error", "ignorePackages", {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }]
   },
   overrides: [
     // Override some TypeScript rules just for .js files
