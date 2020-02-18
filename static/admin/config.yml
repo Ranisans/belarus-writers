@@ -22,6 +22,7 @@ collections:
       - {label: "Full Name", name: "fullName", widget: "string"}
       - {label: "Birth Data", name: "birthData", widget: "date"}
       - {label: "Death Date", name: "deathDate", widget: "date"}
+      - {label: "Birth Place", name: "birthPlace", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - label: "Timeline"
         name: "timeline"
