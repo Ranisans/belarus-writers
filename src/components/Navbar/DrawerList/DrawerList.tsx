@@ -2,8 +2,17 @@ import React from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
+
 import CloseIcon from '@material-ui/icons/Close';
 import MobileDrawer from './MobileDrawer';
+
+interface PropType {
+  dummyCategories: string[];
+  handleDrawerToggle: any;
+  classes: any;
+  mobileOpen: any;
+  theme: any;
+}
 
 const DrawerList = ({
   dummyCategories,
@@ -11,13 +20,7 @@ const DrawerList = ({
   theme,
   mobileOpen,
   classes,
-}: {
-  dummyCategories: string[];
-  handleDrawerToggle: any;
-  theme: any;
-  mobileOpen: any;
-  classes: any;
-}) => {
+}: PropType) => {
   return (
     <>
       <Hidden smUp implementation="css">

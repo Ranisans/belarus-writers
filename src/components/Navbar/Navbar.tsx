@@ -1,6 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
 
@@ -47,11 +48,11 @@ const useStyles = makeStyles(theme => ({
 
 function ResponsiveDrawer() {
   const dummyCategories: string[] = [
-    'Hokusai',
-    'Hiroshige',
-    'Utamaro',
-    'Kuniyoshi',
-    'Yoshitoshi',
+    'Main',
+    'List',
+    'Team',
+    'Work log',
+    'Style Guide',
   ];
 
   const [value, setValue] = React.useState(0);
@@ -69,11 +70,6 @@ function ResponsiveDrawer() {
     setMobileOpen(!mobileOpen);
   };
 
-  console.log(typeof classes + 'classes');
-  console.log(typeof handleDrawerToggle + 'handleDrawerToggle');
-  console.log(typeof value + 'value');
-  console.log(typeof handleChange + 'handleChange');
-  console.log(typeof dummyCategories + 'dummyCategories');
   return (
     <div className={classes.root}>
       <CssBaseline />
