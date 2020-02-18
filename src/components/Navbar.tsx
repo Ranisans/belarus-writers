@@ -17,6 +17,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
+import Accessibility from '@material-ui/icons/Accessibility';
+
 import {
   makeStyles,
   useTheme,
@@ -146,6 +148,10 @@ const Navbar = () => {
               <ListItem button key={text}>
                 <ListItemIcon>
                   {index === 0 ? <HomeIcon /> : <MailIcon />}
+                  {index === 1 ? <HomeIcon /> : <MailIcon />}
+                  {index === 2 ? <HomeIcon /> : <MailIcon />}
+                  {index === 3 ? <HomeIcon /> : <MailIcon />}
+                  {index === 4 ? <HomeIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -154,7 +160,7 @@ const Navbar = () => {
         </List>
         <Divider />
         <List>
-          {['any items/test'].map((text, index) => (
+          {['any items/FREE test'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
