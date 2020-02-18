@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const timingFunc = 'cubic-bezier(0.08, 0.03, 0.22, 0.87)';
 
@@ -57,10 +57,10 @@ const useStyles = makeStyles({
   title: {
     margin: 0,
     width: 240,
+    textAlign: 'center',
     fontFamily: '"Din", sans-serif',
     fontSize: '3.5rem',
     fontWeight: 700,
-    textAlign: 'center',
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     color: '#fff',
