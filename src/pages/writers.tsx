@@ -6,11 +6,9 @@ import WriterCard from '../components/WriterCard';
 
 const Writers = ({ data }: any) => (
   <Layout>
-    <div>
-      {data.allMarkdownRemark.edges.map((edge: any) => {
-        return <WriterCard key={edge} edge={edge} />;
-      })}
-    </div>
+    {data.allMarkdownRemark.edges.map((edge: any) => (
+      <WriterCard key={edge} edge={edge} />
+    ))}
   </Layout>
 );
 
@@ -23,8 +21,8 @@ export const data = graphql`
         node {
           frontmatter {
             fullName
-            birthData(formatString: "DD MMMM, YYYY")
-            deathDate(formatString: "DD MMMM, YYYY")
+            birthData(formatString: "DD.MM.YYYY")
+            deathDate(formatString: "DD.MM.YYYY")
             image
           }
         }
