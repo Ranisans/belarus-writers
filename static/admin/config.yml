@@ -18,10 +18,12 @@ collections:
     create: true
     fields:
       - {label: "Layout", name: 'layout', widget: "hidden", default: "writer"}
+      - {label: "Id", name: "id", widget: "number"}
       - {label: "Language", name: "language", widget: "string"}
       - {label: "Full Name", name: "fullName", widget: "string"}
       - {label: "Birth Data", name: "birthData", widget: "date"}
       - {label: "Death Date", name: "deathDate", widget: "date"}
+      - {label: "Place of Birth", name: "placeOfBirth", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - label: "Timeline"
         name: "timeline"

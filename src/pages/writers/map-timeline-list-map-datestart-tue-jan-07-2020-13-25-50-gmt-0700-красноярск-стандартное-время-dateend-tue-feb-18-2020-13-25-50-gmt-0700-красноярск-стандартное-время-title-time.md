@@ -1,9 +1,11 @@
 ---
 layout: writer
+id: 2
 language: ru
 fullName: Петр Петров
 birthData: 1938-12-26T06:25:04.499Z
 deathDate: 2020-01-27T06:25:04.608Z
+placeOfBirth: Нясвiж
 image: /img/coffee-gear.png
 timeline:
   - dateEnd: 2020-02-18T06:25:50.483Z
