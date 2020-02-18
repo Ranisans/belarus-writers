@@ -5,9 +5,18 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript', // add typescript
-    'gatsby-plugin-material-ui', // add material-ui
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
