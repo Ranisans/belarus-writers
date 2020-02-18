@@ -1,18 +1,24 @@
 import React from 'react';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import CopyrightIcon from '@material-ui/icons/Copyright';
+import GithubItem from './GithubItem';
+import { team} from './team';
 
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    boxSizing: 'border-box',
   },
 
   footer: {
-    padding: '1rem',
+    padding: '0.5rem 0',
+    margin: '0'
   },
 
   copyrightText: {
@@ -23,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Footer = () => {
   const classes = useStyles();
-  const theme = useTheme();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -31,6 +36,15 @@ const Footer = () => {
       <CssBaseline />
       <footer>
         <AppBar position='static' className={classes.footer}>
+          <div className={classes.root}>
+            {
+              team.map(({ name, nickname, avatar }, index) => {
+                return <GithubItem key={index} name={name} nickname={nickname} avatar={avatar} />
+              })
+            }
+          </div>
+          
+
           <Typography className={classes.copyrightText}>
             <CopyrightIcon fontSize="small" /> {currentYear} All Rights Reserved.
           </Typography>
