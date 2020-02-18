@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { withPrefix } from 'gatsby';
 import Footer from './Footer';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 import useSiteMetadata from './SiteMetadata';
 
 interface PropsType {
