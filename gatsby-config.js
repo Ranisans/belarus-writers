@@ -4,6 +4,7 @@ module.exports = {
     description: 'RS School task',
   },
   plugins: [
+    `gatsby-plugin-material-ui`,
     'gatsby-plugin-typescript', // add typescript
     'gatsby-plugin-material-ui', // add material-ui
     'gatsby-plugin-react-helmet',
