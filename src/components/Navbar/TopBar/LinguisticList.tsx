@@ -7,7 +7,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const options = ['russian', 'belarussian', 'english'];
 
-const ITEM_HEIGHT = 48;
+const ITEM_HEIGHT = 50;
 
 
 
