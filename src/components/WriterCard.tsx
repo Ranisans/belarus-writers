@@ -7,8 +7,26 @@ const useStyles = makeStyles({
   root: {
     position: 'relative',
     margin: 30,
-    width: 510,
+    width: 'calc(50% - 60px)',
     cursor: 'pointer',
+
+    '&:nth-child(even)': {
+      top: 80,
+
+      '@media (max-width: 560px)': {
+        top: 0,
+      },
+    },
+
+    '@media (max-width: 840px)': {
+      width: 'calc(50% - 30px)',
+      margin: 15,
+    },
+
+    '@media (max-width: 560px)': {
+      width: '100%',
+      margin: '5px 10px',
+    },
 
     '&:hover': {
       '& $img': {
@@ -36,8 +54,10 @@ const useStyles = makeStyles({
   },
 
   img: {
+    display: 'block',
     width: '100%',
     height: 'auto',
+    float: 'left',
     transition: `transform 0.6s ${timingFunc}, filter 0.6s ${timingFunc}`,
   },
 
@@ -50,25 +70,28 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    width: 270,
+    width: '85%',
     transition: `transform 0.5s ${timingFunc}`,
   },
 
   title: {
     margin: 0,
-    width: 240,
     textAlign: 'center',
     fontFamily: '"Din", sans-serif',
-    fontSize: '3.5rem',
+    fontSize: '2.1875rem',
     fontWeight: 700,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     color: '#fff',
+
+    '@media (max-width: 840px)': {
+      fontSize: '1.125rem',
+    },
   },
 
   dates: {
     fontFamily: '"Din", sans-serif',
-    fontSize: ' 1.2rem',
+    fontSize: ' 0.75rem',
     fontWeight: 700,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
@@ -80,7 +103,7 @@ const useStyles = makeStyles({
     position: 'relative',
     transform: 'translateY(-10px)',
     fontFamily: '"Din", sans-serif',
-    fontSize: '1.6rem',
+    fontSize: '1rem',
     letterSpacing: 1.5,
     color: '#fff',
     visibility: 'hidden',
