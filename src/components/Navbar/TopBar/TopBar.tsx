@@ -6,6 +6,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import LinguisticList from './LinguisticList';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(() => ({
+  toolBar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
 
 const TopBar = ({
   classes,
@@ -20,10 +30,12 @@ const TopBar = ({
   value: any;
   handleChange: any;
 }) => {
+  const toolBarClasses = useStyles();
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={toolBarClasses.toolBar}>
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -46,6 +58,7 @@ const TopBar = ({
               ))}
             </Tabs>
           </Typography>
+          <LinguisticList />
         </Toolbar>
       </AppBar>
     </>
