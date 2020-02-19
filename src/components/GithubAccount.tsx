@@ -36,7 +36,7 @@ const GithubProfile = ({nickname, avatar}: Props) => {
 
   return (
     <Link className={classes.linkContainer} href={githubLink} target="_blank" rel="noopener">
-      <Avatar alt={name} src={avatar} className={classes.avatar}/>
+      <Avatar alt={nickname} src={avatar} className={classes.avatar}/>
     </Link>
   );
 }
