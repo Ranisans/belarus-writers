@@ -124,7 +124,13 @@ const useStyles = makeStyles({
 });
 
 const WriterCard = ({ edge }: any) => {
-  const { fullName, birthData, deathDate, image } = edge.node.frontmatter;
+  const {
+    fullName,
+    birthData,
+    deathDate,
+    placeOfBirth,
+    image,
+  } = edge.node.frontmatter;
   const styles = useStyles();
 
   return (
@@ -137,6 +143,7 @@ const WriterCard = ({ edge }: any) => {
         <p className={styles.dates}>
           {birthData} - {deathDate}
         </p>
+        <p className={styles.dates}>{placeOfBirth}</p>
         <span className={styles.label}>Read more</span>
       </div>
     </div>
