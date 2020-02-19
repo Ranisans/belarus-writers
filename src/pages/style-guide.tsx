@@ -16,10 +16,12 @@ import {
   CssBaseline,
   Container,
   Button,
-  Divider 
+  Divider,
+  AppBar
 } from '@material-ui/core';
 
 import Layout from '../components/Layout';
+import Navbar from '../components/Navbar';
 
 import Didot from '../../static/fonts/Didot.woff';
 
@@ -27,33 +29,32 @@ const didot = {
   fontFamily: 'Didot',
   fontStyle: 'normal',
   fontWeight: '400',
-  src: `
-    local('Didot'),
-    url(${Didot}) format('woff')
-  `,
+  src: `local('Didot'),
+        url(${Didot}) format('woff')
+      `,
 };
-
 
 let theme = createMuiTheme({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
+      light: '#E96F72',
       main: '#E8676B',
-      dark: '#E8676B',
-      contrastText: '#FFFFF',
+      dark: '#E96F72',
+      contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#EFEFEF',
-      dark: '#EFEFEF',
-      // dark: will be calculated from palette.secondary.main,
+      main: '#FFFFFF',
+      dark: '#FFFFFF',
       contrastText: '#3d4451',
     },
     text: {
-      primary: '#3d4451',
-      secondary: 'red',
-    }
-  },
-  typography: {
+      primary: '#FFFFFF',
+      secondary: '#3d4451'
+    },
+    background: {
+      default: '#FFFFFF',
+    },
+  },  typography: {
     fontFamily: 'Didot',
     fontSize: 16,
     h1: {
@@ -70,14 +71,16 @@ let theme = createMuiTheme({
       color: '#3d4451',
       margin: '10px 0',
     },
-    // button: {
-    //   fontSize: '.94rem',
-    //   lineHeight: '1',
-    //   fontWeight: 'normal',
-    //   color: '#3d4451',
-    //   padding: '15px 20px',
-    // }
+    body1: {
+      fontSize: '1.25rem',
+      color: '#000000',
+    },
+    body2: {
+      fontSize: '1rem',
+      color: 'rgb(61, 68, 81);',
+    },
   },
+  spacing: factor => `${0.25 * factor}rem`, // (Bootstrap strategy)
   overrides: {
     MuiCssBaseline: {
       '@global': {
@@ -101,7 +104,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Typos = () => {
-  const theme = useTheme();
   return (
     <Grid item xs={12}>
       <Typography variant="h2" gutterBottom>
@@ -136,11 +138,7 @@ const Typos = () => {
 
 const ColorButton = withStyles((theme: Theme) => ({
   root: {
-    color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
     '&:hover': {
-      backgroundColor: red[500],
-      opacity: '0.95',
       boxShadow: '0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)',
     },
   },
@@ -150,12 +148,9 @@ const OutlinedButton = withStyles((theme: Theme) => ({
   root: {
     color: '#3d4451',
     border: '1px solid #cbcdcf',
-    // backgroundColor: red[500],
     '&:hover': {
       color: '#3d4451',
       border: '1px solid #cbcdcf',
-      backgroundColor: 'transparent',
-      opacity: '0.95',
       boxShadow: '0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)',
     },
   },
@@ -170,7 +165,7 @@ const Buttons = () => {
       <div className={classes.root}>
         <Button variant="contained" color="primary">Primary Default</Button>
         <Button variant="contained" color="secondary">secondary Default</Button>
-        <ColorButton variant="contained" size="medium">
+        <ColorButton variant="contained" color="primary" size="medium">
           Primary
         </ColorButton>
         <OutlinedButton variant="outlined" size="medium" color="secondary">
@@ -186,7 +181,7 @@ const NavBars = () => {
     <Container maxWidth="lg">
       <Typography variant="h2">Navbar</Typography>
       <Divider light/>
-
+      <Navbar />
     </Container>
   )
 }
@@ -195,7 +190,7 @@ const StyleGuide = () => (
     <CssBaseline />
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
-        <div>Hello this font must be didot</div>
+        <h1>StyleGuide</h1>
         <Grid container spacing={3}>
           <Buttons />          
           <Typos />
