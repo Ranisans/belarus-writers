@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Belarusian Writers',
     description: 'RS School task',
+    author: 'Our Team',
   },
   plugins: [
     `gatsby-plugin-material-ui`,
@@ -9,6 +10,16 @@ module.exports = {
     'gatsby-plugin-material-ui', // add material-ui
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`en`, `ru`, `by`],
+        defaultLanguage: `en`,
+        redirect: true,
+        redirectComponent: require.resolve(`./src/components/redirect.tsx`),
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
