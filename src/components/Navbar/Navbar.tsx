@@ -1,10 +1,10 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
-
 
 const drawerWidth = 240;
 
@@ -47,12 +47,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ResponsiveDrawer() {
+  const intl = useIntl();
   const dummyCategories: string[] = [
-    'Main',
-    'List',
-    'Team',
-    'Work log',
-    'Style Guide',
+    intl.formatMessage({ id: 'navbar.main' }),
+    intl.formatMessage({ id: 'navbar.list' }),
+    intl.formatMessage({ id: 'navbar.team' }),
+    intl.formatMessage({ id: 'navbar.workLog' }),
+    intl.formatMessage({ id: 'navbar.styleGuide' }),
   ];
 
   const [value, setValue] = React.useState(0);
