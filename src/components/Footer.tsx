@@ -4,14 +4,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import CopyrightIcon from '@material-ui/icons/Copyright';
-import GithubItem from './GithubItem';
-import { team} from './team';
+import GithubAccount from './GithubAccount';
+import {team} from '../data/team';
 
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     boxSizing: 'border-box',
   },
@@ -38,8 +38,8 @@ const Footer = () => {
         <AppBar position='static' className={classes.footer}>
           <div className={classes.root}>
             {
-              team.map(({ name, nickname, avatar }, index) => {
-                return <GithubItem key={index} name={name} nickname={nickname} avatar={avatar} />
+              team.map(({ nickname, avatar }, index) => {
+                return <GithubAccount key={index} nickname={nickname} avatar={avatar} />
               })
             }
           </div>

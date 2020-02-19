@@ -4,7 +4,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
 
 interface Props {
-  name: string,
   nickname: string,
   avatar: string,
 }
@@ -20,24 +19,24 @@ const useStyles = makeStyles((theme: Theme) =>
       color: 'inherit',
     },
 
-    text: {
-      ['@media (max-width:780px)']: {
-        display: 'none'
-      }
+    avatar: {
+      ['@media (max-width:460px)']: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+      }    
     }
 
   }),
 );
 
 
-const GithubProfile = ({name, nickname, avatar}: Props) => {
+const GithubProfile = ({nickname, avatar}: Props) => {
   const classes = useStyles();
   const githubLink = `https://github.com/${nickname}/`;
 
   return (
     <Link className={classes.item} href={githubLink} target="_blank" rel="noopener">
-      <Avatar alt={name} src={avatar} />
-      <p className={classes.text}>{name}</p>
+      <Avatar alt={name} src={avatar} className={classes.avatar}/>
     </Link>
   );
 }
