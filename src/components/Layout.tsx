@@ -14,17 +14,17 @@ interface PropsType {
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh' 
-    },
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+  },
 
   content: {
-    flexGrow: '1'
+    flexGrow: 1,
   },
   
   main: {
-    maxWidth: '960px',
+    maxWidth: '1024px',
     margin: '0 auto', 
   }
 }))

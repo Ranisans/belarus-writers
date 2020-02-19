@@ -10,7 +10,7 @@ interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    item: {
+    linkContainer: {
       display: 'flex',
       alignItems: 'center',
       '& > *': {
@@ -35,7 +35,7 @@ const GithubProfile = ({nickname, avatar}: Props) => {
   const githubLink = `https://github.com/${nickname}/`;
 
   return (
-    <Link className={classes.item} href={githubLink} target="_blank" rel="noopener">
+    <Link className={classes.linkContainer} href={githubLink} target="_blank" rel="noopener">
       <Avatar alt={name} src={avatar} className={classes.avatar}/>
     </Link>
   );

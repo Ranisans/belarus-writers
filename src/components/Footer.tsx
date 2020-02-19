@@ -9,16 +9,15 @@ import {team} from '../data/team';
 
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-  root: {
+  footer: {
+    position: 'static',
+    padding: '0.2rem'
+  },
+  
+  githubWrapper: {
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    boxSizing: 'border-box',
-  },
-
-  footer: {
-    padding: '0.5rem 0',
-    margin: '0'
   },
 
   copyrightText: {
@@ -35,8 +34,8 @@ const Footer = () => {
     <>
       <CssBaseline />
       <footer>
-        <AppBar position='static' className={classes.footer}>
-          <div className={classes.root}>
+        <AppBar className={classes.footer}>
+          <div className={classes.githubWrapper}>
             {
               team.map(({ nickname, avatar }, index) => {
                 return <GithubAccount key={index} nickname={nickname} avatar={avatar} />
