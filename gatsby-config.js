@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Belarusian Writers',
     description: 'RS School task',
+    author: 'Our Team',
   },
   plugins: [
     `gatsby-plugin-material-ui`,
@@ -16,7 +17,7 @@ module.exports = {
         languages: [`en`, `ru`, `by`],
         defaultLanguage: `en`,
         redirect: true,
-        redirectComponent: require.resolve(`./src/components/redirect.js`),
+        redirectComponent: require.resolve(`./src/components/redirect.tsx`),
       },
     },
     {
