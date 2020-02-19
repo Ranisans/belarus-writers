@@ -8,9 +8,9 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "clx": "^1.0.0",
     "gatsby": "^2.13.31",
     "gatsby-image": "^2.0.23",
+    "gatsby-plugin-intl": "^0.3.2",
     "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^4.1.6",
@@ -34,6 +34,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
+    "typeface-gfs-didot": "0.0.72",
     "uuid": "^3.2.1"
   },
   "keywords": [
