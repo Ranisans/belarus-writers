@@ -1,12 +1,21 @@
 import React from 'react';
+import { Typography, Grid, Tooltip } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import { 
-  Typography, 
-  Grid,
-  Tooltip,
-} from '@material-ui/core';
+const Typos = () => {
+    const useStyles = makeStyles(() =>
+        createStyles({
+            typoToShow: {
+                marginBottom: '25px',
+            },
+            tooltip: {
+                maxWidth: 130,
+            },
+        }),
+    );
 
-const Typos = ({ classes }) => {
+    const classes = useStyles();
+
     return (
       <Grid item xs={12}>
         <Tooltip 

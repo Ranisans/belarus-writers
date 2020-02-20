@@ -16,12 +16,33 @@ import {
 import Layout from '../components/Layout';
 import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
 import Palette from '../components/Palette';
-import theme from '../../static/themes/theme';
-import themeDark from '../../static/themes/theme-dark';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
 
-const Buttons = ({ classes }) => {
+import theme from '../../static/themes/theme';
+import themeDark from '../../static/themes/theme-dark';
+
+const useStyles = makeStyles((theme: Theme) =>
+createStyles({
+  root: {
+    flexGrow: 1,
+    marginBottom: '25px',
+    '& > button': {
+      margin: theme.spacing(1),
+    },
+  },
+  btnsGroup: {
+    marginBottom: '25px',
+  },
+  grid: {
+    minHeight: '400px',
+  },
+}),
+);
+
+const classes = useStyles();
+
+const Buttons = () => {
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
@@ -54,37 +75,6 @@ const StyleGuide = () => {
     setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
   }
 
-  const useStyles = makeStyles((currentTheme: Theme) =>
-    createStyles({
-      root: {
-        flexGrow: 1,
-        marginBottom: '25px',
-        '& > button': {
-          margin: currentTheme.spacing(1),
-        },
-      },
-      btnsGroup: {
-        marginBottom: '25px',
-      },
-      grid: {
-        minHeight: '400px',
-      },
-      typoToShow: {
-        marginBottom: '25px',
-      },
-      tooltip: {
-        maxWidth: 130,
-      },
-      code: {
-        color: '#FFFFFF',
-        backgroundColor: 'rgb(55, 59, 66)',
-        padding: 15,
-        margin: '15px 0'
-      },
-    }),
-  );
-
-  let classes = useStyles(currentTheme);
   const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
   return (
     <ThemeProvider theme={currentTheme}>
@@ -117,10 +107,10 @@ const StyleGuide = () => {
             Theme toggler
           </ColoredButton>
             <Grid container spacing={3} className={classes.grid}>
-              {navTarget === 'Typography' ? <Typos classes={classes}/> : null}
-              {navTarget === 'Buttons' ? <Buttons classes={classes} /> : null}
+              {navTarget === 'Typography' ? <Typos /> : null}
+              {navTarget === 'Buttons' ? <Buttons /> : null}
               {navTarget === 'Colors' ? <Palette /> : null}
-              {navTarget === 'Instruction' ? <Instruction classes={classes} /> : null}
+              {navTarget === 'Instruction' ? <Instruction /> : null}
             </Grid>
           </Container>
       </Layout>

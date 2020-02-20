@@ -32,7 +32,7 @@ const Box = styled('div')(
     ),
 );
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({    
     palette: {      
       margin: 0,

@@ -1,8 +1,22 @@
 
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-const Instruction = ({ classes }) => {
+const Instruction = () => {
+    const useStyles = makeStyles(() =>
+    createStyles({
+      code: {
+        color: '#FFFFFF',
+        backgroundColor: 'rgb(55, 59, 66)',
+        padding: 15,
+        margin: '15px 0'
+      },
+    }),
+  );
+
+  let classes = useStyles();
+
     return (
       <div>
         <Typography variant='body1'>
