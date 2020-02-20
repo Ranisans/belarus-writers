@@ -145,9 +145,9 @@ const Instruction = () => {
           import theme from 'somewhere/from/your/folder/../static/theme';
           <br />
           <br />
-          const YourSmartComponent = () => &#123;
+          const YourSmartComponent = () =&gt; &#123;
           <br />
-          &#8195;&#8195;const useStyles = makeStyles((theme: Theme) => &#123;
+          &#8195;&#8195;const useStyles = makeStyles((theme: Theme) =&gt; &#123;
           <br />
           &#8195;&#8195;&#8195;&#8195;root: &#123;
             <br />
