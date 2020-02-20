@@ -4,7 +4,7 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import theme from '../../static/theme';
+import theme from '../../static/themes/theme';
 
 const useStyles = makeStyles({
   root: {
