@@ -1,74 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   makeStyles, 
   createStyles, 
   Theme, 
-  ThemeProvider
+  ThemeProvider,
 } from '@material-ui/core/styles';
-import { 
-  Typography, 
+import {
   Grid, 
   CssBaseline,
   Container,
-  Divider,
+  ButtonGroup,
+  Button,
 } from '@material-ui/core';
 
 import Layout from '../components/Layout';
-import ResponsiveDrawer from '../components/Navbar/Navbar';
-import { ColoredButton, OutlinedButton } from '../components/Buttons'
-import theme from '../../static/theme';
+import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
+import Palette from '../components/Palette';
+import Typos from '../components/Styleguide/Typos';
+import Instruction from '../components/Styleguide/Instruction';
+import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
+
+import theme from '../../static/themes/theme';
+import themeDark from '../../static/themes/theme-dark';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      marginBottom: '25px',
-      '& > button': {
-        margin: theme.spacing(1),
-      },
+createStyles({
+  root: {
+    flexGrow: 1,
+    marginBottom: '25px',
+    '& > button': {
+      margin: theme.spacing(1),
     },
-  }),
+  },
+  btnsGroup: {
+    marginBottom: '25px',
+  },
+  grid: {
+    minHeight: '400px',
+  },
+}),
 );
 
-const Typos = () => {
-  return (
-    <Grid item xs={12}>
-      <Typography variant="h2" gutterBottom>
-        Headers
-      </Typography>
-      <Divider light />
-      <Typography variant="h1" gutterBottom>
-        h1. Heading
-      </Typography>
-      <Typography variant="h2" gutterBottom>
-        h2. Heading
-      </Typography>      
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
-      <Typography variant="body2" gutterBottom>
-        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
-      <Typography variant="button" display="block" gutterBottom>
-        button text
-      </Typography>
-      <Typography variant="caption" display="block" gutterBottom>
-        caption text
-      </Typography>
-    </Grid>
-  )
-}
 
 const Buttons = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      <Typography variant="h2">Buttons</Typography>      
-      <Divider light/>
       <div className={classes.root}>
         <ColoredButton variant="contained" color="primary" size="medium">
           Primary
@@ -81,29 +58,60 @@ const Buttons = () => {
   )
 }
 
-const NavBars = () => {
+const StyleGuide = () => {
+  const classes = useStyles();
+  const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
+
+  const [navTarget, setNavTarget] = useState(styleguideNav[0]);
+  const [themeType, setThemeType] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState(theme);
+  
+  useEffect(()=> {
+    if (themeType === 'light') {
+      setCurrentTheme(theme);
+    } else {
+      setCurrentTheme(themeDark);
+    }
+  }, [themeType]);
+
+
+  const themeToggler = () => {
+    setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
+  }
+
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h2">Navbar</Typography>
-      <Divider light/>
-      <ResponsiveDrawer />
-    </Container>
-  )
-}
-const StyleGuide = () => (
-  <ThemeProvider theme={theme}>
-    <Layout>
-      <CssBaseline />
-        <Container maxWidth="lg">
-          <h1>StyleGuide</h1>
-          <Grid container spacing={3}>
-            <Buttons />          
-            <Typos />
-            <NavBars />
-          </Grid>
-        </Container>
-    </Layout>
-  </ThemeProvider>
-);
+    <ThemeProvider theme={currentTheme}>
+      <Layout>
+        <CssBaseline />
+          <Container maxWidth="lg">
+            <h1>StyleGuide</h1>
+            <ButtonGroup 
+              variant="text" 
+              color="primary" 
+              aria-label="text primary button group" 
+              className={classes.btnsGroup}
+            >
+              {styleguideNav.map((item) => (
+                <Button
+                  key={item}
+                  variant="text" 
+                  color="secondary"
+                  onClick={() => setNavTarget(item)}
+                >
+                  {item}
+                </Button>
+              ))}
+            </ButtonGroup>
+          <DayNightToggler toggler={themeToggler} />
+            <Grid container spacing={3} className={classes.grid}>
+              {navTarget === 'Typography' ? <Typos /> : null}
+              {navTarget === 'Buttons' ? <Buttons /> : null}
+              {navTarget === 'Colors' ? <Palette /> : null}
+              {navTarget === 'Instruction' ? <Instruction /> : null}
+            </Grid>
+          </Container>
+      </Layout>
+    </ThemeProvider>
+)};
 
 export default StyleGuide;
