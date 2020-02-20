@@ -12,10 +12,11 @@ import Search from '../components/Search';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: '1200px',
     margin: '0 auto',
+    maxWidth: '1200px',
   },
   header: {
+    margin: `${theme.spacing(5)} 0`,
     fontFamily: theme.typography.fontFamily,
     fontSize: '4rem',
     textAlign: 'center',
@@ -25,6 +26,9 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
     justifyContent: 'center',
     padding: `${theme.spacing(5)} 0`,
+  },
+  error: {
+    fontSize: '1.5rem',
   },
 });
 
@@ -50,7 +54,7 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
           />
           <div className={styles.projects}>
             {edges.length === 0 ? (
-              <div>Nothing found</div>
+              <div className={styles.error}>Nothing found</div>
             ) : (
               edges.map(edge => (
                 <WriterCard key={edge.node.frontmatter.id} edge={edge} />

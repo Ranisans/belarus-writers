@@ -1,6 +1,9 @@
 import React, { FormEvent } from 'react';
-import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 import theme from '../../static/theme';
 
 const useStyles = makeStyles({
@@ -9,11 +12,12 @@ const useStyles = makeStyles({
     justifyContent: 'center',
 
     '& .MuiInput-underline:hover:before': {
-      borderBottomColor: theme.palette.primary.main, // Solid underline on hover
+      borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
     },
   },
   input: {
     color: theme.palette.text.secondary,
+    fontFamily: '"Din", sans-serif',
   },
 });
 
@@ -33,10 +37,19 @@ const Search: React.FC<SearchProps> = ({
   return (
     <form className={styles.root} onSubmit={handleSumbit}>
       <Input
-        type="search"
         className={styles.input}
         value={query}
         onChange={handleChange}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={handleSumbit}
+            >
+              <SearchIcon />
+            </IconButton>
+          </InputAdornment>
+        }
       />
     </form>
   );

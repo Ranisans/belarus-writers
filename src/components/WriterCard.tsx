@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import theme from '../../static/theme';
 
 import { Edge } from '../types';
@@ -134,7 +134,6 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const styles = useStyles();
 
   return (
-    // <MuiThemeProvider theme={theme}>
     <div className={styles.root}>
       <div className={styles.imgContainer}>
         <img className={styles.img} src={image} alt={fullName} />
@@ -142,13 +141,14 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
       <div className={styles.text}>
         <h2 className={styles.title}>{fullName}</h2>
         <p className={styles.dates}>
-          {birthData} - {deathDate}
+          {birthData}
+          {' - '}
+          {deathDate}
         </p>
         <p className={styles.dates}>{placeOfBirth}</p>
         <span className={styles.label}>Read more</span>
       </div>
     </div>
-    // </MuiThemeProvider>
   );
 };
 
