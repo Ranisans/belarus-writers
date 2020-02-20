@@ -16,6 +16,7 @@ collections:
     label: "Writers"
     folder: "src/pages/writers"
     create: true
+    slug: "{{fullName}}"
     fields:
       - {label: "Layout", name: 'layout', widget: "hidden", default: "writer"}
       - {label: "Id", name: "id", widget: "number"}
