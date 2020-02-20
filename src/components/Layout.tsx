@@ -1,8 +1,8 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Footer from './Footer';
-import Navbar from './Navbar/Navbar';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer';
 
 interface PropsType {
   children: React.ReactNode;
