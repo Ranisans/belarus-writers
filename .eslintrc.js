@@ -46,7 +46,8 @@ module.exports = {
       "jsx": "never",
       "ts": "never",
       "tsx": "never"
-    }]
+    }],
+    'react/jsx-curly-newline': "off" // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
   },
   overrides: [
     // Override some TypeScript rules just for .js files
