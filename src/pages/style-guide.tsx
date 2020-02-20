@@ -30,11 +30,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     navBtn: {
-      color: '#3d4451',
-      borderColor: 'rgba(0, 0, 0, 0.23)',
+      color: '#373B42',
     },
     btnsGroup: {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.23)',
       marginBottom: '25px',
     },
     grid: {
@@ -45,6 +43,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     tooltip: {
       maxWidth: 130,
+    },
+    code: {
+      color: theme.palette.text.primary,
+      backgroundColor: theme.palette.secondary.main,
+      padding: 15,
+      margin: '15px 0'
     }
   }),
 );
@@ -128,22 +132,50 @@ const Buttons = () => {
     </Container>
   )
 }
-const Instruction = () => {
-  return (
-    <Typography variant='body1'>
-      To use this style on page or component wrap it like below:
-      <code>
-        {/* todo: напсиать код для вставки */}
-        {/* <ThemeProvider theme={theme}>
 
-        </ThemeProvider> */}
-      </code>
-    </Typography>
+const Instruction = () => {
+  const classes = useStyles(theme);
+  return (
+    <div>
+      <Typography variant='body1'>
+        To use this style on page or component wrap it like below:    
+      </Typography>
+      <div className={classes.code}>
+        <code>
+          import theme from 'somewhere/from/your/folder/../static/theme';
+          <br />
+          <br />
+          const YourSmartComponent = () => &#123;
+          <br />
+          &#8195;&#8195;const useStyles = makeStyles((theme: Theme) => &#123;
+          <br />
+          &#8195;&#8195;&#8195;&#8195;root: &#123;
+            <br />
+            &#8195;&#8195;&#8195;&#8195;&#8195;&#8195;color: theme.palette.primary.main, // your text will be coral
+            <br />
+          &#8195;&#8195;&#8195;&#8195;&#125;
+          <br />
+          &#8195;&#8195;&#125;
+          <br />
+          &#8195;&#8195;return (
+          <br />
+          &#8195;&#8195;&#8195;&#8195;&lt;ThemeProvider theme=&#123;theme&#125;&gt;
+          <br />
+          &#8195;&#8195;&#8195;&#8195; &#8195;&#8195;...your components here
+          <br />
+          &#8195;&#8195;&#8195;&#8195;&lt;/ThemeProvider&gt;
+          <br />
+          &#8195;&#8195;)
+          <br />
+          &#125;
+        </code>
+      </div>
+    </div>
   )
 }
 
 const StyleGuide = () => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const [navTarget, setNavTarget] = useState('typo');
 
   return (
@@ -158,16 +190,28 @@ const StyleGuide = () => {
             aria-label="text primary button group" 
             className={classes.btnsGroup}
           >
-            <Button className={classes.navBtn} onClick={() => setNavTarget('typo')}>
+            <Button 
+              className={classes.navBtn} 
+              onClick={() => setNavTarget('typo')}
+            >
               Typography
             </Button>
-            <Button className={classes.navBtn} onClick={() => setNavTarget('btns')}>
+            <Button 
+              className={classes.navBtn} 
+              onClick={() => setNavTarget('btns')}
+            >
               Buttons
             </Button>
-            <Button className={classes.navBtn} onClick={() => setNavTarget('colors')}>
+            <Button 
+              className={classes.navBtn} 
+              onClick={() => setNavTarget('colors')}
+            >
               Colors
             </Button>
-            <Button className={classes.navBtn} onClick={() => setNavTarget('instruction')}>
+            <Button 
+              className={classes.navBtn} 
+              onClick={() => setNavTarget('instruction')}
+            >
               instruction
             </Button>
           </ButtonGroup>

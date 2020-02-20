@@ -13,14 +13,12 @@ const didot = {
 let theme = createMuiTheme({
     palette: {
       primary: {
-        light: '#E96F72',
-        main: '#E8676B',
-        dark: '#E96F72',
+        main: 'rgb(232, 103, 107)',
         contrastText: '#FFFFFF',
       },
       secondary: {
-        main: '#373B42',
-        contrastText: '#FFFFFF',
+        main: 'rgb(55, 59, 66)',
+        contrastText: '#3d4451',
       },
       text: {
         primary: '#FFFFFF',
