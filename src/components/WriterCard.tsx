@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import theme from '../../static/theme';
+import theme from '../../static/themes/theme';
 
 import { Edge } from '../types';
 
