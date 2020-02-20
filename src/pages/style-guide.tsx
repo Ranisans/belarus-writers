@@ -18,6 +18,7 @@ import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
 import Palette from '../components/Palette';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
+import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
 
 import theme from '../../static/themes/theme';
 import themeDark from '../../static/themes/theme-dark';
@@ -40,9 +41,9 @@ createStyles({
 }),
 );
 
-const classes = useStyles();
 
 const Buttons = () => {
+  const classes = useStyles();
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
@@ -58,7 +59,10 @@ const Buttons = () => {
 }
 
 const StyleGuide = () => {
-  const [navTarget, setNavTarget] = useState('typo');
+  const classes = useStyles();
+  const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
+
+  const [navTarget, setNavTarget] = useState(styleguideNav[0]);
   const [themeType, setThemeType] = useState('light');
   const [currentTheme, setCurrentTheme] = useState(theme);
   
@@ -71,11 +75,10 @@ const StyleGuide = () => {
   }, [themeType]);
 
 
-  const themeHandler = () => {
+  const themeToggler = () => {
     setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
   }
 
-  const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
   return (
     <ThemeProvider theme={currentTheme}>
       <Layout>
@@ -99,13 +102,7 @@ const StyleGuide = () => {
                 </Button>
               ))}
             </ButtonGroup>
-            <ColoredButton 
-              variant="contained" 
-              color="primary" 
-              size="medium" 
-              onClick={themeHandler}>
-            Theme toggler
-          </ColoredButton>
+          <DayNightToggler toggler={themeToggler} />
             <Grid container spacing={3} className={classes.grid}>
               {navTarget === 'Typography' ? <Typos /> : null}
               {navTarget === 'Buttons' ? <Buttons /> : null}
