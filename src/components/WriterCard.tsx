@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+
+import { Edge } from '../types';
 
 const timingFunc = 'cubic-bezier(0.08, 0.03, 0.22, 0.87)';
 
@@ -9,14 +11,6 @@ const useStyles = makeStyles({
     margin: 30,
     width: 'calc(50% - 60px)',
     cursor: 'pointer',
-
-    '&:nth-child(even)': {
-      top: 80,
-
-      '@media (max-width: 560px)': {
-        top: 0,
-      },
-    },
 
     '@media (max-width: 840px)': {
       width: 'calc(50% - 30px)',
@@ -51,6 +45,7 @@ const useStyles = makeStyles({
 
   imgContainer: {
     overflow: 'hidden',
+    minHeight: 300,
   },
 
   img: {
@@ -123,7 +118,11 @@ const useStyles = makeStyles({
   },
 });
 
-const WriterCard = ({ edge }: any) => {
+interface WriterCardProps {
+  edge: Edge;
+}
+
+const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const {
     fullName,
     birthData,

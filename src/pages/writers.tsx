@@ -1,57 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
+
+import { Data } from '../types';
+import { useInput, useFilter } from '../hooks';
 
 import Layout from '../components/Layout';
 import WriterCard from '../components/WriterCard';
+import Search from '../components/Search';
 
 const useStyles = makeStyles({
-  root: {
+  root: { maxWidth: '1200px', margin: '0 auto' },
+  header: {},
+  projects: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    maxWidth: '1200px',
-    margin: '50px auto 0 auto',
+    padding: '20px 0',
   },
 });
 
-const Search = ({ query, handleChange, handleSumbit }) => {
-  return (
-    <form onSubmit={handleSumbit}>
-      <Input type="search" value={query} onChange={handleChange} />
-    </form>
-  );
-};
+interface WritersProps {
+  data: Data;
+}
 
-const useInput = () => {
-  const [input, setInput] = useState('');
-
-  const handleChange = e => {
-    setInput((e.target as HTMLInputElement).value);
-  };
-
-  return [input, handleChange];
-};
-
-const useFilter = (initEdges, query) => {
-  const [edges, setEdges] = useState(initEdges);
-
-  const handleSumbit = e => {
-    e.preventDefault();
-    setEdges(
-      initEdges.filter(
-        edge =>
-          edge.node.frontmatter.fullName.match(new RegExp(query, 'i')) ||
-          edge.node.frontmatter.placeOfBirth.match(new RegExp(query, 'i'))
-      )
-    );
-  };
-
-  return [edges, handleSumbit];
-};
-
-const Writers = ({ data }: any) => {
+const Writers: React.FC<WritersProps> = ({ data }) => {
   const initEdges = data.allMarkdownRemark.edges;
   const [query, handleChange] = useInput();
   const [edges, handleSumbit] = useFilter(initEdges, query);
@@ -59,18 +32,18 @@ const Writers = ({ data }: any) => {
 
   return (
     <Layout>
-      <div>
-        <h2>Projects</h2>
+      <div className={styles.root}>
+        <h2 className={styles.header}>Projects</h2>
         <Search
           query={query}
           handleChange={handleChange}
           handleSumbit={handleSumbit}
         />
-        <div className={styles.root}>
+        <div className={styles.projects}>
           {edges.length === 0 ? (
             <div>nothing found</div>
           ) : (
-            edges.map((edge: any) => (
+            edges.map(edge => (
               <WriterCard key={edge.node.frontmatter.id} edge={edge} />
             ))
           )}
