@@ -84,30 +84,36 @@ const Palette = () => {
             item2={['primary.main', 'palette.primary.main', '#E8676B' ]} 
             item3={['primary.dark', 'palette.primary.dark', '#E8676B' ]}
           />
-          <Grid container>
-            <Button variant="text" color="primary" size="medium">Text Primary</Button>
-          </Grid>          
-          <Row
-            title={''}
-            item1={['warning.main', 'warning.main', '#E8676B' ]}
-            item2={['info.main', 'info.main', '#E8676B' ]} 
-            item3={['success.dark', 'success.main', '#E8676B' ]}
-          />
           <Row
             title={'Secondary'}
-            item1={['secondary.light', 'secondary.primary.light', '#E8676B' ]}
-            item2={['secondary.main', 'secondary.primary.main', '#E8676B' ]} 
-            item3={['secondary.dark', 'secondary.primary.dark', '#E8676B' ]}
+            item1={['secondary.light', 'secondary.light', '#E8676B' ]}
+            item2={['secondary.main', 'secondary.main', '#E8676B' ]} 
+            item3={['secondary.dark', 'secondary.dark', '#E8676B' ]}
           />
         </Grid>
-        <Grid container>
-            <Button variant="text" color="secondary" size="medium">Text Primary</Button>
-        </Grid>          
         <Row
-            title={''}
-            item1={['warning.main', 'warning.main', '#E8676B' ]}
+            title={'Error'}
+            item1={['error.light', 'error.light', '#E8676B' ]}
+            item2={['error.main', 'error.main', '#E8676B' ]} 
+            item3={['error.dark', 'error.dark', '#E8676B' ]}
+        />
+        <Row
+            title={'Warning'}
+            item1={['warning.light', 'warning.light', '#E8676B' ]}
+            item2={['warning.main', 'warning.main', '#E8676B' ]} 
+            item3={['warning.dark', 'warning.dark', '#E8676B' ]}
+        />
+        <Row
+            title={'Info'}
+            item1={['info.light', 'info.light', '#E8676B' ]}
             item2={['info.main', 'info.main', '#E8676B' ]} 
-            item3={['success.dark', 'success.main', '#E8676B' ]}
+            item3={['info.dark', 'info.dark', '#E8676B' ]}
+        />
+        <Row
+            title={'Success'}
+            item1={['success.light', 'success.light', '#E8676B' ]}
+            item2={['success.main', 'success.main', '#E8676B' ]} 
+            item3={['success.dark', 'success.dark', '#E8676B' ]}
         />
       </Container>
     )
