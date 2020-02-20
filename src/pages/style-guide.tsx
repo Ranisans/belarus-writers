@@ -1,124 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   makeStyles, 
   createStyles, 
   Theme, 
   ThemeProvider,
 } from '@material-ui/core/styles';
-import { 
-  Typography, 
+import {
   Grid, 
   CssBaseline,
   Container,
   ButtonGroup,
   Button,
-  Tooltip,
 } from '@material-ui/core';
 
 import Layout from '../components/Layout';
-import { ColoredButton, OutlinedButton } from '../components/Buttons'
+import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
 import Palette from '../components/Palette';
-import theme from '../../static/theme';
+import theme from '../../static/themes/theme';
+import themeDark from '../../static/themes/theme-dark';
+import Typos from '../components/Styleguide/Typos';
+import Instruction from '../components/Styleguide/Instruction';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      marginBottom: '25px',
-      '& > button': {
-        margin: theme.spacing(1),
-      },
-    },
-    navBtn: {
-      color: '#373B42',
-    },
-    btnsGroup: {
-      marginBottom: '25px',
-    },
-    grid: {
-      minHeight: '400px',
-    },
-    typoToShow: {
-      marginBottom: '25px',
-    },
-    tooltip: {
-      maxWidth: 130,
-    },
-    code: {
-      color: theme.palette.text.primary,
-      backgroundColor: theme.palette.secondary.main,
-      padding: 15,
-      margin: '15px 0'
-    }
-  }),
-);
-
-const Typos = () => {
-  const classes = useStyles();
-  return (
-    <Grid item xs={12}>
-      <Tooltip 
-        title="font-size: 2.25rem, font-weight: bold, color: #3d4451, margin: 10px 0 30px" placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="h1" className={classes.typoToShow}>
-          h1. Heading
-        </Typography>
-      </Tooltip>
-      <Tooltip 
-        title="font-size: 1.875rem, font-weight: bold, color: #3d4451, margin: 10px 0 20px" placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="h2" className={classes.typoToShow}>
-          h2. Heading
-        </Typography> 
-      </Tooltip>
-      <Tooltip 
-        title="font-size: 1.25rem, color: #000000, margin: 10px 0 10px"
-        placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="body1" className={classes.typoToShow}>
-          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
-      </Tooltip>
-      <Tooltip 
-        title="font-size: 1rem, color: rgb(61, 68, 81), margin: 10px 0 10px"
-        placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="body2" className={classes.typoToShow}>
-          body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
-      </Tooltip>
-      <Tooltip 
-        title="font-size: 1rem, color: rgb(61, 68, 81)"
-        placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="button" display="block" className={classes.typoToShow}>
-          button text
-        </Typography>
-      </Tooltip>
-      <Tooltip 
-        title="font-size: .8rem, color: rgb(61, 68, 81)"
-        placement="top-start"
-        classes={{ tooltip: classes.tooltip }}
-      >
-        <Typography variant="caption" display="block" className={classes.typoToShow}>
-          caption text
-        </Typography>
-      </Tooltip>
-    </Grid>
-  )
-}
-
-const Buttons = () => {
-  const classes = useStyles();
+const Buttons = ({ classes }) => {
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
@@ -133,97 +36,95 @@ const Buttons = () => {
   )
 }
 
-const Instruction = () => {
-  const classes = useStyles(theme);
-  return (
-    <div>
-      <Typography variant='body1'>
-        To use this style on page or component wrap it like below:    
-      </Typography>
-      <div className={classes.code}>
-        <code>
-          import theme from 'somewhere/from/your/folder/../static/theme';
-          <br />
-          <br />
-          const YourSmartComponent = () =&gt; &#123;
-          <br />
-          &#8195;&#8195;const useStyles = makeStyles((theme: Theme) =&gt; &#123;
-          <br />
-          &#8195;&#8195;&#8195;&#8195;root: &#123;
-            <br />
-            &#8195;&#8195;&#8195;&#8195;&#8195;&#8195;color: theme.palette.primary.main, // your text will be coral
-            <br />
-          &#8195;&#8195;&#8195;&#8195;&#125;
-          <br />
-          &#8195;&#8195;&#125;
-          <br />
-          &#8195;&#8195;return (
-          <br />
-          &#8195;&#8195;&#8195;&#8195;&lt;ThemeProvider theme=&#123;theme&#125;&gt;
-          <br />
-          &#8195;&#8195;&#8195;&#8195; &#8195;&#8195;...your components here
-          <br />
-          &#8195;&#8195;&#8195;&#8195;&lt;/ThemeProvider&gt;
-          <br />
-          &#8195;&#8195;)
-          <br />
-          &#125;
-        </code>
-      </div>
-    </div>
-  )
-}
-
 const StyleGuide = () => {
-  const classes = useStyles(theme);
   const [navTarget, setNavTarget] = useState('typo');
+  const [themeType, setThemeType] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState(theme);
+  
+  useEffect(()=> {
+    if (themeType === 'light') {
+      setCurrentTheme(theme);
+    } else {
+      setCurrentTheme(themeDark);
+    }
+  }, [themeType]);
 
+
+  const themeHandler = () => {
+    setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
+  }
+
+  const useStyles = makeStyles((currentTheme: Theme) =>
+    createStyles({
+      root: {
+        flexGrow: 1,
+        marginBottom: '25px',
+        '& > button': {
+          margin: currentTheme.spacing(1),
+        },
+      },
+      btnsGroup: {
+        marginBottom: '25px',
+      },
+      grid: {
+        minHeight: '400px',
+      },
+      typoToShow: {
+        marginBottom: '25px',
+      },
+      tooltip: {
+        maxWidth: 130,
+      },
+      code: {
+        color: '#FFFFFF',
+        backgroundColor: 'rgb(55, 59, 66)',
+        padding: 15,
+        margin: '15px 0'
+      },
+    }),
+  );
+
+  let classes = useStyles(currentTheme);
+  const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
   return (
-  <ThemeProvider theme={theme}>
-    <Layout>
-      <CssBaseline />
-        <Container maxWidth="lg">
-          <h1>StyleGuide</h1>
-          <ButtonGroup 
-            variant="text" 
-            color="primary" 
-            aria-label="text primary button group" 
-            className={classes.btnsGroup}
-          >
-            <Button 
-              className={classes.navBtn} 
-              onClick={() => setNavTarget('typo')}
+    <ThemeProvider theme={currentTheme}>
+      <Layout>
+        <CssBaseline />
+          <Container maxWidth="lg">
+            <h1>StyleGuide</h1>
+            <ButtonGroup 
+              variant="text" 
+              color="primary" 
+              aria-label="text primary button group" 
+              className={classes.btnsGroup}
             >
-              Typography
-            </Button>
-            <Button 
-              className={classes.navBtn} 
-              onClick={() => setNavTarget('btns')}
-            >
-              Buttons
-            </Button>
-            <Button 
-              className={classes.navBtn} 
-              onClick={() => setNavTarget('colors')}
-            >
-              Colors
-            </Button>
-            <Button 
-              className={classes.navBtn} 
-              onClick={() => setNavTarget('instruction')}
-            >
-              instruction
-            </Button>
-          </ButtonGroup>
-          <Grid container spacing={3} className={classes.grid}>
-            {navTarget === 'btns' ? <Buttons /> : null}
-            {navTarget === 'typo' ? <Typos /> : null}
-            {navTarget === 'colors' ? <Palette /> : null}
-            {navTarget === 'instruction' ? <Instruction /> : null}
-          </Grid>
-        </Container>
-    </Layout>
-  </ThemeProvider>
+              {styleguideNav.map((item) => (
+                <Button
+                  key={item}
+                  variant="text" 
+                  color="secondary"
+                  onClick={() => setNavTarget(item)}
+                >
+                  {item}
+                </Button>
+              ))}
+            </ButtonGroup>
+            <ColoredButton 
+              variant="contained" 
+              color="primary" 
+              size="medium" 
+              onClick={themeHandler}>
+            Theme toggler
+          </ColoredButton>
+            <Grid container spacing={3} className={classes.grid}>
+              {navTarget === 'Typography' ? <Typos classes={classes}/> : null}
+              {navTarget === 'Buttons' ? <Buttons classes={classes} /> : null}
+              {navTarget === 'Colors' ? <Palette /> : null}
+              {navTarget === 'Instruction' ? <Instruction classes={classes} /> : null}
+            </Grid>
+          </Container>
+      </Layout>
+    </ThemeProvider>
 )};
 
 export default StyleGuide;

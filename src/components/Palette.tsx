@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { compose, spacing, palette } from '@material-ui/system';
 
-import theme from '../../static/theme';
+import theme from '../../static/themes/theme';
 
 interface PropType {
     title: string;
