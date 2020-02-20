@@ -128,6 +128,19 @@ const Buttons = () => {
     </Container>
   )
 }
+const Instruction = () => {
+  return (
+    <Typography variant='body1'>
+      To use this style on page or component wrap it like below:
+      <code>
+        {/* todo: напсиать код для вставки */}
+        {/* <ThemeProvider theme={theme}>
+
+        </ThemeProvider> */}
+      </code>
+    </Typography>
+  )
+}
 
 const StyleGuide = () => {
   const classes = useStyles();
@@ -154,11 +167,15 @@ const StyleGuide = () => {
             <Button className={classes.navBtn} onClick={() => setNavTarget('colors')}>
               Colors
             </Button>
+            <Button className={classes.navBtn} onClick={() => setNavTarget('instruction')}>
+              instruction
+            </Button>
           </ButtonGroup>
           <Grid container spacing={3} className={classes.grid}>
             {navTarget === 'btns' ? <Buttons /> : null}
             {navTarget === 'typo' ? <Typos /> : null}
             {navTarget === 'colors' ? <Palette /> : null}
+            {navTarget === 'instruction' ? <Instruction /> : null}
           </Grid>
         </Container>
     </Layout>
