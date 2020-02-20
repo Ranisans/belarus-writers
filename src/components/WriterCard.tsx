@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import theme from '../../static/theme';
 
 import { Edge } from '../types';
 
@@ -77,7 +78,7 @@ const useStyles = makeStyles({
     fontWeight: 700,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
-    color: '#fff',
+    color: theme.palette.text.primary,
 
     '@media (max-width: 840px)': {
       fontSize: '1.125rem',
@@ -91,7 +92,7 @@ const useStyles = makeStyles({
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     lineHeight: 1.6,
-    color: '#fff',
+    color: theme.palette.text.primary,
   },
 
   label: {
@@ -100,7 +101,7 @@ const useStyles = makeStyles({
     fontFamily: '"Din", sans-serif',
     fontSize: '1rem',
     letterSpacing: 1.5,
-    color: '#fff',
+    color: theme.palette.text.primary,
     visibility: 'hidden',
     transition: `transform 0.5s ${timingFunc}`,
 
@@ -112,7 +113,7 @@ const useStyles = makeStyles({
       zIndex: -1,
       height: '50%',
       width: 0,
-      backgroundColor: '#3b3f3f',
+      backgroundColor: theme.palette.text.secondary,
       transition: `width 1s ${timingFunc}`,
     },
   },
@@ -133,6 +134,7 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const styles = useStyles();
 
   return (
+    // <MuiThemeProvider theme={theme}>
     <div className={styles.root}>
       <div className={styles.imgContainer}>
         <img className={styles.img} src={image} alt={fullName} />
@@ -146,6 +148,7 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
         <span className={styles.label}>Read more</span>
       </div>
     </div>
+    // </MuiThemeProvider>
   );
 };
 
