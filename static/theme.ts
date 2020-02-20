@@ -9,6 +9,7 @@ const didot = {
   fontWeight: '400',
 };
 
+// palette created with material palette generator https://material.io/inline-tools/color/
 let theme = createMuiTheme({
     palette: {
       primary: {
@@ -42,6 +43,13 @@ let theme = createMuiTheme({
       },
       h2: {
         fontSize: '1.875rem',
+        lineHeight: '1.2',
+        fontWeight: 'bold',
+        color: '#3d4451',
+        margin: '10px 0 20px',
+      },
+      h3: {
+        fontSize: '1.6rem',
         lineHeight: '1.2',
         fontWeight: 'bold',
         color: '#3d4451',

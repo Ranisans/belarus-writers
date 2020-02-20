@@ -4,7 +4,6 @@ import {
   createStyles, 
   Theme, 
   ThemeProvider,
-  styled
 } from '@material-ui/core/styles';
 import { 
   Typography, 
@@ -14,12 +13,11 @@ import {
   ButtonGroup,
   Button,
   Tooltip,
-  Box
 } from '@material-ui/core';
-import { compose, spacing, palette } from '@material-ui/system';
 
 import Layout from '../components/Layout';
 import { ColoredButton, OutlinedButton } from '../components/Buttons'
+import Palette from '../components/Palette';
 import theme from '../../static/theme';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -131,26 +129,6 @@ const Buttons = () => {
   )
 }
 
-const Box = styled('div')(
-  compose(
-    spacing,
-    palette,
-  ),
-);
-
-const Colors = () => {
-  return(
-    <>
-    <Typography variant="body1">Primary</Typography>
-      <Grid item xs={12}>
-        <Box color="white" bgcolor="palevioletred" p={1}>
-          JSS
-        </Box>
-      </Grid>
-    </>
-  )
-}
-
 const StyleGuide = () => {
   const classes = useStyles();
   const [navTarget, setNavTarget] = useState('typo');
@@ -175,16 +153,12 @@ const StyleGuide = () => {
             </Button>
             <Button className={classes.navBtn} onClick={() => setNavTarget('colors')}>
               Colors
-            </Button> 
-            {/* <Button className={classes.navBtn} onClick={() => setNavTarget('nav-bar')}>
-              Theme
-            </Button> */}
+            </Button>
           </ButtonGroup>
           <Grid container spacing={3} className={classes.grid}>
             {navTarget === 'btns' ? <Buttons /> : null}
             {navTarget === 'typo' ? <Typos /> : null}
-            {/* {navTarget === 'nav-bar' ? <NavBars /> : null} */}
-            {navTarget === 'colors' ? <Colors /> : null}
+            {navTarget === 'colors' ? <Palette /> : null}
           </Grid>
         </Container>
     </Layout>
