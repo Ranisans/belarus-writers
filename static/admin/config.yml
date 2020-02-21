@@ -21,7 +21,14 @@ collections:
     fields:
       - {label: "Layout", name: 'layout', widget: "hidden", default: "writer"}
       - {label: "Id", name: "id", widget: "number"}
-      - {label: "Language", name: "language", widget: "string"}
+      - {label: "Page Address", name: "page", widget: "string"}
+      - label: "Language"
+        name: "language"
+        widget: "select"
+        options:
+        - { label: "English", value: "en" }
+        - { label: "Русский", value: "ru" }
+        - { label: "Беларускi", value: "by" }
       - {label: "Full Name", name: "fullName", widget: "string"}
       - {label: "Birth Data", name: "birthData", widget: "date"}
       - {label: "Death Date", name: "deathDate", widget: "date"}
