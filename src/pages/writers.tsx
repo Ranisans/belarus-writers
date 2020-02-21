@@ -77,7 +77,7 @@ export const data = graphql`
           frontmatter {
             id
             fullName
-            birthData(formatString: "DD.MM.YYYY")
+            birthDate(formatString: "DD.MM.YYYY")
             deathDate(formatString: "DD.MM.YYYY")
             placeOfBirth
             image

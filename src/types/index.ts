@@ -17,7 +17,7 @@ export interface Node {
 export interface Frontmatter {
   id: number;
   fullName: string;
-  birthData: string;
+  birthDate: string;
   deathDate: string;
   placeOfBirth: string;
   image: string;

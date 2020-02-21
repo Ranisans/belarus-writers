@@ -126,7 +126,7 @@ interface WriterCardProps {
 const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const {
     fullName,
-    birthData,
+    birthDate,
     deathDate,
     placeOfBirth,
     image,
@@ -141,7 +141,7 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
       <div className={styles.text}>
         <h2 className={styles.title}>{fullName}</h2>
         <p className={styles.dates}>
-          {birthData}
+          {birthDate}
           {' - '}
           {deathDate}
         </p>
