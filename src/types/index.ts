@@ -21,4 +21,10 @@ export interface Frontmatter {
   deathDate: string;
   placeOfBirth: string;
   image: string;
+  gallery: Gallery;
+}
+
+export interface Gallery {
+  alt: string;
+  image: string;
 }
