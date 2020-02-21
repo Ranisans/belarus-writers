@@ -86,5 +86,6 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
+    'gatsby-theme-gallery',
   ],
 };
