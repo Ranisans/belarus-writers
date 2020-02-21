@@ -4,21 +4,23 @@ id: 1
 page: aleksandr_pushkin
 language: en
 fullName: Alexander Pushkin
-birthData: 2020-02-21T10:50:27.951Z
-deathDate: 2020-02-21T10:50:27.970Z
+birthDate: 2020-02-13T13:09:16.066Z
+deathDate: 2020-02-12T10:50:27.970Z
 placeOfBirth: Российская Империя
 image: /img/apple-touch-icon.png
 timeline:
-  - dateEnd: 2020-02-21T10:49:57.639Z
-    dateStart: 2020-02-21T10:49:57.618Z
-    description: adsfadsf adsf zxvzcvxb
-    title: asdf
+  - dateEnd: '1212'
+    dateStart: '125'
+    description: bvgcv
+    title: '4563456'
 works:
-  - date: 2020-02-21T10:49:52.653Z
-    title: asdasfads
+  - date: 2020-02-21T13:09:43.301Z
+    title: sdgfsdfgs
 gallery:
-  - alt: Not Pushkin
+  - alt: asdefdsaf
     image: /img/321312.jpg
+  - alt: asdfasdfa
+    image: /img/blog-index.jpg
 video: []
 ---
 
