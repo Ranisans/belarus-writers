@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
+import { Node } from '../types';
 
 export const dataQl = graphql`
   query ContentFulPost($locale: String) {
@@ -14,15 +15,9 @@ export const dataQl = graphql`
   }
 `;
 
-interface DataType {
-  fullName: string;
-}
-
 interface DataQlType {
   data: {
-    markdownRemark: {
-      frontmatter: DataType;
-    };
+    markdownRemark: Node;
   };
 }
 
