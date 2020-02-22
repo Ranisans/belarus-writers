@@ -3,11 +3,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const MobileDrawer = ({ dummyCategories }: { dummyCategories: string[] }) => {
+const MobileDrawer = ({ categories }: { categories: string[] }) => {
     return (
         <div>
             <List>
-                {dummyCategories.map((text: string) => (
+                {categories.map((text: string) => (
                     <ListItem button key={text}>
                         <ListItemText primary={text} />
                     </ListItem>
