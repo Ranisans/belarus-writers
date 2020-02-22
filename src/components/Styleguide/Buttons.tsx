@@ -1,5 +1,6 @@
 import { withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import theme from '../../../static/themes/theme';
 
 const ColoredButton = withStyles(() => ({
     root: {
@@ -10,8 +11,9 @@ const ColoredButton = withStyles(() => ({
     },
   }))(Button);
   
-  const OutlinedButton = withStyles(() => ({
+  const OutlinedButton = withStyles((theme) => ({
     root: {
+      color: theme.palette.text.secondary,
       border: '1px solid #cbcdcf',
       '&:hover': {
         border: '1px solid #cbcdcf',

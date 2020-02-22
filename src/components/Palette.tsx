@@ -1,16 +1,15 @@
 import React from 'react';
 import {
   makeStyles, 
-  createStyles, 
-  Theme,
+  createStyles,
   styled
 } from '@material-ui/core/styles';
 import { 
   Typography, 
   Grid,
   Container,
+  Box
 } from '@material-ui/core';
-import { compose, spacing, palette } from '@material-ui/system';
 
 import theme from '../../static/themes/theme';
 
@@ -25,13 +24,6 @@ interface PaletteType {
     item: string[],
 }
 
-const Box = styled('div')(
-    compose(
-      spacing,
-      palette,
-    ),
-);
-
 const useStyles = makeStyles(() =>
   createStyles({    
     palette: {      
@@ -39,6 +31,10 @@ const useStyles = makeStyles(() =>
     },
     paletteItem: {
         maxWidth: '100%',
+    },
+    box: {
+      width: '5rem',
+      height: '5rem',
     }
   }),
 );
@@ -46,31 +42,36 @@ const useStyles = makeStyles(() =>
 const PaletteItem = ({ item }: PaletteType) => {
     const classes = useStyles();
     return (
-        <Grid item xs={4} className={classes.paletteItem}>
-          <Grid container wrap='nowrap' spacing={1}>
-            <Grid item>
-              <Box bgcolor={item[0]} p={7} />
-            </Grid>
-            <Grid item>
-              <Typography variant='body2' className={classes.palette}>{item[1]}</Typography>
-              <Typography variant='body2'>{item[2]}</Typography>
-            </Grid>
+      <Grid item xs={4} className={classes.paletteItem}>
+        <Grid container wrap='nowrap' spacing={1}>
+          <Grid item>
+            <Box
+              boxShadow={3}
+              bgcolor={item[0]}
+              m={1}
+              className={classes.box}
+            />
+          </Grid>
+          <Grid item>
+            <Typography variant='body2' className={classes.palette}>{item[1]}</Typography>
+            <Typography variant='body2'>{item[2]}</Typography>
           </Grid>
         </Grid>
+      </Grid>
     )
 }
 
 const Row = ({ title, item1, item2, item3}: PropType) => {
     return (
         <>
-            <Grid container>
-                <Typography variant="h3">{title}</Typography>
-            </Grid>
-            <Grid container spacing={2}>
-                <PaletteItem item={item1} />
-                <PaletteItem item={item2} />
-                <PaletteItem item={item3} />
-            </Grid>
+          <Grid container>
+              <Typography variant="h3">{title}</Typography>
+          </Grid>
+          <Grid container spacing={2}>
+              <PaletteItem item={item1} />
+              <PaletteItem item={item2} />
+              <PaletteItem item={item3} />
+          </Grid>
         </>
     )
 }
@@ -91,6 +92,12 @@ const Palette = () => {
             item1={['secondary.light', 'secondary.light', colors.palette.secondary.light]}
             item2={['secondary.main', 'secondary.main', colors.palette.secondary.main]} 
             item3={['secondary.dark', 'secondary.dark', colors.palette.secondary.dark]}
+          />
+          <Row
+            title={'Text and background'}
+            item1={['text.primary', 'text.primary', colors.palette.text.primary]}
+            item2={['text.secondary', 'text.secondary', colors.palette.text.secondary]} 
+            item3={['background.default', 'background.primary.default',  colors.palette.background.default]}
           />
         </Grid>
         <Row

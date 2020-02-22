@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import theme from '../../static/themes/theme';
 
 import { Data } from '../types';
@@ -43,7 +43,6 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
   const styles = useStyles();
 
   return (
-    <MuiThemeProvider theme={theme}>
       <Layout>
         <div className={styles.root}>
           <h2 className={styles.header}>Projects</h2>
@@ -63,7 +62,6 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
           </div>
         </div>
       </Layout>
-    </MuiThemeProvider>
   );
 };
 
