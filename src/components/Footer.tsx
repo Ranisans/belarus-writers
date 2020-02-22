@@ -4,8 +4,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import CopyrightIcon from '@material-ui/icons/Copyright';
+
 import GithubAccount from './GithubAccount';
-import {team} from '../data/team';
+import { team } from '../data/team';
+import theme from '../../static/themes/theme';
 
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -18,17 +20,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    margin: '30px 0'
   },
 
   copyrightText: {
     textAlign: 'center',
+    margin: '30px 0',
+    color: theme.palette.secondary.main,
   }
 }));
 
 
 const Footer = () => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const currentYear = new Date().getFullYear();
+  console.log(classes)
 
   return (
     <>
@@ -42,9 +48,7 @@ const Footer = () => {
               })
             }
           </div>
-          
-
-          <Typography className={classes.copyrightText}>
+          <Typography className={classes.copyrightText} >
             <CopyrightIcon fontSize="small" /> {currentYear} All Rights Reserved.
           </Typography>
         </AppBar>

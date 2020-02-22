@@ -59,7 +59,6 @@ const Buttons = () => {
 
 const StyleGuide = () => {
   const classes = useStyles(theme);
-  console.log('theme: ', theme.palette.primary.main)
   const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
 
   const [navTarget, setNavTarget] = useState(styleguideNav[0]);
