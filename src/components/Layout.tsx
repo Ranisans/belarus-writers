@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   
   main: {
     maxWidth: '1024px',
-    margin: '0 auto', 
+    margin: '0 auto',
+    paddingBottom: 50,
   }
 }))
 
