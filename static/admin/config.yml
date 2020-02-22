@@ -46,7 +46,7 @@ collections:
         name: 'works'
         widget: 'list'
         fields:
-          - { label: 'Date', name: 'date', widget: 'date' }
+          - { label: 'Date', name: 'date', widget: 'string' }
           - { label: 'Title', name: 'title', widget: 'string' }
       - label: 'Gallery'
         name: 'gallery'
