@@ -2,10 +2,28 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 import worklogData from '../data/worklog';
+import {Grid} from "@material-ui/core";
 
 const Chart = props => {
   const data = {
     labels: props.label,
+      tooltip: {
+          "custom": (tooltipModel) => {
+              return '44444';
+              },
+          callbacks: {
+              label: function(tooltipItem, data) {
+                  debugger;
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                      label += ': ';
+                  }
+                  label += Math.round(tooltipItem.yLabel * 100) / 100;
+                  return label + '.......';
+              }
+          }
+      },
     datasets: [
       {
         data: props.data,
@@ -23,46 +41,92 @@ const Chart = props => {
   };
 
   const legend = {
-    position: 'right',
-    fullWidth: false,
+    position: 'bottom',
+      tooltip: {
+          callbacks: {
+              label: function(tooltipItem, data) {
+                  debugger;
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                      label += ': ';
+                  }
+                  label += Math.round(tooltipItem.yLabel * 100) / 100;
+                  return label + '.......';
+              }
+          }
+      },
+    align: 'start',
+    fullWidth: true,
+      labels: {
+      boxWidth: 15,
+    },
+    // generateLabels: {
+    //   lineWidth: 100
+    // },
+      generateLabels() {
+      return {
+          lineWidth: 100
+      }
+      }
+
   };
 
   const options = {
+
     responsive: false,
     layout: {
       padding: 0,
     },
+      title: {
+          display: true,
+          text: props.title,
+          fontSize: '24',
+          fontFamily: 'GFS Didot'
+      },
+      tooltip: {
+          callbacks: {
+              label: function(tooltipItem, data) {
+                debugger;
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                      label += ': ';
+                  }
+                  label += Math.round(tooltipItem.yLabel * 100) / 100;
+                  return label + '.......';
+              }
+          }
+      }
   };
 
   return (
-    <div className={'item'}>
-      <h1>{props.title}</h1>
+    <Grid item xs={12} sm={6} className={'item'}>
       <Doughnut
         options={options}
-        height={350}
-        width={550}
+        height={300}
         data={data}
         legend={legend}
       />
-    </div>
+    </Grid>
   );
 };
 
 const Worklog = () => {
-  const charts = worklogData.map(item => {
+  const charts = worklogData.map((item, index) => {
     const title = item.name;
-    const label = [];
-    const data = [];
+    const label:string[] = [];
+    const data: number[] = [];
 
     item.worklog.map(log => {
       label.push(log.title);
       data.push(log.hours);
     });
 
-    return <Chart title={title} label={label} data={data} />;
+    return <Chart title={title} label={label} data={data} key={index} />;
   });
 
-  return <>{charts}</>;
+    return <Grid container spacing={3}>{charts}</Grid>;
 };
 
 export default Worklog;
