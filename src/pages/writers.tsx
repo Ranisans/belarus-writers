@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import theme from '../../static/theme';
+import theme from '../../static/themes/theme';
 
 import { Data } from '../types';
 import { useInput, useFilter } from '../hooks';
