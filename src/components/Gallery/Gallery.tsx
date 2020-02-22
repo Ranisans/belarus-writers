@@ -4,11 +4,14 @@ import AwesomeSwiper from 'react-awesome-swiper';
 import './Gallery.scss';
 
 interface Images {
-  images: Array<string>;
+  images: Array<Image>;
+}
+interface Image {
+  alt: string;
+  image: string;
 }
 
-const Gallery: React.FC<Images> = ({ images }) => {
-  
+const Gallery: React.FC<Images> = ({ images }) => {  
   const config = {
     loop : true,
     autoplay: {
@@ -38,7 +41,7 @@ const Gallery: React.FC<Images> = ({ images }) => {
         config={config}
       >
         <div className="swiper-wrapper">
-          {images.map((img: string) => {
+          {images.map((img: Image) => {
             return (
               <div 
                 className="swiper-slide" 
