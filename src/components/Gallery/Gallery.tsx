@@ -1,5 +1,5 @@
 import React from 'react';
-import AwesomeSwiper from 'react-awesome-swiper';
+import Swiper from 'react-id-swiper';
 
 import './Gallery.scss';
 
@@ -17,54 +17,40 @@ interface Image {
 }
 
 const Gallery: React.FC<Images> = ({ images }) => {
-
-  const config = {
-    loop : true,
-    autoplay: {
-      delay: 3000,
-      stopOnLastSlide: false,
-      disableOnInteraction: true,
-    },
-    // Disable preloading of all images
-    preloadImages: false,
-    // Enable lazy loading
-    lazy: true,
+  const params = {
     speed: 500,
+    pagination: {
+      clickable: true,
+    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    pagination: {
-      el: '.swiper-pagination',
-      bulletElement : 'li',
-      hideOnClick :true,
-      clickable :true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
-  };
+    keyboard: {
+      enabled: true,
+    },
+  }
   return (
-      <AwesomeSwiper
-        config={config}
-      >
-        <div className="swiper-wrapper">
-          {images.map((img: Image) => {
-            return (
-              <div 
-                className="swiper-slide" 
-                key={img.alt}
-              >
-                <img
-                  className="swiper-img" 
-                  src={img.image}
-                  alt={img.alt}
-                />
-              </div>
-            )
-          })}
-        </div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
-        <div className="swiper-pagination"></div>
-      </AwesomeSwiper>
+    <Swiper {...params}>
+      {images.map((img: Image) => {
+        return (
+          <div 
+            className="swiper-slide" 
+            key={img.alt}
+          >
+            <img
+              className="swiper-img" 
+              src={img.image}
+              alt={img.alt}
+            />
+          </div>
+        )
+      })}
+  </Swiper>
   );
 };
 

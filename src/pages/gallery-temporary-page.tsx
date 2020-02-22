@@ -14,6 +14,7 @@ interface Query {
 const TempGalleryPage: React.FC<Query> = () => {
   const images = useGallery();
   console.log('images: ', images);
+  console.log('Layout: ', Layout)
   
   return (
     <ThemeProvider theme={theme}>
