@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
 import { Data } from '../types';
@@ -41,12 +42,17 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
   const [query, handleChange] = useInput();
   const [edges, handleSumbit] = useFilter(initEdges, query);
   const styles = useStyles();
+  const intl = useIntl();
+  const [header, error] = [
+    intl.formatMessage({ id: 'writers.header' }),
+    intl.formatMessage({ id: 'writers.error' }),
+  ];
 
   return (
     <MuiThemeProvider theme={theme}>
       <Layout>
         <div className={styles.root}>
-          <h2 className={styles.header}>Projects</h2>
+          <h2 className={styles.header}>{header}</h2>
           <Search
             query={query}
             handleChange={handleChange}
@@ -54,7 +60,7 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
           />
           <div className={styles.projects}>
             {edges.length === 0 ? (
-              <div className={styles.error}>Nothing found</div>
+              <div className={styles.error}>{error}</div>
             ) : (
               edges.map(edge => (
                 <WriterCard key={edge.node.frontmatter.id} edge={edge} />

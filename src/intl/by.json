@@ -4,7 +4,7 @@
   "teamTitle": "Наша Каманда",
   "workLogTitle": "Часопіс Работ",
   "styleGuideTitle": "Наш Гід па Стылю",
-  "navbar" : {
+  "navbar": {
     "main": "Галоўная",
     "list": "Спіс",
     "team": "Каманда",
@@ -14,5 +14,12 @@
   "notfound": {
     "header": "Не знойдзена",
     "description": "Вы проста трапілі на старонку, які не існуе ... сум."
+  },
+  "writerCard": {
+    "label": "Чытаць далей"
+  },
+  "writers": {
+    "header": "Пісьменнікі",
+    "error": "Нічога не знойдзена"
   }
 }

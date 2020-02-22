@@ -4,7 +4,7 @@
   "teamTitle": "Our Team",
   "workLogTitle": "Work Log",
   "styleGuideTitle": "Our Style Guide",
-  "navbar" : {
+  "navbar": {
     "main": "Main",
     "list": "List",
     "team": "Team",
@@ -14,5 +14,12 @@
   "notfound": {
     "header": "NOT FOUND",
     "description": "You just hit a route that doesn't exist... the sadness."
+  },
+  "writerCard": {
+    "label": "Read more"
+  },
+  "writers": {
+    "header": "Writers",
+    "error": "Nothing found"
   }
 }

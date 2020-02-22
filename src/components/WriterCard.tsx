@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
 import { Edge } from '../types';
@@ -132,6 +133,8 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
     image,
   } = edge.node.frontmatter;
   const styles = useStyles();
+  const intl = useIntl();
+  const label = intl.formatMessage({ id: 'writerCard.label' });
 
   return (
     <div className={styles.root}>
@@ -146,7 +149,7 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
           {deathDate}
         </p>
         <p className={styles.dates}>{placeOfBirth}</p>
-        <span className={styles.label}>Read more</span>
+        <span className={styles.label}>{label}</span>
       </div>
     </div>
   );
