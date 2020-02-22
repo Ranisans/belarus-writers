@@ -3,11 +3,6 @@ import Swiper from 'react-id-swiper';
 
 import './Gallery.scss';
 
-interface Global {
-  document: Document;
-  window: Window;
-}
-
 interface Images {
   images: Array<Image>;
 }
@@ -33,6 +28,7 @@ const Gallery: React.FC<Images> = ({ images }) => {
     keyboard: {
       enabled: true,
     },
+    loop: true,
   }
   return (
     <Swiper {...params}>
