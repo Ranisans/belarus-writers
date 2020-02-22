@@ -31,7 +31,7 @@ const useStyles = makeStyles({
       },
 
       '& $text': {
-        transform: 'translate(-50%, -30%)',
+        transform: 'translate(-50%, -40%)',
       },
 
       '& $label': {

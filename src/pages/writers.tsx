@@ -21,6 +21,10 @@ const useStyles = makeStyles({
     fontFamily: theme.typography.fontFamily,
     fontSize: '4rem',
     textAlign: 'center',
+
+    '@media (max-width: 560px)': {
+      fontSize: '3rem',
+    },
   },
   projects: {
     display: 'flex',
