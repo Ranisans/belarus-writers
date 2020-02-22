@@ -1,11 +1,14 @@
 import React from 'react';
 import AwesomeSwiper from 'react-awesome-swiper';
 
+import './Gallery.scss';
+
 interface Images {
-  images: string[];
+  images: Array<string>;
 }
 
 const Gallery: React.FC<Images> = ({ images }) => {
+  
   const config = {
     loop : true,
     autoplay: {
@@ -32,8 +35,7 @@ const Gallery: React.FC<Images> = ({ images }) => {
 
   return (
       <AwesomeSwiper
-        config={config} 
-        className="your-classname"
+        config={config}
       >
         <div className="swiper-wrapper">
           {images.map((img: string) => {
@@ -43,7 +45,7 @@ const Gallery: React.FC<Images> = ({ images }) => {
                 key={img.alt}
               >
                 <img
-                  style={{width: '100%'}}
+                  className="swiper-img" 
                   src={img.image}
                   alt={img.alt}
                 />
