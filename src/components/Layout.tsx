@@ -1,6 +1,9 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from '../../static/themes/theme';
+
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
 
@@ -29,14 +32,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const TemplateWrapper = ({ children }: PropsType) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <div className={classes.content}>
-        <Navbar />
-        <main className={classes.main}>{children}</main>
-      </div>     
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <CssBaseline />
+        <div className={classes.content}>
+          <Navbar />
+          <main className={classes.main}>{children}</main>
+        </div>     
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 };
 

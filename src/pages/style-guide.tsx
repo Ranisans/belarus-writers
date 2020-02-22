@@ -18,7 +18,7 @@ import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
 import Palette from '../components/Palette';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
-import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
+// import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
 
 import theme from '../../static/themes/theme';
 import themeDark from '../../static/themes/theme-dark';
@@ -102,7 +102,7 @@ const StyleGuide = () => {
                 </Button>
               ))}
             </ButtonGroup>
-          <DayNightToggler toggler={themeToggler} />
+          {/* <DayNightToggler toggler={themeToggler} /> */}
             <Grid container spacing={3} className={classes.grid}>
               {navTarget === 'Typography' ? <Typos /> : null}
               {navTarget === 'Buttons' ? <Buttons /> : null}

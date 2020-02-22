@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface PropType {
-  dummyCategories: string[];
+  categories: string[];
   handleDrawerToggle: any;
   value: any;
   handleChange: any;
@@ -26,7 +26,7 @@ interface PropType {
 }
 
 const TopBar = ({
-  dummyCategories,
+  categories,
   handleDrawerToggle,
   value,
   handleChange,
@@ -54,7 +54,7 @@ const TopBar = ({
               // indicatorColor="secondary"
               // centered
             >
-              {dummyCategories.map((text: string) => (
+              {categories.map((text: string) => (
                 <Tab label={text} key={text} />
               ))}
             </Tabs>

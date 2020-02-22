@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 function ResponsiveDrawer() {
   const intl = useIntl();
-  const dummyCategories: string[] = [
+  const categories: string[] = [
     intl.formatMessage({ id: 'navbar.main' }),
     intl.formatMessage({ id: 'navbar.list' }),
     intl.formatMessage({ id: 'navbar.team' }),
@@ -79,7 +79,7 @@ function ResponsiveDrawer() {
         handleDrawerToggle={handleDrawerToggle}
         value={value}
         handleChange={handleChange}
-        dummyCategories={dummyCategories}
+        categories={categories}
       />
       <nav className={classes.drawer}>
         <DrawerList
@@ -87,7 +87,7 @@ function ResponsiveDrawer() {
           classes={classes}
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
-          dummyCategories={dummyCategories}
+          categories={categories}
         />
       </nav>
       <div className={classes.content}>
