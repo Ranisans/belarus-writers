@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   makeStyles, 
   createStyles, 
@@ -18,10 +18,8 @@ import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
 import Palette from '../components/Palette';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
-// import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
 
 import theme from '../../static/themes/theme';
-import themeDark from '../../static/themes/theme-dark';
 
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({
@@ -65,19 +63,6 @@ const StyleGuide = () => {
   const [navTarget, setNavTarget] = useState(styleguideNav[0]);
   const [themeType, setThemeType] = useState('light');
   const [currentTheme, setCurrentTheme] = useState(theme);
-  
-  useEffect(()=> {
-    if (themeType === 'light') {
-      setCurrentTheme(theme);
-    } else {
-      setCurrentTheme(themeDark);
-    }
-  }, [themeType]);
-
-
-  const themeToggler = () => {
-    setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
-  }
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -102,7 +87,6 @@ const StyleGuide = () => {
                 </Button>
               ))}
             </ButtonGroup>
-          {/* <DayNightToggler toggler={themeToggler} /> */}
             <Grid container spacing={3} className={classes.grid}>
               {navTarget === 'Typography' ? <Typos /> : null}
               {navTarget === 'Buttons' ? <Buttons /> : null}
