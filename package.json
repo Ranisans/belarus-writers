@@ -35,7 +35,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
+    "react-id-swiper": "^2.4.0",
     "react-vertical-timeline-component": "^2.5.0",
+    "swiper": "^5.3.1",
     "typeface-gfs-didot": "0.0.72",
     "uuid": "^3.2.1"
   },
