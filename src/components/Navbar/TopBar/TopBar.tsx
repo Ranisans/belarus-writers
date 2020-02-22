@@ -51,8 +51,7 @@ const TopBar = ({
             <Tabs
               value={value}
               onChange={handleChange}
-              // indicatorColor="secondary"
-              // centered
+              indicatorColor="secondary"
             >
               {categories.map((text: string) => (
                 <Tab label={text} key={text} />
