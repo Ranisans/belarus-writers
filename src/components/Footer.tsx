@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   copyrightText: {
     textAlign: 'center',
     margin: '30px 0',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
   }
 }));
 
