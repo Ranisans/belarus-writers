@@ -1,7 +1,4 @@
 import React from 'react';
-import { graphql, useStaticQuery } from "gatsby";
-import ModalImage from "react-modal-image";
-import AwesomeSwiper from 'react-awesome-swiper';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../../static/themes/theme';

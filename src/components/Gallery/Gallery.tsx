@@ -11,7 +11,8 @@ interface Image {
   image: string;
 }
 
-const Gallery: React.FC<Images> = ({ images }) => {  
+const Gallery: React.FC<Images> = ({ images }) => { 
+  console.log('window: ', window);
   const config = {
     loop : true,
     autoplay: {
@@ -36,7 +37,12 @@ const Gallery: React.FC<Images> = ({ images }) => {
     },
   };
 
-  return (
+  // react-awesome-swiper packegae uses window inside, 
+  // and server-side rerendering shows error
+  // error "window" is not available during server side rendering.
+  // I tried this solution
+  //  https://chrisfrew.in/the-dreaded-referenceerror-window-is-not-defined/
+  return (window !== undefined) ? (
       <AwesomeSwiper
         config={config}
       >
@@ -60,7 +66,7 @@ const Gallery: React.FC<Images> = ({ images }) => {
         <div className="swiper-button-next"></div>
         <div className="swiper-pagination"></div>
       </AwesomeSwiper>
-  );
+  ) : null;
 };
 
 export default Gallery;
