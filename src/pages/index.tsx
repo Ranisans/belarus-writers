@@ -6,21 +6,31 @@ import theme from '../../static/themes/theme';
 
 import Layout from '../components/Layout';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles({
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
+    gridGap: theme.spacing(1),
     fontFamily: theme.typography.fontFamily,
-    paddingBottom: '10px',
+    padding: '5px',
+    marginBottom: theme.spacing(1),
+    '@media (max-width: 780px)': {
+      padding: '20px',
+    },
+  },
+  title: {
+    textDecoration: 'uppercase',
+    textAlign: 'center',
   },
   '@keyframes blinker': {
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
   },
   paragraph: {
     margin: '0',
     padding: '0',
+    textIndent: '1.5em',
+    textAlign: 'justify',
     animationName: '$blinker',
     animationDuration: '1s',
     animationTimingFunction: 'easy-out',
@@ -29,13 +39,19 @@ const useStyles = makeStyles(({
   },
   imageWrapper: {
     gridColumnEnd: 'span 8',
+    '@media (max-width: 780px)': {
+      gridColumnEnd: 'span 12',
+    },
   },
   descriptionWrapper: {
     gridColumnEnd: 'span 4',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media (max-width: 780px)': {
+      gridColumnEnd: 'span 12',
+    },
   },
 
   image: {
@@ -44,46 +60,27 @@ const useStyles = makeStyles(({
     height: 'auto',
   },
 
+  author: {
+    textDecoration: 'uppercase',
+    fontSize: '2rem',
+  },
+
+  data: {
+    fontSize: '1.5rem',
+  },
+
   btn: {
     fontFamily: theme.typography.fontFamily,
+    marginTop: '0.5rem',
     padding: '8px 40px',
+    fontSize: '1rem',
     border: `2px solid ${theme.palette.primary.main}`,
     color: theme.palette.secondary.contrastText,
-  }
-}));
-
-/* import { TimelineModel } from '../models/timelineModel';
-import Timeline from "../components/Timeline/Timeline"; */
-
-/* const timelineData: TimelineModel[] = [
-  {
-    date: '12 февраля 1956 г.',
-    description: 'Родился в г. Чаусы, Могилевская обл. в семье служащих',
+    '@media (max-width: 780px)': {
+      padding: '3px 20px',
+    },
   },
-  {
-    date: '1972',
-    title: 'Школа',
-    description: 'Окончил Чаусскую СШ № 1 с золотой медалью',
-  },
-  {
-    date: '1982',
-    description:
-      'Окончил Литературный институт (семинар В. И. Амлинского).' +
-      'Получил специальность по диплому «литературный работник»',
-  },
-  {
-    date: '1972 - 1976',
-    description:
-      'Переехав в Минск, работал на авторемонтном заводе слесарем и ' +
-      'учился на вечернем отделении политехнического института (не завершив учёбу)',
-  },
-  {
-    date: '1973 - 1975',
-    title: 'Армия',
-    description: 'Призван на срочную службу в пограничные войска',
-  },
-]; */
-
+});
 
 const Index = () => {
   const classes = useStyles();
@@ -91,23 +88,42 @@ const Index = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout>
-        {/*<Timeline timelineData={timelineData} /> */}
-        <h1>HEADING</h1>
+        <h1 className={classes.title}>Writers of Belarus</h1>
         <div className={classes.container}>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
-          <Typography className={classes.paragraph}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </Typography>
+          <Typography className={classes.paragraph}>
+            Belarusian literature began to evolve as early as the 14th-15
+            centuries, on the basis of the Old-Slavonic and later Old-Belarusian
+            languages. During the following centuries, Belarusian literature 
+            works were also written and published in other languages and alphabets, 
+            predominantly in Latin and Polish.
+          </Typography>
+          <Typography className={classes.paragraph}>
+            The end of 19th and especially at the beginning of the 20th century
+            marked the development of Belarusian literature as a completely
+            separate entity that used the modern version of the Belarusian
+            language. 
+            Many famous works in a completely different light and also shows the
+            unique values that Belarusian literature of the period has to offer
+            to the reader from the free world.
+          </Typography>
+          <Typography className={classes.paragraph}>
+                Modern literary life is centred in Minsk. The Logvinau publishing 
+            house came into existence in 2014 as a private initiative
+            of some Belarusian publishers and authors and aims to promote
+            Belarusian literature and make it more widely known.
+          </Typography>
 
           <div className={classes.imageWrapper}>
-            <img className={classes.image} src="https://www.belta.by/images/storage/news/with_archive/2017/000027_1505460396_big.jpg" alt="writer" />
+            <img
+              className={classes.image}
+              src="https://www.belta.by/images/storage/news/with_archive/2017/000027_1505460396_big.jpg"
+              alt="writer"
+            />
           </div>
           <div className={classes.descriptionWrapper}>
-            <Typography>Maksim Tank</Typography>
-            <Typography>1920-1999</Typography>
-            <Button className={classes.btn}>More ...</Button>
+            <Typography className={classes.author}>Maksim Tank</Typography>
+            <Typography className={classes.data}>1920-1999</Typography>
+            <Button className={classes.btn}>more ...</Button>
           </div>
         </div>
       </Layout>
