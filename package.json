@@ -33,6 +33,7 @@
     "netlify-cms-media-library-uploadcare": "^0.5.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
+    "react-awesome-swiper": "^1.4.10",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-modal-image": "^2.5.0",

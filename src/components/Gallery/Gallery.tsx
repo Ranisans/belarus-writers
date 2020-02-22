@@ -1,55 +1,63 @@
-import * as React from "react";
-import Img from "gatsby-image";
-import { Lightbox } from "react-modal-image";
-import useGallery from "./hooks/useGallery";
+import React from 'react';
+import AwesomeSwiper from 'react-awesome-swiper';
 
-const imgStyles: any = {
-  css: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    width: "100%",
-    height: "100%",
-    transition: "transform 0.5s, filter 0.25s",
-    "&:hover": {
-      transform: "scale(1.1)",
-      filter: "saturate(1.3)",
+interface Images {
+  images: string[];
+}
+
+const Gallery: React.FC<Images> = ({ images }) => {
+  const config = {
+    loop : true,
+    autoplay: {
+      delay: 3000,
+      stopOnLastSlide: false,
+      disableOnInteraction: true,
     },
-  },
-};
-
-const Gallery = () => {
-  console.log('gallery')
-  const images = useGallery();
-  const [showImageIndex, setShowImageIndex] = React.useState<
-    number | undefined
-  >(undefined);
+    // Disable preloading of all images
+    preloadImages: false,
+    // Enable lazy loading
+    lazy: true,
+    speed: 500,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      bulletElement : 'li',
+      hideOnClick :true,
+      clickable :true,
+    },
+  };
 
   return (
-    <div>
-      <div>
-        {images.map((image, index) => (
-          <div
-            key={image.id}
-            onClick={() => {
-              setShowImageIndex(index);
-            }}
-          >
-            <Img alt={image.name} fluid={image.fluid} {...imgStyles} />
-          </div>
-        ))}
-      </div>
-      {showImageIndex !== undefined && (
-        <Lightbox
-          hideDownload={true}
-          large={images[showImageIndex].publicURL}
-          onClose={() => {
-            setShowImageIndex(undefined);
-          }}
-        />
-      )}
-    </div>
+      <AwesomeSwiper
+        config={config} 
+        className="your-classname"
+      >
+        <div className="swiper-wrapper">
+          {images.map((img: string) => {
+            return (
+              <div 
+                className="swiper-slide" 
+                key={img.alt}
+              >
+                <img
+                  style={{width: '100%'}}
+                  src={img.image}
+                  alt={img.alt}
+                />
+              </div>
+            )
+          })}
+        </div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
+        <div className="swiper-pagination"></div>
+      </AwesomeSwiper>
   );
 };
 
 export default Gallery;
+
+

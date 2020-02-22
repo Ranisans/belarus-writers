@@ -1,34 +1,24 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { FluidObject } from "gatsby-image";
 
+import { Data, AllMarkdownRemark, Edge, Node, Frontmatter,  } from '../../../types';
+
 interface Query {
-  allFile: {
-    nodes: {
-      id: string;
-      name: string;
-      publicURL: string;
-      childImageSharp: {
-        fluid: FluidObject;
-      };
-    }[];
-  };
+  data: Data;
 }
 
 const useGallery = () => {
   // TODO: Make "content/gallery" dynamic somehow..
   const data = useStaticQuery<Query>(graphql`
     query {
-      allFile(
-          filter: { sourceInstanceName: { eq: "content/gallery" } },
-          sort: { order: ASC, fields: name }
-      ) {
-        nodes {
-          id
-          name
-          publicURL
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              gallery {
+                alt
+                image
+              }
             }
           }
         }
@@ -36,12 +26,7 @@ const useGallery = () => {
     }
   `);
 
-  return data.allFile.nodes.map(node => ({
-    ...node.childImageSharp,
-    id: node.id,
-    name: node.name,
-    publicURL: node.publicURL,
-  }));
+  return data.allMarkdownRemark.edges[0].node.frontmatter.gallery;
 };
 
 export default useGallery;

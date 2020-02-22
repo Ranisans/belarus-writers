@@ -21,7 +21,7 @@ export interface Frontmatter {
   deathDate: string;
   placeOfBirth: string;
   image: string;
-  gallery: Gallery;
+  gallery: Array<string>;
 }
 
 export interface Gallery {
