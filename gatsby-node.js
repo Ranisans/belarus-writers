@@ -34,6 +34,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: writerTemplates,
       path: `/writer/${edge.node.frontmatter.page}`,
+      context: {
+        page: edge.node.frontmatter.page,
+      },
     });
   });
 };
