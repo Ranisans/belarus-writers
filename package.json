@@ -9,6 +9,7 @@
     "@material-ui/styles": "^4.9.0",
     "@openfonts/pt-sans_cyrillic": "^1.44.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "chart.js": "^2.9.3",
     "gatsby": "^2.19.18",
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-intl": "^0.3.2",
@@ -33,6 +34,7 @@
     "netlify-cms-media-library-uploadcare": "^0.5.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-id-swiper": "^2.4.0",
@@ -55,6 +57,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.14",
     "@types/material-ui": "^0.21.7",
     "@types/node": "^13.7.4",
     "@types/react": "^16.9.20",
