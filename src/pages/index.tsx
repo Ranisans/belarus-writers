@@ -61,7 +61,7 @@ const useStyles = makeStyles({
   image: {
     display: 'block',
     width: '100%',
-    height: 'auto',
+    maxHeight: 'auto',
   },
 
   author: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles({
 
   data: {
     margin:'0',
-    fontSize: '1.5rem',
+    fontSize: '1.75rem',
   },
 
   btn: {
@@ -100,7 +100,6 @@ function getRandomIndex():number {
   return Math.floor(Math.random() * 12) + 1;
 }
 
-
 const Index = () => {
   const information = useStaticQuery(graphql`
     query {
@@ -126,22 +125,19 @@ const Index = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout>
-        <h1 className={classes.title}>Writers of Belarus</h1>
+        <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
-              The end of 19th and especially at the beginning of the 20th
-              century marked the development of Belarusian literature as a
-              completely separate entity that used the modern version of the
-              Belarusian language. Many famous works in a completely different
-              light and also shows the unique values that Belarusian literature
-              of the period has to offer to the reader from the free world.
+              Конец 19-го и особенно начало 20-го века ознаменовали развитие белорусской литературы как совершенно 
+              отдельного субъекта, в котором использовалась современная версия белорусского языка. Многие известные 
+              работы в совершенно ином свете, а также демонстрируют уникальные ценности, которые белорусская 
+              литература того времени может предложить читателю из свободного мира. 
             </Typography>
             <Typography className={classes.paragraph}>
-              Modern literary life is centred in Minsk. The Logvinau publishing
-              house came into existence in 2014 as a private initiative of some
-              Belarusian publishers and authors and aims to promote Belarusian
-              literature and make it more widely known.
+              Современная литературная жизнь сосредоточена в Минске. Издательский дом Логвинау возник в 2014 году
+              как частная инициатива некоторых белорусских издателей и авторов и направлена на популяризацию 
+              белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
           {
@@ -162,7 +158,7 @@ const Index = () => {
                     <Typography className={classes.data}>
                       {edge.node.frontmatter.birthData} - {edge.node.frontmatter.deathDate}
                     </Typography>
-                    <Button className={classes.btn} href="#">Read more ...</Button>
+                    <Button className={classes.btn} href="#">Read more</Button>
                   </div>
                 </div> 
               ) : null
