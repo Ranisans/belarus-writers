@@ -7,7 +7,7 @@
     "@material-ui/core": "^4.9.3",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
-    "@material-ui/system": "^4.9.3",
+    "@openfonts/pt-sans_cyrillic": "^1.44.0",
     "babel-plugin-styled-components": "^1.10.7",
     "chart.js": "^2.9.3",
     "gatsby": "^2.19.18",
@@ -37,8 +37,9 @@
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
+    "react-id-swiper": "^2.4.0",
     "react-vertical-timeline-component": "^2.5.0",
-    "typeface-gfs-didot": "0.0.72",
+    "swiper": "^5.3.1",
     "uuid": "^3.2.1"
   },
   "keywords": [

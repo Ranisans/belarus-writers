@@ -1,20 +1,26 @@
 ---
 layout: writer
-id: 4
-language: En
+id: 2
+page: aleksandr_pushkin
+language: en
 fullName: Alexander Pushkin
-birthData: 2020-02-20T08:42:01.418Z
-deathDate: 2020-02-20T08:42:01.436Z
-placeOfBirth: Landed property
-image: /img/шьп2.jpg
+birthDate: 2020-02-13T13:09:16.066Z
+deathDate: 2020-02-12T10:50:27.970Z
+placeOfBirth: Российская Империя
+image: /img/apple-touch-icon.png
 timeline:
-  - dateEnd: 2020-02-20T12:46:03.645Z
-    dateStart: 2020-02-20T12:46:03.620Z
-    description: sfadsgfa
-    title: sf
+  - dateEnd: '1212'
+    dateStart: '125'
+    description: bvgcv
+    title: '4563456'
 works:
-  - date: 2020-02-20T12:46:09.025Z
-    title: adsfadsfadf
-gallery: []
+  - date: 2020-02-21T13:09:43.301Z
+    title: sdgfsdfgs
+gallery:
+  - alt: asdefdsaf
+    image: /img/321312.jpg
+  - alt: asdfasdfa
+    image: /img/blog-index.jpg
+video: []
 ---
 
