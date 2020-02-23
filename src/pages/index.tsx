@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { useStaticQuery, graphql } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button'
 import theme from '../../static/themes/theme';
-
 import Layout from '../components/Layout';
+import {Edge} from '../types';
 
 const useStyles = makeStyles({
   container: {
@@ -92,12 +93,36 @@ const useStyles = makeStyles({
       color: theme.palette.primary.main,
       transition: '0.3s',
     },
-  },
+  }
 });
 
-const Index = () => {
-  const classes = useStyles();
+function getRandomIndex():number {
+  return Math.floor(Math.random() * 12) + 1;
+}
 
+
+const Index = () => {
+  const information = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              id
+              fullName
+              birthData(formatString: "YYYY")
+              deathDate(formatString: "YYYY")
+              image
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const data = information.allMarkdownRemark.edges;
+
+  const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
       <Layout>
@@ -119,20 +144,30 @@ const Index = () => {
               literature and make it more widely known.
             </Typography>
           </div>
-          <div className={classes.columnWrapper}>
-            <div>
-              <img
-                className={classes.image}
-                src="https://www.belta.by/images/storage/news/with_archive/2017/000027_1505460396_big.jpg"
-                alt="writer"
-              />
-            </div>
-            <div className={classes.descriptionWrapper}>
-              <Typography className={classes.author}>Maksim Tank</Typography>
-              <Typography className={classes.data}>1920-1999</Typography>
-              <Button className={classes.btn}>more ...</Button>
-            </div>
-          </div>
+          {
+            data.map((edge: Edge) => (
+              (edge.node.frontmatter.id === 12) ? (
+                <div className={classes.columnWrapper} key={edge.node.frontmatter.id}>
+                  <div>
+                    <img
+                      className={classes.image}
+                      src={edge.node.frontmatter.image}
+                      alt={edge.node.frontmatter.fullName}
+                  />
+                  </div>
+                  <div className={classes.descriptionWrapper}>
+                    <Typography className={classes.author}>
+                      {edge.node.frontmatter.fullName}
+                    </Typography>
+                    <Typography className={classes.data}>
+                      {edge.node.frontmatter.birthData} - {edge.node.frontmatter.deathDate}
+                    </Typography>
+                    <Button className={classes.btn} href="#">Read more ...</Button>
+                  </div>
+                </div> 
+              ) : null
+              ))
+          }
         </div>
       </Layout>
     </MuiThemeProvider>
