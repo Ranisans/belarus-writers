@@ -68,7 +68,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     },
     {
       text: intl.formatMessage({ id: 'navbar.workLog' }),
-      link: `/${intl.locale}/`,
+      link: `/${intl.locale}/worklog`,
     },
     {
       text: intl.formatMessage({ id: 'navbar.styleGuide' }),
