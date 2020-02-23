@@ -10,7 +10,6 @@ import { Doughnut } from 'react-chartjs-2';
 
 interface ChartProps {
   label: string[];
-  title: string;
   data: number[];
 }
 
@@ -33,12 +32,6 @@ const Chart = (props: ChartProps) => {
     responsive: true,
     layout: {
       padding: 0,
-    },
-    title: {
-      // display: true,
-      text: props.title,
-      fontSize: 19,
-      fontFamily: 'PTSans, Helvetica, Arial, sans-serif',
     },
     tooltips: {
       callbacks: {

@@ -1,14 +1,13 @@
 import React from 'react';
 import worklogData from '../../data/worklog';
-import { Container, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Legend from './Legend';
 import Chart from './Chart';
 import { makeStyles } from '@material-ui/core/styles';
-import Layout from '../Layout';
 
 const useStyles = makeStyles({
   root: {
-    padding: '2rem !important',
+    padding: '1rem !important',
     '&:nth-child(odd)': {
       position: 'relative',
       '&::before': {
@@ -19,11 +18,18 @@ const useStyles = makeStyles({
         top: '0',
         bottom: '0',
         background: '#e6e6e6',
-          zIndex: 1
+        zIndex: 1,
       },
     },
   },
   chartWrapper: {
+    position: 'relative',
+    zIndex: 100,
+  },
+  h3: {
+    margin: '0 0 1rem',
+  },
+  chartInner: {
     '@media (min-width: 768px)': {
       display: 'flex',
       alignItems: 'center',
@@ -56,20 +62,19 @@ const Worklog = () => {
 
     return (
       <div className={styles.root}>
-          <div style={{position: 'relative', zIndex: 100}}>
-              <h3>{title}</h3>
-              <Grid container spacing={3}>
-                  <Grid item xs={12}>
-                      <div className={styles.chartWrapper}>
-                          <div className={styles.chart}>
-                              <Chart title={title} label={label} data={data} key={index} />
-                          </div>
-                          <Legend labels={label} />
-                      </div>
-                  </Grid>
-              </Grid>
-          </div>
-
+        <div className={styles.chartWrapper}>
+          <h3 className={styles.h3}>{title}</h3>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <div className={styles.chartInner}>
+                <div className={styles.chart}>
+                  <Chart label={label} data={data} key={index} />
+                </div>
+                <Legend labels={label} />
+              </div>
+            </Grid>
+          </Grid>
+        </div>
       </div>
     );
   });

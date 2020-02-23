@@ -31,6 +31,7 @@ const useStyles = makeStyles({
 
 const Legend = (props: LegendProps) => {
     const styles = useStyles();
+
     const legendList = props.labels.map((label: string, index: number) => {
         return (
             <li className={styles.legendItem} key={index}>

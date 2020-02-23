@@ -3,8 +3,18 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import evaluation from '../data/evaluation';
 import { EvaluationModel, EvaluationTaskModel } from '../models/evaluation';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  label: {},
+  checkbox: {
+    alignSelf: 'start'
+  },
+});
 
 const getTasks = (tasks: EvaluationTaskModel[]) => {
+  const styles = useStyles();
   let score = 0;
   let elems: JSX.Element[] = [];
 
@@ -15,7 +25,7 @@ const getTasks = (tasks: EvaluationTaskModel[]) => {
     elems.push(
       <div>
         <FormControlLabel
-          control={<Checkbox checked={task.done} color="primary" />}
+          control={<Checkbox checked={task.done} color="primary" className={styles.checkbox} />}
           label={task.title}
         />
       </div>
@@ -47,9 +57,9 @@ const Evaluation = () => {
   return (
     <>
       {sections}
-        <div>
-            <p><b>Total score</b>: {score}</p>
-        </div>
+      <Typography variant="h4" gutterBottom>
+        Total score: {score}
+      </Typography>
     </>
   );
 };
