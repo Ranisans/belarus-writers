@@ -24,26 +24,24 @@ const WorkLogPage = () => {
     <div className={styles.root}>
       <Layout tabIndex={tabs.workLog}>
         <CssBaseline />
-        <section className={styles.section}>
-          <h1>WorkLog</h1>
-          <WorkLog />
-        </section>
-        <section className={styles.section}>
-          <Container maxWidth="lg">
+        <Container maxWidth="lg">
+          <section className={styles.section}>
+            <h1>WorkLog</h1>
+            <WorkLog />
+          </section>
+          <section className={styles.section}>
             <h2>Difficulties </h2>
             <ul>
               <li>Main 1-3 difficulties for the team during implementation</li>
               <li>Main 1-3 difficulties for the team during implementation</li>
               <li>Main 1-3 difficulties for the team during implementation</li>
             </ul>
-          </Container>
-        </section>
-        <section className={styles.section}>
-          <Container maxWidth="lg">
+          </section>
+          <section className={styles.section}>
             <h2>Self-evaluation</h2>
             <Evaluation />
-          </Container>
-        </section>
+          </section>
+        </Container>
       </Layout>
     </div>
   );
