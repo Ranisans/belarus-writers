@@ -7,8 +7,14 @@
     "@material-ui/core": "^4.9.3",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
+    "@openfonts/pt-sans_cyrillic": "^1.44.0",
     "babel-plugin-styled-components": "^1.10.7",
+<<<<<<< HEAD
     "gatsby": "^2.19.19",
+=======
+    "chart.js": "^2.9.3",
+    "gatsby": "^2.19.18",
+>>>>>>> 2eaec6d75bc91c46866d2a629ead3abbe392e18c
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-intl": "^0.3.2",
     "gatsby-plugin-material-ui": "^2.1.6",
@@ -32,12 +38,12 @@
     "netlify-cms-media-library-uploadcare": "^0.5.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-id-swiper": "^2.4.0",
     "react-vertical-timeline-component": "^2.5.0",
     "swiper": "^5.3.1",
-    "typeface-gfs-didot": "0.0.72",
     "uuid": "^3.2.1"
   },
   "keywords": [
@@ -55,6 +61,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.14",
     "@types/material-ui": "^0.21.7",
     "@types/node": "^13.7.4",
     "@types/react": "^16.9.22",
