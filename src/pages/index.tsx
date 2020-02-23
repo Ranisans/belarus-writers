@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
 import {Edge} from '../types';
+import tabs from '../constants/tabsName';
 
 const useStyles = makeStyles({
   container: {
@@ -125,7 +126,7 @@ const Index = () => {
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout>
+      <Layout tabIndex={tabs.list}>
         <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
