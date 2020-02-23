@@ -3,7 +3,7 @@ layout: writer
 id: 12
 page: vasyz
 language: by
-fullName: Беларускi Vasya
+fullName: Беларускi Вася
 birthDate: 2020-02-23T06:04:18.495Z
 deathDate: 2020-02-23T06:04:18.725Z
 placeOfBirth: Internet
