@@ -4,7 +4,7 @@ id: 12
 page: vasyz
 language: en
 fullName: Vasya
-birthData: 2020-02-14T17:58:10.358Z
+birthDate: 2020-02-14T17:58:10.358Z
 deathDate: 2020-02-22T17:58:10.583Z
 placeOfBirth: Internet
 image: /img/руфв.jpg

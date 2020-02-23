@@ -107,9 +107,10 @@ const Index = () => {
         edges {
           node {
             frontmatter {
+              language
               id
               fullName
-              birthData(formatString: "YYYY")
+              birthDate(formatString: "YYYY")
               deathDate(formatString: "YYYY")
               image
             }
@@ -135,14 +136,14 @@ const Index = () => {
               литература того времени может предложить читателю из свободного мира. 
             </Typography>
             <Typography className={classes.paragraph}>
-              Современная литературная жизнь сосредоточена в Минске. Издательский дом Логвинау возник в 2014 году
-              как частная инициатива некоторых белорусских издателей и авторов и направлена на популяризацию 
+              Современная литературная жизнь сосредоточена в Минске. Издательский дом, который возник в 2014 году
+              как частная инициатива некоторых белорусских издателей и авторов, направлен на популяризацию 
               белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
           {
             data.map((edge: Edge) => (
-              (edge.node.frontmatter.id === 12) ? (
+              (edge.node.frontmatter.id === 12 && edge.node.frontmatter.language === 'ru') ? (
                 <div className={classes.columnWrapper} key={edge.node.frontmatter.id}>
                   <div>
                     <img
@@ -156,9 +157,9 @@ const Index = () => {
                       {edge.node.frontmatter.fullName}
                     </Typography>
                     <Typography className={classes.data}>
-                      {edge.node.frontmatter.birthData} - {edge.node.frontmatter.deathDate}
+                      {edge.node.frontmatter.birthDate} - {edge.node.frontmatter.deathDate}
                     </Typography>
-                    <Button className={classes.btn} href="#">Read more</Button>
+                    <Button className={classes.btn}>Read more</Button>
                   </div>
                 </div> 
               ) : null
