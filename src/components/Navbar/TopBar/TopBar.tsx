@@ -7,8 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby';
 
 import LinguisticList from './LinguisticList';
+import LinkDataType from '../types';
 
 const useStyles = makeStyles(() => ({
   toolBar: {
@@ -18,10 +20,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface PropType {
-  categories: string[];
-  handleDrawerToggle: any;
-  value: any;
-  handleChange: any;
+  categories: LinkDataType[];
+  handleDrawerToggle: () => void;
+  value: number;
   classes: any;
 }
 
@@ -29,7 +30,6 @@ const TopBar = ({
   categories,
   handleDrawerToggle,
   value,
-  handleChange,
   classes,
 }: PropType) => {
   const toolBarClasses = useStyles();
@@ -48,13 +48,11 @@ const TopBar = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap className={classes.tabs}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="secondary"
-            >
-              {categories.map((text: string) => (
-                <Tab label={text} key={text} />
+            <Tabs value={value} indicatorColor="secondary">
+              {categories.map((category: LinkDataType) => (
+                <Link key={category.text} to={category.link}>
+                  <Tab label={category.text} />
+                </Link>
               ))}
             </Tabs>
           </Typography>

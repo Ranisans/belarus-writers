@@ -2,7 +2,8 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import { TimelineModel } from '../models/timelineModel';
-import Timeline from "../components/Timeline/Timeline";
+import Timeline from '../components/Timeline/Timeline';
+import tabs from '../constants/tabsName';
 
 const timelineData: TimelineModel[] = [
   {
@@ -34,7 +35,7 @@ const timelineData: TimelineModel[] = [
 ];
 
 const Index = () => (
-  <Layout>
+  <Layout tabIndex={tabs.index}>
     <div>Hello</div>
     <Timeline timelineData={timelineData} />
   </Layout>
