@@ -3,7 +3,7 @@ layout: writer
 id: 12
 page: vasyz
 language: ru
-fullName: Русский Vasya
+fullName: Русский Вася
 birthDate: 2020-02-23T06:03:58.104Z
 deathDate: 2020-02-23T06:03:58.372Z
 placeOfBirth: Internet
