@@ -6,10 +6,11 @@ const Typos = () => {
     const useStyles = makeStyles(() =>
         createStyles({
             typoToShow: {
-                marginBottom: '25px',
+              flexGrow: 0,
+              marginBottom: '25px',
             },
             tooltip: {
-                maxWidth: 130,
+              maxWidth: 130,
             },
         }),
     );

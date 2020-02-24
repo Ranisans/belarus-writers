@@ -5,9 +5,10 @@ import IconButton from '@material-ui/core/IconButton';
 
 import CloseIcon from '@material-ui/icons/Close';
 import MobileDrawer from './MobileDrawer';
+import LinkDataType from '../types';
 
 interface PropType {
-  dummyCategories: string[];
+  categories: LinkDataType[];
   handleDrawerToggle: any;
   classes: any;
   mobileOpen: any;
@@ -15,7 +16,7 @@ interface PropType {
 }
 
 const DrawerList = ({
-  dummyCategories,
+  categories,
   handleDrawerToggle,
   theme,
   mobileOpen,
@@ -42,7 +43,7 @@ const DrawerList = ({
           >
             <CloseIcon />
           </IconButton>
-          <MobileDrawer dummyCategories={dummyCategories} />
+          <MobileDrawer categories={categories} />
         </Drawer>
       </Hidden>
     </>

@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import {
-  makeStyles, 
-  createStyles, 
-  Theme, 
-  ThemeProvider,
-} from '@material-ui/core/styles';
-import {
-  Grid, 
+  Grid,
   CssBaseline,
   Container,
   ButtonGroup,
@@ -14,36 +9,40 @@ import {
 } from '@material-ui/core';
 
 import Layout from '../components/Layout';
-import { ColoredButton, OutlinedButton } from '../components/Styleguide/Buttons'
+import {
+  ColoredButton,
+  OutlinedButton,
+} from '../components/Styleguide/Buttons';
 import Palette from '../components/Palette';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
-import DayNightToggler from '../components/DayNightToggler/DayNightToggler';
+import tabs from '../constants/tabsName';
 
 import theme from '../../static/themes/theme';
-import themeDark from '../../static/themes/theme-dark';
 
-const useStyles = makeStyles((theme: Theme) =>
-createStyles({
-  root: {
-    flexGrow: 1,
-    marginBottom: '25px',
-    '& > button': {
-      margin: theme.spacing(1),
+const useStyles = makeStyles(thisTheme => {
+  return createStyles({
+    root: {
+      flexGrow: 1,
+      marginBottom: '25px',
+      '& > button': {
+        margin: thisTheme.spacing(1),
+      },
     },
-  },
-  btnsGroup: {
-    marginBottom: '25px',
-  },
-  grid: {
-    minHeight: '400px',
-  },
-}),
-);
-
+    btnsGroup: {
+      marginBottom: '25px',
+    },
+    btn: {
+      color: thisTheme.palette.primary.main,
+    },
+    grid: {
+      minHeight: '400px',
+    },
+  });
+});
 
 const Buttons = () => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
@@ -55,63 +54,46 @@ const Buttons = () => {
         </OutlinedButton>
       </div>
     </Container>
-  )
-}
+  );
+};
 
 const StyleGuide = () => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const styleguideNav = ['Typography', 'Buttons', 'Colors', 'Instruction'];
 
   const [navTarget, setNavTarget] = useState(styleguideNav[0]);
-  const [themeType, setThemeType] = useState('light');
-  const [currentTheme, setCurrentTheme] = useState(theme);
-  
-  useEffect(()=> {
-    if (themeType === 'light') {
-      setCurrentTheme(theme);
-    } else {
-      setCurrentTheme(themeDark);
-    }
-  }, [themeType]);
-
-
-  const themeToggler = () => {
-    setThemeType((prev) => (prev === 'light') ? 'dark' : 'light');
-  }
 
   return (
-    <ThemeProvider theme={currentTheme}>
-      <Layout>
-        <CssBaseline />
-          <Container maxWidth="lg">
-            <h1>StyleGuide</h1>
-            <ButtonGroup 
-              variant="text" 
-              color="primary" 
-              aria-label="text primary button group" 
-              className={classes.btnsGroup}
+    <Layout tabIndex={tabs.styleGuide}>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <h1>StyleGuide</h1>
+        <ButtonGroup
+          variant="text"
+          color="primary"
+          aria-label="text primary button group"
+          className={classes.btnsGroup}
+        >
+          {styleguideNav.map(item => (
+            <Button
+              key={item}
+              variant="text"
+              style={{ color: theme.palette.text.secondary }}
+              onClick={() => setNavTarget(item)}
             >
-              {styleguideNav.map((item) => (
-                <Button
-                  key={item}
-                  variant="text" 
-                  color="secondary"
-                  onClick={() => setNavTarget(item)}
-                >
-                  {item}
-                </Button>
-              ))}
-            </ButtonGroup>
-          <DayNightToggler toggler={themeToggler} />
-            <Grid container spacing={3} className={classes.grid}>
-              {navTarget === 'Typography' ? <Typos /> : null}
-              {navTarget === 'Buttons' ? <Buttons /> : null}
-              {navTarget === 'Colors' ? <Palette /> : null}
-              {navTarget === 'Instruction' ? <Instruction /> : null}
-            </Grid>
-          </Container>
-      </Layout>
-    </ThemeProvider>
-)};
+              {item}
+            </Button>
+          ))}
+        </ButtonGroup>
+        <Grid container spacing={3} className={classes.grid}>
+          {navTarget === 'Typography' ? <Typos /> : null}
+          {navTarget === 'Buttons' ? <Buttons /> : null}
+          {navTarget === 'Colors' ? <Palette /> : null}
+          {navTarget === 'Instruction' ? <Instruction /> : null}
+        </Grid>
+      </Container>
+    </Layout>
+  );
+};
 
 export default StyleGuide;

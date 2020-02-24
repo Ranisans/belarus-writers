@@ -16,9 +16,16 @@ export interface Node {
 
 export interface Frontmatter {
   id: number;
+  language: string;
   fullName: string;
   birthDate: string;
   deathDate: string;
   placeOfBirth: string;
+  image: string;
+  gallery: Gallery[];
+}
+
+export interface Gallery {
+  alt: string;
   image: string;
 }

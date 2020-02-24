@@ -24,27 +24,32 @@ const useStyles = makeStyles({
 interface SearchProps {
   query: string;
   handleChange: (e: FormEvent) => void;
-  handleSumbit: (e: FormEvent) => void;
+  handleSubmit: (e: FormEvent) => void;
 }
 
 const Search: React.FC<SearchProps> = ({
   query,
   handleChange,
-  handleSumbit,
+  handleSubmit,
 }) => {
   const styles = useStyles();
 
+  const localOnChange = (e: FormEvent) => {
+    handleChange(e);
+    handleSubmit(e);
+  };
+
   return (
-    <form className={styles.root} onSubmit={handleSumbit}>
+    <form className={styles.root} onSubmit={handleSubmit}>
       <Input
         className={styles.input}
         value={query}
-        onChange={handleChange}
+        onChange={localOnChange}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="toggle password visibility"
-              onClick={handleSumbit}
+              onClick={handleSubmit}
             >
               <SearchIcon />
             </IconButton>

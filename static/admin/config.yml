@@ -78,3 +78,19 @@ collections:
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Description', name: 'description', widget: 'text' }
+  - name: 'workLog'
+    label: "Work Log"
+    folder: 'src/pages/workLogs'
+    create: true
+    slug: '{{fullName}}'
+    identifier_field: fullName
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'workLog' }
+      - { label: 'Developer Name', name: 'devName', widget: 'string' }
+      - { label: 'Github Account Link', name: 'github', widget: 'string' }
+      - label: 'Task List'
+        name: 'taskList'
+        widget: 'list'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Hours', name: 'hours', widget: 'number' }

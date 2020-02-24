@@ -5,6 +5,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
+import LinkDataType from './types';
 
 const drawerWidth = 240;
 
@@ -46,26 +47,40 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ResponsiveDrawer() {
+interface PropTypes {
+  activeTab: number;
+}
+
+function ResponsiveDrawer({ activeTab }: PropTypes) {
   const intl = useIntl();
-  const dummyCategories: string[] = [
-    intl.formatMessage({ id: 'navbar.main' }),
-    intl.formatMessage({ id: 'navbar.list' }),
-    intl.formatMessage({ id: 'navbar.team' }),
-    intl.formatMessage({ id: 'navbar.workLog' }),
-    intl.formatMessage({ id: 'navbar.styleGuide' }),
+  const categories: LinkDataType[] = [
+    {
+      text: intl.formatMessage({ id: 'navbar.main' }),
+      link: `/${intl.locale}/`,
+    },
+    {
+      text: intl.formatMessage({ id: 'navbar.list' }),
+      link: `/${intl.locale}/writers`,
+    },
+    {
+      text: intl.formatMessage({ id: 'navbar.team' }),
+      link: `/${intl.locale}/`,
+    },
+    {
+      text: intl.formatMessage({ id: 'navbar.workLog' }),
+      link: `/${intl.locale}/worklog`,
+    },
+    {
+      text: intl.formatMessage({ id: 'navbar.styleGuide' }),
+      link: `/${intl.locale}/style-guide`,
+    },
   ];
 
-  const [value, setValue] = React.useState(0);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const classes = useStyles();
 
   const theme = useTheme();
-
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
-  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -77,9 +92,8 @@ function ResponsiveDrawer() {
       <TopBar
         classes={classes}
         handleDrawerToggle={handleDrawerToggle}
-        value={value}
-        handleChange={handleChange}
-        dummyCategories={dummyCategories}
+        value={activeTab}
+        categories={categories}
       />
       <nav className={classes.drawer}>
         <DrawerList
@@ -87,7 +101,7 @@ function ResponsiveDrawer() {
           classes={classes}
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
-          dummyCategories={dummyCategories}
+          categories={categories}
         />
       </nav>
       <div className={classes.content}>

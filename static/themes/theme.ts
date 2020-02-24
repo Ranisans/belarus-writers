@@ -1,9 +1,9 @@
 // https://medium.com/javascript-in-plain-english/extend-material-ui-theme-in-typescript-a462e207131f - my instruction
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import 'typeface-gfs-didot';
+import '@openfonts/pt-sans_cyrillic';
 
-const didot = {
-  fontFamily: 'GFS Didot, serif',
+const ptSans = {
+  fontFamily: 'PT Sans, serif',
   fontStyle: 'normal',
   fontWeight: '400',
 };
@@ -16,7 +16,7 @@ const theme = createMuiTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: 'rgb(55, 59, 66)',
+      main: 'rgb(255, 255, 255)',
       contrastText: '#3d4451',
     },
     text: {
@@ -28,7 +28,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: 'GFS Didot',
+    fontFamily: 'PT Sans',
     fontSize: 16,
     h1: {
       fontSize: '2.25rem',
@@ -78,7 +78,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [didot],
+        '@font-face': [ptSans],
       },
     },
   },
