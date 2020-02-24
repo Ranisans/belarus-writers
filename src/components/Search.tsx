@@ -10,10 +10,6 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     justifyContent: 'center',
-
-    '& .MuiInput-underline:hover:before': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
-    },
   },
   input: {
     color: theme.palette.text.secondary,

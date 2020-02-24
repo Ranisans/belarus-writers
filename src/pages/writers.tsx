@@ -54,25 +54,27 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
   ];
 
   return (
-    <Layout tabIndex={tabs.list}>
-      <div className={styles.root}>
-        <h2 className={styles.header}>Projects</h2>
-        <Search
-          query={query}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-        />
-        <div className={styles.projects}>
-          {edges.length === 0 ? (
-            <div className={styles.error}>Nothing found</div>
-          ) : (
-            edges.map(edge => (
-              <WriterCard key={edge.node.frontmatter.id} edge={edge} />
-            ))
-          )}
+    <MuiThemeProvider theme={theme}>
+      <Layout tabIndex={tabs.list}>
+        <div className={styles.root}>
+          <h2 className={styles.header}>{header}</h2>
+          <Search
+            query={query}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
+          <div className={styles.projects}>
+            {edges.length === 0 ? (
+              <div className={styles.error}>{error}</div>
+            ) : (
+              edges.map(edge => (
+                <WriterCard key={edge.node.frontmatter.id} edge={edge} />
+              ))
+            )}
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </MuiThemeProvider>
   );
 };
 

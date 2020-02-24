@@ -30,7 +30,7 @@ const useStyles = makeStyles({
         transform: 'scale(1.1)',
       },
 
-      '& $text': {
+      '& $textContainer': {
         transform: 'translate(-50%, -40%)',
       },
 
@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     transition: `transform 0.6s ${timingFunc}, filter 0.6s ${timingFunc}`,
   },
 
-  text: {
+  textContainer: {
     position: 'absolute',
     left: '50%',
     top: '50%',
@@ -86,11 +86,12 @@ const useStyles = makeStyles({
     },
   },
 
-  dates: {
+  text: {
     fontFamily: '"Din", sans-serif',
     fontSize: ' 0.75rem',
     fontWeight: 700,
     textTransform: 'uppercase',
+    textAlign: 'center',
     letterSpacing: 1.5,
     lineHeight: 1.6,
     color: theme.palette.text.primary,
@@ -141,14 +142,14 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
       <div className={styles.imgContainer}>
         <img className={styles.img} src={image} alt={fullName} />
       </div>
-      <div className={styles.text}>
+      <div className={styles.textContainer}>
         <h2 className={styles.title}>{fullName}</h2>
-        <p className={styles.dates}>
+        <p className={styles.text}>
           {birthDate}
           {' - '}
           {deathDate}
         </p>
-        <p className={styles.dates}>{placeOfBirth}</p>
+        <p className={styles.text}>{placeOfBirth}</p>
         <span className={styles.label}>{label}</span>
       </div>
     </div>
