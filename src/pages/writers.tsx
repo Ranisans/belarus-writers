@@ -69,8 +69,8 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
 export default Writers;
 
 export const data = graphql`
-  query WritersPage ($locale: String) {
-    allMarkdownRemark(filter: {frontmatter: {language: {eq: $locale}}}) {
+  query WritersPage($locale: String) {
+    allMarkdownRemark(filter: { frontmatter: { language: { eq: $locale } } }) {
       edges {
         node {
           frontmatter {
