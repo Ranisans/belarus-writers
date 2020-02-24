@@ -8,6 +8,8 @@ import Layout from '../components/Layout';
 import { Edge } from '../types';
 import tabs from '../constants/tabsName';
 
+import Map from '../components/Map';
+
 const useStyles = makeStyles({
   container: {
     display: 'flex',
@@ -127,7 +129,8 @@ const Index = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
-        <h1 className={classes.title}>Писатели Беларуси</h1>
+        <Map />
+        {/* <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
@@ -171,7 +174,7 @@ const Index = () => {
               </div>
             ) : null
           )}
-        </div>
+        </div> */}
       </Layout>
     </MuiThemeProvider>
   );
