@@ -11,6 +11,7 @@ const TOKEN =
 const useStyles = makeStyles({
   marker: {
     cursor: 'pointer',
+    outline: 'none',
   },
   popup: {
     maxWidth: 300,
