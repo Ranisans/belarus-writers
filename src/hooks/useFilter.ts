@@ -4,7 +4,7 @@ import { Edge } from '../types';
 const useFilter = (initEdges: Array<Edge>, query: string) => {
   const [edges, setEdges] = useState(initEdges);
 
-  const handleSumbit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     setEdges(
@@ -17,7 +17,7 @@ const useFilter = (initEdges: Array<Edge>, query: string) => {
     );
   };
 
-  return [edges, handleSumbit] as const;
+  return [edges, handleSubmit] as const;
 };
 
 export default useFilter;

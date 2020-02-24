@@ -1,8 +1,10 @@
 import React from 'react';
+
 import Layout from '../components/Layout';
+import tabs from '../constants/tabsName';
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout tabIndex={tabs.index}>
     <div>
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>

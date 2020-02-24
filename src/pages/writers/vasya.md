@@ -9,8 +9,8 @@ deathDate: 2020-02-22T17:58:10.583Z
 placeOfBirth: Internet
 image: /img/руфв.jpg
 timeline:
-  - dateEnd: '1235'
-    dateStart: '1234'
+  - dateEnd: 2020-02-21T10:49:57.639Z
+    dateStart: 2020-02-21T10:49:57.618Z
     description: asfasdfadsvxc
     title: aasdasd
 works:

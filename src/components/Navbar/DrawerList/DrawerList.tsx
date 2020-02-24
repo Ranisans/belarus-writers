@@ -5,9 +5,10 @@ import IconButton from '@material-ui/core/IconButton';
 
 import CloseIcon from '@material-ui/icons/Close';
 import MobileDrawer from './MobileDrawer';
+import LinkDataType from '../types';
 
 interface PropType {
-  categories: string[];
+  categories: LinkDataType[];
   handleDrawerToggle: any;
   classes: any;
   mobileOpen: any;
