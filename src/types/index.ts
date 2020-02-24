@@ -1,3 +1,5 @@
+import { GatsbyImageProps, FluidObject } from 'gatsby-image';
+
 export interface Data {
   allMarkdownRemark: AllMarkdownRemark;
 }
@@ -28,4 +30,17 @@ export interface Frontmatter {
 export interface Gallery {
   alt: string;
   image: string;
+}
+
+export interface GatsbyImage extends GatsbyImageProps {
+  id: string;
+  fluid: Fluid;
+}
+
+export interface Fluid extends FluidObject {
+  originalName: string;
+}
+
+export interface ImgNode {
+  node: GatsbyImage;
 }
