@@ -1,27 +1,40 @@
 import React from 'react';
-import Hidden from '@material-ui/core/Hidden';
-import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
-
+import {
+  Hidden,
+  Drawer,
+  IconButton
+} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { makeStyles } from '@material-ui/core/styles';
+
 import MobileDrawer from './MobileDrawer';
 import LinkDataType from '../types';
+import theme from '../../../../static/themes/theme';
 
 interface PropType {
   categories: LinkDataType[];
   handleDrawerToggle: any;
-  classes: any;
   mobileOpen: any;
-  theme: any;
 }
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  closeMenuButton: {
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
+}));
 
 const DrawerList = ({
   categories,
   handleDrawerToggle,
-  theme,
   mobileOpen,
-  classes,
 }: PropType) => {
+  const classes = useStyles(theme);
   return (
     <>
       <Hidden smUp implementation="css">
