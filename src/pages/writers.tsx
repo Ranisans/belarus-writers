@@ -68,7 +68,7 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
               <div className={styles.error}>{error}</div>
             ) : (
               edges.map(edge => (
-                <WriterCard key={edge.node.frontmatter.id} edge={edge} />
+                <WriterCard key={edge.node.frontmatter.fullName} edge={edge} />
               ))
             )}
           </div>
@@ -86,7 +86,6 @@ export const data = graphql`
       edges {
         node {
           frontmatter {
-            id
             fullName
             birthDate(formatString: "DD.MM.YYYY")
             deathDate(formatString: "DD.MM.YYYY")

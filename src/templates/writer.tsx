@@ -35,7 +35,6 @@ export const dataQl = graphql`
     allImageSharp {
       edges {
         node {
-          id
           fluid(srcSetBreakpoints: [400, 320], maxWidth: 540, fit: CONTAIN) {
             ...GatsbyImageSharpFluid
             originalName

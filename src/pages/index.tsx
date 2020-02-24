@@ -2,10 +2,10 @@ import React from 'react';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { useStaticQuery, graphql } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
-import {Edge} from '../types';
+import { Edge } from '../types';
 import tabs from '../constants/tabsName';
 
 const useStyles = makeStyles({
@@ -73,7 +73,7 @@ const useStyles = makeStyles({
   },
 
   data: {
-    margin:'0',
+    margin: '0',
     fontSize: '1.75rem',
   },
 
@@ -94,34 +94,24 @@ const useStyles = makeStyles({
       color: theme.palette.primary.main,
       transition: '0.3s',
     },
-  }
+  },
 });
-
-function getRandomIndex():number {
-  return Math.floor(Math.random() * 12) + 1;
-}
 
 const Index = () => {
   const information = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              language
-              id
-              fullName
-              birthDate(formatString: "YYYY")
-              deathDate(formatString: "YYYY")
-              image
-            }
-          }
+    query($locale: String) {
+      markdownRemark(frontmatter: { language: { eq: $locale } }) {
+        frontmatter {
+          fullName
+          birthDate(formatString: "YYYY")
+          deathDate(formatString: "YYYY")
+          image
         }
       }
     }
   `);
 
-  const data = information.allMarkdownRemark.edges;
+  const data = information.markdownRemark.frontmatter;
 
   const classes = useStyles();
   return (
@@ -131,46 +121,43 @@ const Index = () => {
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
-              Конец 19-го и особенно начало 20-го века ознаменовали развитие белорусской литературы как совершенно 
-              отдельного субъекта, в котором использовалась современная версия белорусского языка. Многие известные 
-              работы в совершенно ином свете, а также демонстрируют уникальные ценности, которые белорусская 
-              литература того времени может предложить читателю из свободного мира. 
+              Конец 19-го и особенно начало 20-го века ознаменовали развитие
+              белорусской литературы как совершенно отдельного субъекта, в
+              котором использовалась современная версия белорусского языка.
+              Многие известные работы в совершенно ином свете, а также
+              демонстрируют уникальные ценности, которые белорусская литература
+              того времени может предложить читателю из свободного мира.
             </Typography>
             <Typography className={classes.paragraph}>
-              Современная литературная жизнь сосредоточена в Минске. Издательский дом, который возник в 2014 году
-              как частная инициатива некоторых белорусских издателей и авторов, направлен на популяризацию 
-              белорусской литературы и ее широкое распространение.
+              Современная литературная жизнь сосредоточена в Минске.
+              Издательский дом, который возник в 2014 году как частная
+              инициатива некоторых белорусских издателей и авторов, направлен на
+              популяризацию белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
-          {
-            data.map((edge: Edge) => (
-              (edge.node.frontmatter.id === 12 && edge.node.frontmatter.language === 'ru') ? (
-                <div className={classes.columnWrapper} key={edge.node.frontmatter.id}>
-                  <div>
-                    <img
-                      className={classes.image}
-                      src={edge.node.frontmatter.image}
-                      alt={edge.node.frontmatter.fullName}
-                  />
-                  </div>
-                  <div className={classes.descriptionWrapper}>
-                    <Typography className={classes.author}>
-                      {edge.node.frontmatter.fullName}
-                    </Typography>
-                    <Typography className={classes.data}>
-                      {edge.node.frontmatter.birthDate} - {edge.node.frontmatter.deathDate}
-                    </Typography>
-                    <Button className={classes.btn}>Read more</Button>
-                  </div>
-                </div> 
-              ) : null
-              ))
-          }
+
+          <div className={classes.columnWrapper}>
+            <div>
+              <img
+                className={classes.image}
+                src={data.image}
+                alt={data.fullName}
+              />
+            </div>
+            <div className={classes.descriptionWrapper}>
+              <Typography className={classes.author}>
+                {data.fullName}
+              </Typography>
+              <Typography className={classes.data}>
+                {`${data.birthDate} - ${data.deathDate}`}
+              </Typography>
+              <Button className={classes.btn}>Read more</Button>
+            </div>
+          </div>
         </div>
       </Layout>
     </MuiThemeProvider>
   );
-  
 };
 
 export default Index;
