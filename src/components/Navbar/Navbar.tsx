@@ -1,14 +1,14 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
 import LinkDataType from './types';
+import theme from '../../../static/themes/theme';
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -19,31 +19,10 @@ const useStyles = makeStyles(theme => ({
       flexShrink: 0,
     },
   },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
+  toolbar: theme.mixins.toolbar,  
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-  },
-  closeMenuButton: {
-    marginRight: 'auto',
-    marginLeft: 0,
-  },
-  tabs: {
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
   },
 }));
 
@@ -78,9 +57,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const classes = useStyles();
-
-  const theme = useTheme();
+  const classes = useStyles(theme);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -90,15 +67,12 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     <div className={classes.root}>
       <CssBaseline />
       <TopBar
-        classes={classes}
         handleDrawerToggle={handleDrawerToggle}
         value={activeTab}
         categories={categories}
       />
       <nav className={classes.drawer}>
         <DrawerList
-          theme={theme}
-          classes={classes}
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
           categories={categories}

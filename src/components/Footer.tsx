@@ -34,8 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const Footer = () => {
   const classes = useStyles(theme);
   const currentYear = new Date().getFullYear();
-  console.log(classes)
-
+  
   return (
     <>
       <CssBaseline />

@@ -1,3 +1,4 @@
+
 export interface Data {
   allMarkdownRemark: AllMarkdownRemark;
 }
