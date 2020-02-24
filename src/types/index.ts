@@ -1,3 +1,5 @@
+import { GatsbyImageProps, FluidObject } from 'gatsby-image';
+
 export interface Data {
   allMarkdownRemark: AllMarkdownRemark;
 }
@@ -35,4 +37,16 @@ export interface MapData {
   lon: number;
   title: string;
   description: string;
+}
+export interface GatsbyImage extends GatsbyImageProps {
+  id: string;
+  fluid: Fluid;
+}
+
+export interface Fluid extends FluidObject {
+  originalName: string;
+}
+
+export interface ImgNode {
+  node: GatsbyImage;
 }

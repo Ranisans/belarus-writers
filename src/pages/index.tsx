@@ -99,37 +99,26 @@ const useStyles = makeStyles({
   },
 });
 
-function getRandomIndex(): number {
-  return Math.floor(Math.random() * 12) + 1;
-}
-
 const Index = () => {
   const information = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              language
-              id
-              fullName
-              birthDate(formatString: "YYYY")
-              deathDate(formatString: "YYYY")
-              image
-            }
-          }
+    query($locale: String) {
+      markdownRemark(frontmatter: { language: { eq: $locale } }) {
+        frontmatter {
+          fullName
+          birthDate(formatString: "YYYY")
+          deathDate(formatString: "YYYY")
+          image
         }
       }
     }
   `);
 
-  const data = information.allMarkdownRemark.edges;
+  const data = information.markdownRemark.frontmatter;
 
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout tabIndex={tabs.index}>
-        <Map />
+      <Layout tabIndex={tabs.list}>
         <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
@@ -148,32 +137,25 @@ const Index = () => {
               популяризацию белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
-          {data.map((edge: Edge) =>
-            edge.node.frontmatter.id === 12 &&
-            edge.node.frontmatter.language === 'ru' ? (
-              <div
-                className={classes.columnWrapper}
-                key={edge.node.frontmatter.id}
-              >
-                <div>
-                  <img
-                    className={classes.image}
-                    src={edge.node.frontmatter.image}
-                    alt={edge.node.frontmatter.fullName}
-                  />
-                </div>
-                <div className={classes.descriptionWrapper}>
-                  <Typography className={classes.author}>
-                    {edge.node.frontmatter.fullName}
-                  </Typography>
-                  <Typography className={classes.data}>
-                    {`${edge.node.frontmatter.birthDate} - ${edge.node.frontmatter.deathDate}`}
-                  </Typography>
-                  <Button className={classes.btn}>Read more</Button>
-                </div>
-              </div>
-            ) : null
-          )}
+
+          <div className={classes.columnWrapper}>
+            <div>
+              <img
+                className={classes.image}
+                src={data.image}
+                alt={data.fullName}
+              />
+            </div>
+            <div className={classes.descriptionWrapper}>
+              <Typography className={classes.author}>
+                {data.fullName}
+              </Typography>
+              <Typography className={classes.data}>
+                {`${data.birthDate} - ${data.deathDate}`}
+              </Typography>
+              <Button className={classes.btn}>Read more</Button>
+            </div>
+          </div>
         </div>
       </Layout>
     </MuiThemeProvider>

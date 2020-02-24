@@ -20,7 +20,6 @@ collections:
     identifier_field: fullName
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'writer' }
-      - { label: 'Id', name: 'id', widget: 'number' }
       - { label: 'Page Address', name: 'page', widget: 'string' }
       - label: 'Language'
         name: 'language'
@@ -38,8 +37,7 @@ collections:
         name: 'timeline'
         widget: 'list'
         fields:
-          - { label: 'Date Start', name: 'dateStart', widget: 'string' }
-          - { label: 'Date End', name: 'dateEnd', widget: 'string' }
+          - { label: 'Date', name: 'date', widget: 'string' }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Description', name: 'description', widget: 'text' }
       - label: 'Works'
