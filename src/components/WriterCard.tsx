@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
 import { Edge } from '../types';
@@ -29,8 +30,8 @@ const useStyles = makeStyles({
         transform: 'scale(1.1)',
       },
 
-      '& $text': {
-        transform: 'translate(-50%, -30%)',
+      '& $textContainer': {
+        transform: 'translate(-50%, -40%)',
       },
 
       '& $label': {
@@ -57,7 +58,7 @@ const useStyles = makeStyles({
     transition: `transform 0.6s ${timingFunc}, filter 0.6s ${timingFunc}`,
   },
 
-  text: {
+  textContainer: {
     position: 'absolute',
     left: '50%',
     top: '50%',
@@ -85,11 +86,12 @@ const useStyles = makeStyles({
     },
   },
 
-  dates: {
+  text: {
     fontFamily: '"Din", sans-serif',
     fontSize: ' 0.75rem',
     fontWeight: 700,
     textTransform: 'uppercase',
+    textAlign: 'center',
     letterSpacing: 1.5,
     lineHeight: 1.6,
     color: theme.palette.text.primary,
@@ -126,27 +128,29 @@ interface WriterCardProps {
 const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const {
     fullName,
-    birthData,
+    birthDate,
     deathDate,
     placeOfBirth,
     image,
   } = edge.node.frontmatter;
   const styles = useStyles();
+  const intl = useIntl();
+  const label = intl.formatMessage({ id: 'writerCard.label' });
 
   return (
     <div className={styles.root}>
       <div className={styles.imgContainer}>
         <img className={styles.img} src={image} alt={fullName} />
       </div>
-      <div className={styles.text}>
+      <div className={styles.textContainer}>
         <h2 className={styles.title}>{fullName}</h2>
-        <p className={styles.dates}>
-          {birthData}
+        <p className={styles.text}>
+          {birthDate}
           {' - '}
           {deathDate}
         </p>
-        <p className={styles.dates}>{placeOfBirth}</p>
-        <span className={styles.label}>Read more</span>
+        <p className={styles.text}>{placeOfBirth}</p>
+        <span className={styles.label}>{label}</span>
       </div>
     </div>
   );
