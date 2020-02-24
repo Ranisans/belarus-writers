@@ -5,7 +5,7 @@ const worklogData: WorklogModel[] = [
     name: 'Ruslan Dudenich',
     worklog: [
       {
-        title: 'Создать файлы для перевода Navbar и Foter',
+        title: 'Создать файлы для перевода Navbar и Footer',
         hours: 3,
       },
       {

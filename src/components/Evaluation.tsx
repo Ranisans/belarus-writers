@@ -18,12 +18,12 @@ const getTasks = (tasks: EvaluationTaskModel[]) => {
   let score = 0;
   let elems: JSX.Element[] = [];
 
-  tasks.map((task: EvaluationTaskModel) => {
+  tasks.map((task: EvaluationTaskModel, index: number) => {
     if (task.done) {
       score += task.score;
     }
     elems.push(
-      <div>
+      <div key={index}>
         <FormControlLabel
           control={<Checkbox checked={task.done} color="primary" className={styles.checkbox} />}
           label={task.title}
@@ -41,13 +41,13 @@ const getTasks = (tasks: EvaluationTaskModel[]) => {
 const Evaluation = () => {
   let score = 0;
 
-  const sections = evaluation.map((section: EvaluationModel) => {
+  const sections = evaluation.map((section: EvaluationModel, index: number) => {
     const tasks = getTasks(section.tasks);
 
     score += tasks.score;
 
     return (
-      <section>
+      <section key={index}>
         <h3>{section.title}</h3>
         {tasks.elems}
       </section>
