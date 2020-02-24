@@ -6,7 +6,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
-import { Node,  GatsbyImage, ImgNode } from '../types';
+import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
 

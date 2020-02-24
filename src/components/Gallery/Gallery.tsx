@@ -1,7 +1,7 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import Img, { GatsbyImageProps, FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 
 import { GatsbyImage, ImgNode } from '../../types';
 import theme from '../../../static/themes/theme';
@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => {
 });
 
 const Gallery: React.FC<Images> = ({ images, allImages }) => {
-  console.log('allImages: ', allImages)
   const classes = useStyles(theme);
 
   let galleryImgs: Array<GatsbyImage> = [];
@@ -48,7 +47,6 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
       }
     });
   });
-  console.log('galleryImgs: ', galleryImgs)
   
   const params = {
     speed: 500,
