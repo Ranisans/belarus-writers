@@ -81,6 +81,13 @@ const theme = createMuiTheme({
         '@font-face': [ptSans],
       },
     },
+    MuiInput: {
+      underline: {
+        '&&&&:hover:before': {
+          borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
+        },
+      },
+    },
   },
 });
 export default responsiveFontSizes(theme);
