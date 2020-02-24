@@ -50,7 +50,12 @@ const Map: React.FC<MapProps> = ({
       mapStyle="mapbox://styles/mapbox/light-v9"
     >
       <Marker latitude={lat} longitude={lon} offsetLeft={-13} offsetTop={5}>
-        <div className={styles.marker} onClick={() => setShowPopup(true)}>
+        <div
+          className={styles.marker}
+          onClick={() => setShowPopup(true)}
+          role="button"
+          tabIndex={0}
+        >
           <MyLocationIcon />
         </div>
       </Marker>
