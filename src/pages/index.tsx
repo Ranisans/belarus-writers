@@ -97,6 +97,10 @@ const useStyles = makeStyles({
   }
 });
 
+function getRandomIndex():number {
+  return Math.floor(Math.random() * 12) + 1;
+}
+
 const Index = () => {
   const information = useStaticQuery(graphql`
     query {
