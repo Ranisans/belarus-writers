@@ -130,7 +130,7 @@ const Index = () => {
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
         <Map />
-        {/* <h1 className={classes.title}>Писатели Беларуси</h1>
+        <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
@@ -174,7 +174,7 @@ const Index = () => {
               </div>
             ) : null
           )}
-        </div> */}
+        </div>
       </Layout>
     </MuiThemeProvider>
   );

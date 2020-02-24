@@ -29,3 +29,10 @@ export interface Gallery {
   alt: string;
   image: string;
 }
+
+export interface MapData {
+  lat: number;
+  lon: number;
+  title: string;
+  description: string;
+}
