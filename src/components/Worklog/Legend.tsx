@@ -11,7 +11,8 @@ const useStyles = makeStyles({
     root: {
         margin: 0,
         padding: 0,
-        listStyle: 'none'
+        listStyle: 'none',
+        fontSize: '14px',
     },
     legendItem: {
         display: 'flex',

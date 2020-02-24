@@ -7,6 +7,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
+    '@media (min-width: 980px)': {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+  },
+  chartOuter: {
+    '@media (min-width: 980px)': {
+      flex: '0 0 50%',
+      maxWidth: '50%',
+      marginBottom: '30px'
+    },
     padding: '1rem !important',
     '&:nth-child(odd)': {
       position: 'relative',
@@ -19,6 +30,10 @@ const useStyles = makeStyles({
         bottom: '0',
         background: '#e6e6e6',
         zIndex: 1,
+
+        '@media (min-width: 980px)': {
+          content: 'none',
+        },
       },
     },
   },
@@ -33,6 +48,10 @@ const useStyles = makeStyles({
     '@media (min-width: 768px)': {
       display: 'flex',
       alignItems: 'center',
+    },
+
+    '@media (min-width: 980px)': {
+      alignItems: 'flex-start',
     },
   },
   chart: {
@@ -61,14 +80,14 @@ const Worklog = () => {
     });
 
     return (
-      <div className={styles.root}>
+      <div className={styles.chartOuter} key={index}>
         <div className={styles.chartWrapper}>
           <h3 className={styles.h3}>{title}</h3>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <div className={styles.chartInner}>
                 <div className={styles.chart}>
-                  <Chart label={label} data={data} key={index} />
+                  <Chart label={label} data={data} />
                 </div>
                 <Legend labels={label} />
               </div>
@@ -79,7 +98,7 @@ const Worklog = () => {
     );
   });
 
-  return <>{charts}</>;
+  return <div className={styles.root}>{charts}</div>;
 };
 
 export default Worklog;
