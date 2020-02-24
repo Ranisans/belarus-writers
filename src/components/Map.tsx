@@ -1,18 +1,46 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import { makeStyles } from '@material-ui/core/styles';
+import MyLocationIcon from '@material-ui/icons/MyLocation';
+
+import { MapData } from '../types';
 
 const TOKEN =
   'pk.eyJ1IjoiZm9tZW5rb2dyZWdvcnkiLCJhIjoiY2s3MGcxaHRhMDFsajNmbnBkazN3Ym5hZyJ9.5imbzt09Cf5HfTb0YQCk2Q';
 
-const Map = () => {
+const useStyles = makeStyles({
+  marker: {
+    cursor: 'pointer',
+  },
+  popup: {
+    maxWidth: 300,
+
+    '& h2': {
+      margin: '0 0 10px 0',
+    },
+
+    '& p': {
+      margin: 0,
+    },
+  },
+});
+
+interface MapProps {
+  data: MapData;
+}
+
+const Map: React.FC<MapProps> = ({
+  data: { lat, lon, title, description },
+}) => {
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
-    latitude: 51.936076,
-    longitude: 29.65986,
-    zoom: 8,
+    width: 600,
+    height: 600,
+    zoom: 16,
+    latitude: lat,
+    longitude: lon,
   });
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
+  const styles = useStyles();
 
   return (
     <ReactMapGL
@@ -21,24 +49,24 @@ const Map = () => {
       mapboxApiAccessToken={TOKEN}
       mapStyle="mapbox://styles/mapbox/light-v9"
     >
-      <Marker
-        latitude={51.936076}
-        longitude={29.65986}
-        offsetLeft={-20}
-        offsetTop={-10}
-      >
-        <div onClick={() => setShowPopup(true)}>CLICK</div>
+      <Marker latitude={lat} longitude={lon} offsetLeft={-13} offsetTop={5}>
+        <div className={styles.marker} onClick={() => setShowPopup(true)}>
+          <MyLocationIcon />
+        </div>
       </Marker>
       {showPopup && (
         <Popup
-          latitude={51.936076}
-          longitude={29.65986}
-          closeButton
-          closeOnClick
+          latitude={lat}
+          longitude={lon}
           onClose={() => setShowPopup(false)}
-          anchor="top"
+          closeOnClick={false}
+          closeButton
+          anchor="bottom"
         >
-          <div>INFO ABOUT AUTHOR PLACE</div>
+          <div className={styles.popup}>
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
         </Popup>
       )}
     </ReactMapGL>
@@ -46,3 +74,5 @@ const Map = () => {
 };
 
 export default Map;
+
+// музей ивана меляжа: latitude={51.936076} longitude={29.65986}
