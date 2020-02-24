@@ -1,40 +1,54 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Img, { GatsbyImageProps, FluidObject } from "gatsby-image";
 
-declare module 'gatsby-image' {
-  export interface GatsbyImageProps {    
-      id: string;
-  }
-}
-
-declare module 'gatsby-image' {
-  export interface FluidObject {    
-      src: string;
-      originalName: string;
-  }
-}
+import { GatsbyImage, ImgNode } from '../../types';
+import theme from '../../../static/themes/theme';
 
 import './Gallery.scss';
 
 interface Images {
   images: Array<Image>;
-  allImages: Array<GatsbyImageProps>
+  allImages: Array<ImgNode>;
 }
+
 interface Image {
   alt: string;
   image: string;
 }
 
+const useStyles = makeStyles((theme) => {
+  return createStyles({
+    img: {
+      width: 540,
+      height: 650,
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: 540,
+        width: '100%',
+        height: '100%'
+      },
+    }
+  });
+});
+
 const Gallery: React.FC<Images> = ({ images, allImages }) => {
-  let galleryImgs: Array<GatsbyImageProps> = [];
-  allImages.map((image: GatsbyImageProps) => {
+  console.log('allImages: ', allImages)
+  const classes = useStyles(theme);
+
+  let galleryImgs: Array<GatsbyImage> = [];
+  allImages.map((edge) => {
     images.forEach(el => {
-      if (el.image == `/img/${image.fluid.originalName}`) {
-        galleryImgs.push(image);
+      if (el.image == `/img/${edge.node.fluid.originalName}`) {
+        let imgData = {
+          ...edge.node,
+          alt: el.alt, 
+        }
+        galleryImgs.push(imgData);
       }
     });
   });
+  console.log('galleryImgs: ', galleryImgs)
   
   const params = {
     speed: 500,
@@ -57,7 +71,7 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
 
   return (
     <Swiper {...params}>
-      {galleryImgs.map(({ id, fluid}) => {
+      {galleryImgs.map(({ id, fluid }) => {
         console.log('fluid: ', fluid)
         return (
           <div 
@@ -67,8 +81,8 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
             <Img
               fluid={fluid}
               alt={fluid.originalName}
+              className={classes.img}
             />
-            <img src={fluid.src} />
           </div>
         )
       })}
