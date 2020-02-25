@@ -1,4 +1,3 @@
-// https://medium.com/javascript-in-plain-english/extend-material-ui-theme-in-typescript-a462e207131f - my instruction
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import '@openfonts/pt-sans_cyrillic';
 
