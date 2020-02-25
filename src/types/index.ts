@@ -40,12 +40,6 @@ export interface Gallery {
   image: string;
 }
 
-export interface MapData {
-  lat: number;
-  lon: number;
-  title: string;
-  description: string;
-}
 export interface GatsbyImage extends GatsbyImageProps {
   id: string;
   fluid: Fluid;
