@@ -55,13 +55,11 @@ const theme = createMuiTheme({
       fontSize: '1.25rem',
       lineHeight: '1.6',
       color: '#000000',
-      margin: '10px 0 10px',
     },
     body2: {
       fontSize: '1rem',
       lineHeight: '1.4',
       color: 'rgb(61, 68, 81)',
-      margin: '10px 0 10px',
     },
     button: {
       fontSize: '1rem',
