@@ -89,7 +89,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     query {
       file(base: { eq: "background4.jpg" }) {
         childImageSharp {
-          fixed(width: 1200) {
+          fixed(width: 1133) {
             src
           }
         }
