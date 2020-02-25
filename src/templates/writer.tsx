@@ -9,8 +9,9 @@ import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
 import Map from '../components/Map';
+import WorksList from '../components/WorksList';
 
-import { Node, ImgNode, Works } from '../types';
+import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
 
@@ -60,34 +61,6 @@ const getDate = (str: string, language: string) => {
   });
   return formatter.format(date1);
 }
-interface Props {
-  works: Works[];
-}
-
-const WorksList = ({ works }: Props) => {
-  console.log(works)
-  return (
-    <>
-      <Typography variant="h3">
-        <BookmarksIcon /> Works
-      </Typography>
-      <List 
-        component="ul"
-        aria-label="works"
-      >
-        {works.map(({ date, title}: Works) => {
-          return (
-            <ListItem component="li">
-              <Typography variant='body2'>
-                {`${title} (${date})`}
-              </Typography>
-            </ListItem>
-          );
-        })}
-      </List>
-    </>
-  );
-    }
 
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
@@ -132,11 +105,11 @@ const Writer = (props: DataQlType) => {
         className={classes.pageCenter}
       >
         <Timeline timelineData={timeline} />
-        {
+        {/* {
           map.map((mapItem) => {
             return <Map data={mapItem} />
           })
-        }
+        } */}
       </div>
     </Layout>
   );
