@@ -69,7 +69,8 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
 
   return (
     <Swiper {...params}>
-      {galleryImgs.map(({ id, fluid, alt }) => {
+      {galleryImgs.map(({ id, fluid }) => {
+        console.log('fluid: ', fluid)
         return (
           <div 
             className="swiper-slide" 
@@ -77,7 +78,7 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
           >
             <Img
               fluid={fluid}
-              alt={alt}
+              alt={fluid.originalName}
               className={classes.img}
             />
           </div>
@@ -88,5 +89,3 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
 };
 
 export default Gallery;
-
-

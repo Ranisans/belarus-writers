@@ -1,146 +1,99 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, createStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Typography, Grid } from '@material-ui/core';
-
-import Layout from '../components/Layout';
-import Gallery from '../components/Gallery/Gallery';
-import Timeline from '../components/Timeline/Timeline';
-import { Node, ImgNode } from '../types';
-import SEO from '../components/Seo';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
-interface DataQlType {
-  data: {
-    markdownRemark: Node;
-    allImageSharp: {
-      edges: Array<ImgNode>;
-    }
-  };
+import { Data } from '../types';
+import { useInput, useFilter } from '../hooks';
+import tabs from '../constants/tabsName';
+
+import Layout from '../components/Layout';
+import WriterCard from '../components/WriterCard';
+import Search from '../components/Search';
+
+const useStyles = makeStyles({
+  root: {
+    margin: '0 auto',
+    maxWidth: '1200px',
+  },
+  header: {
+    margin: `${theme.spacing(5)} 0`,
+    fontFamily: theme.typography.fontFamily,
+    fontSize: '4rem',
+    textAlign: 'center',
+
+    '@media (max-width: 560px)': {
+      fontSize: '3rem',
+    },
+  },
+  projects: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: `${theme.spacing(5)} 0`,
+  },
+  error: {
+    fontSize: '1.5rem',
+  },
+});
+
+interface WritersProps {
+  data: Data;
 }
 
-export const dataQl = graphql`
-  query ContentFulPost($page: String, $locale: String) {
-    markdownRemark(
-      frontmatter: { language: { eq: $locale }, page: { eq: $page } }
-    ) {
-      frontmatter {
-        fullName
-        gallery {
-          alt
-          image
-        }
-        birthDate
-        deathDate
-        language
-        works {
-          date
-          title
-        }
-        timeline {
-          dateEnd
-          dateStart
-          description
-          title
-        }
-      }
-    }
-    allImageSharp {
+const Writers: React.FC<WritersProps> = ({ data }) => {
+  const initEdges = data.allMarkdownRemark.edges;
+  const [query, handleChange] = useInput();
+  const [edges, handleSubmit] = useFilter(initEdges, query);
+  const styles = useStyles();
+  const intl = useIntl();
+  const [header, error] = [
+    intl.formatMessage({ id: 'writers.header' }),
+    intl.formatMessage({ id: 'writers.error' }),
+  ];
+
+  return (
+    <MuiThemeProvider theme={theme}>
+      <Layout tabIndex={tabs.list}>
+        <div className={styles.root}>
+          <h2 className={styles.header}>{header}</h2>
+          <Search
+            query={query}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
+          <div className={styles.projects}>
+            {edges.length === 0 ? (
+              <div className={styles.error}>{error}</div>
+            ) : (
+              edges.map(edge => (
+                <WriterCard key={edge.node.frontmatter.fullName} edge={edge} />
+              ))
+            )}
+          </div>
+        </div>
+      </Layout>
+    </MuiThemeProvider>
+  );
+};
+
+export default Writers;
+
+export const data = graphql`
+  query WritersPage($locale: String) {
+    allMarkdownRemark(filter: { frontmatter: { language: { eq: $locale } } }) {
       edges {
         node {
-          id
-          fluid(srcSetBreakpoints: [400, 320], maxWidth: 540, fit: CONTAIN) {
-            ...GatsbyImageSharpFluid
-            originalName
+          frontmatter {
+            fullName
+            birthDate(formatString: "DD.MM.YYYY")
+            deathDate(formatString: "DD.MM.YYYY")
+            placeOfBirth
+            image
           }
         }
       }
     }
   }
 `;
-
-const useStyles = makeStyles((theme) => {
-  return createStyles({
-    primaryContainer: {
-      justifyContent: 'space-between',
-      [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        '& div': {
-          maxWidth: '100%',
-        }
-      },
-      height: '100vh',
-    },
-    pageCenter: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-});
-
-const getDate = (str: string, language: string) => {
-  let date = Date.parse(str);
-  const date1 = new Date(date);
-
-  const lang = (language === 'by') ? 'ru' : language;
-  const formatter = new Intl.DateTimeFormat(lang, {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric"
-  });
-  return formatter.format(date1);
-}
-
-const Writer = (props: DataQlType) => {
-  const classes = useStyles(theme);
-
-  const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline, works } = data;
-  const allImgsGatsby = props.data.allImageSharp.edges;
-
-  console.log('timeline: ', timeline);
-  return (
-    // <Layout>
-    <ThemeProvider theme={theme}>
-      <SEO title={data.fullName} />
-      <Grid 
-        container 
-        spacing={3} 
-        className={classes.primaryContainer}
-      >
-        <Grid 
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Typography variant="h1">
-            {fullName}
-          </Typography>
-          <Typography variant="body1">
-            {getDate(birthDate, language)} - {getDate(deathDate, language)}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Gallery images={gallery} allImages={allImgsGatsby}/>
-        </Grid>
-      </Grid>
-      <Grid 
-        container 
-        spacing={3}
-      >
-        <Timeline timelineData={timeline} />
-      </Grid>
-      </ThemeProvider>
-    // </Layout>
-  );
-};
-
-export default Writer;

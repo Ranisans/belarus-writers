@@ -97,31 +97,28 @@ const useStyles = makeStyles({
   }
 });
 
+<<<<<<< HEAD
 function getRandomIndex():number {
   return Math.floor(Math.random() * 12) + 1;
 }
 
+=======
+>>>>>>> master
 const Index = () => {
   const information = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              language
-              id
-              fullName
-              birthDate(formatString: "YYYY")
-              deathDate(formatString: "YYYY")
-              image
-            }
-          }
+    query($locale: String) {
+      markdownRemark(frontmatter: { language: { eq: $locale } }) {
+        frontmatter {
+          fullName
+          birthDate(formatString: "YYYY")
+          deathDate(formatString: "YYYY")
+          image
         }
       }
     }
   `);
 
-  const data = information.allMarkdownRemark.edges;
+  const data = information.markdownRemark.frontmatter;
 
   const classes = useStyles();
   return (
@@ -142,6 +139,7 @@ const Index = () => {
               белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
+<<<<<<< HEAD
           {
             data.map((edge: Edge) => (
               (edge.node.frontmatter.id === 12 && edge.node.frontmatter.language === 'ru') ? (
@@ -166,6 +164,27 @@ const Index = () => {
               ) : null
               ))
           }
+=======
+
+          <div className={classes.columnWrapper}>
+            <div>
+              <img
+                className={classes.image}
+                src={data.image}
+                alt={data.fullName}
+              />
+            </div>
+            <div className={classes.descriptionWrapper}>
+              <Typography className={classes.author}>
+                {data.fullName}
+              </Typography>
+              <Typography className={classes.data}>
+                {`${data.birthDate} - ${data.deathDate}`}
+              </Typography>
+              <Button className={classes.btn}>Read more</Button>
+            </div>
+          </div>
+>>>>>>> master
         </div>
       </Layout>
     </MuiThemeProvider>
