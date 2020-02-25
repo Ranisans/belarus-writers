@@ -4,9 +4,12 @@ import { graphql } from 'gatsby';
 import { makeStyles, createStyles, ThemeProvider } from '@material-ui/core/styles';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import { Typography, Grid, List, ListItem } from '@material-ui/core';
+
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
+import Map from '../components/Map';
+
 import { Node, ImgNode, Works } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
@@ -90,13 +93,9 @@ const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
   const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline, works } = data;
+  const { fullName, gallery, language, birthDate, deathDate, timeline, works, map } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
-
-  console.log(props);
-  console.log('works: ', works);
   return (
-    // <ThemeProvider theme={theme}>
     <Layout>
       <SEO title={data.fullName} />
       <Grid 
@@ -117,7 +116,7 @@ const Writer = (props: DataQlType) => {
           </Typography>
           <Grid container>
             <Grid item xs={12} className={classes.list}>
-              {/* <WorksList works={works} /> */}
+              <WorksList works={works} />
             </Grid>
           </Grid>
         </Grid>
@@ -133,9 +132,13 @@ const Writer = (props: DataQlType) => {
         className={classes.pageCenter}
       >
         <Timeline timelineData={timeline} />
+        {
+          map.map((mapItem) => {
+            return <Map data={mapItem} />
+          })
+        }
       </div>
     </Layout>
-    // </ThemeProvider> 
   );
 };
 export default Writer;
@@ -163,6 +166,12 @@ export const dataQl = graphql`
           dateEnd
           dateStart
           description
+          title
+        }
+        map {
+          description
+          lat
+          lon
           title
         }
       }

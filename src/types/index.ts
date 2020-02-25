@@ -27,6 +27,7 @@ export interface Frontmatter {
   gallery: Gallery[];
   timeline: TimeLine[];
   works: Works[];
+  map: MapData[];
 }
 
 export interface Works {
