@@ -31,7 +31,7 @@ const theme = createMuiTheme({
     fontFamily: 'PT Sans',
     fontSize: 16,
     h1: {
-      fontSize: '2.25rem',
+      fontSize: '3.5rem',
       lineHeight: '1.2',
       fontWeight: 'bold',
       color: '#3d4451',
@@ -42,7 +42,7 @@ const theme = createMuiTheme({
       lineHeight: '1.2',
       fontWeight: 'bold',
       color: '#3d4451',
-      margin: '10px 0 20px',
+      margin: '20px 0 20px',
     },
     h3: {
       fontSize: '1.6rem',
