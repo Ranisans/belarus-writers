@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container } from '@material-ui/core';
 
 import Layout from '../components/Layout';
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 80,
-  }
+  },
 });
 
 const getDate = (str: string, language: string) => {
