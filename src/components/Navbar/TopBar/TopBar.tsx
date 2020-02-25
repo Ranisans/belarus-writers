@@ -5,8 +5,8 @@ import {
   IconButton,
   Typography,
   Tabs,
-  Tab
-} from '@material-ui/core'
+  Tab,
+} from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,30 +16,30 @@ import LinguisticList from './LinguisticList';
 import LinkDataType from '../types';
 import theme from '../../../../static/themes/theme';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(thisTheme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: thisTheme.zIndex.drawer + 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
+    marginRight: thisTheme.spacing(2),
+    [thisTheme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
   link: {
-    color: theme.palette.secondary.main,
+    color: thisTheme.palette.secondary.main,
     textDecoration: 'none',
     '&:hover': {
-      color: theme.palette.secondary.light,
+      color: thisTheme.palette.secondary.light,
       transition: 'color .2s',
-    }
+    },
   },
   tabs: {
-    [theme.breakpoints.down('xs')]: {
+    [thisTheme.breakpoints.down('xs')]: {
       display: 'none',
     },
   },
@@ -51,13 +51,8 @@ interface PropType {
   value: number;
 }
 
-const TopBar = ({
-  categories,
-  handleDrawerToggle,
-  value,
-}: PropType) => {
+const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
   const classes = useStyles(theme);
-  console.log(classes)
   return (
     <>
       <AppBar position="fixed" className={classes.appBar}>
@@ -74,13 +69,13 @@ const TopBar = ({
           <Typography variant="h6" noWrap className={classes.tabs}>
             <Tabs value={value} indicatorColor="secondary">
               {categories.map((category: LinkDataType) => (
-                <Link 
-                  key={category.text} 
-                  to={category.link}
+                <Tab
+                  label={category.text}
                   className={classes.link}
-                >
-                  <Tab label={category.text} />
-                </Link>
+                  key={category.text}
+                  // eslint-disable-next-line react/jsx-props-no-spreading
+                  {...({ component: Link, to: `${category.link}` } as any)}
+                />
               ))}
             </Tabs>
           </Typography>
