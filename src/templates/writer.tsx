@@ -99,10 +99,10 @@ const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
   const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline } = data;
+  const { fullName, gallery, language, birthDate, deathDate, timeline, works } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
 
-  console.log(data);
+  console.log('timeline: ', timeline);
   return (
     // <Layout>
     <ThemeProvider theme={theme}>
