@@ -17,13 +17,6 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: theme.spacing(1),
       },
       color: 'inherit',
-    },
-
-    avatar: {
-      ['@media (max-width:460px)']: {
-        width: theme.spacing(3),
-        height: theme.spacing(3),
-      }    
     }
 
   }),
@@ -36,7 +29,7 @@ const GithubProfile = ({nickname, avatar}: Props) => {
 
   return (
     <Link className={classes.linkContainer} href={githubLink} target="_blank" rel="noopener">
-      <Avatar alt={nickname} src={avatar} className={classes.avatar}/>
+      <Avatar alt={nickname} src={avatar}/>
     </Link>
   );
 }
