@@ -1,11 +1,15 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { Typography, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Container } from '@material-ui/core';
+
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
+import Map from '../components/Map';
+import WorksList from '../components/WorksList';
+
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
@@ -20,26 +24,30 @@ interface DataQlType {
   };
 }
 
-const useStyles = makeStyles(thisTheme => {
-  return createStyles({
-    primaryContainer: {
-      justifyContent: 'space-between',
-      [thisTheme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        '& div': {
-          maxWidth: '100%',
-        },
-      },
-      height: '100vh',
-    },
-    pageCenter: {
-      display: 'flex',
+const useStyles = makeStyles({
+  centurion: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  primaryContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '100%',
+    padding: '100px 0',
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
     },
-  });
+  },
+
+  bottomSpace: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 80,
+  },
 });
 
 const getDate = (str: string, language: string) => {
@@ -58,32 +66,47 @@ const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
   const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline } = data;
+  const {
+    fullName,
+    gallery,
+    language,
+    birthDate,
+    deathDate,
+    timeline,
+    works,
+    map,
+  } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
-
   return (
-    <Layout tabIndex={tabs.list}>
+    <Layout tabIndex={tabs.styleGuide}>
       <SEO title={data.fullName} />
-      <Grid container spacing={3} className={classes.primaryContainer}>
-        <Grid item xs={6} className={classes.pageCenter}>
-          <Typography variant="h1">{fullName}</Typography>
-          <Typography variant="body1">
-            {`${getDate(birthDate, language)} - ${getDate(
-              deathDate,
-              language
-            )}`}
-          </Typography>
-        </Grid>
-        <Grid item xs={6} className={classes.pageCenter}>
-          <Gallery images={gallery} allImages={allImgsGatsby} />
-        </Grid>
-      </Grid>
-      <Grid container spacing={3}>
+      <Container component="div" className={classes.centurion}>
+        <Container component="div" className={classes.primaryContainer}>
+          <Container component="div" className={classes.centurion}>
+            <Typography variant="h1">{fullName}</Typography>
+            <Typography variant="body1" style={{ marginBottom: 50 }}>
+              {`${getDate(birthDate, language)} - ${getDate(
+                deathDate,
+                language
+              )}`}
+            </Typography>
+            <WorksList works={works} />
+          </Container>
+          <Container component="div">
+            <Gallery images={gallery} allImages={allImgsGatsby} />
+          </Container>
+        </Container>
         <Timeline timelineData={timeline} />
-      </Grid>
+        <Container component="div" className={classes.bottomSpace}>
+          {map.map(mapItem => {
+            return <Map data={mapItem} key={mapItem.title} />;
+          })}
+        </Container>
+      </Container>
     </Layout>
   );
 };
+
 export default Writer;
 
 export const dataQl = graphql`
@@ -108,6 +131,12 @@ export const dataQl = graphql`
           dateEnd
           dateStart
           description
+          title
+        }
+        map {
+          description
+          lat
+          lon
           title
         }
       }

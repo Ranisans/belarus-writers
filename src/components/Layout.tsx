@@ -2,7 +2,6 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {
   makeStyles,
-  // Theme,
   createStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
@@ -29,7 +28,7 @@ const useStyles = makeStyles((/* theme: Theme */) =>
     },
 
     main: {
-      maxWidth: '1024px',
+      maxWidth: '1200px',
       margin: '0 auto',
       paddingBottom: 50,
     },
