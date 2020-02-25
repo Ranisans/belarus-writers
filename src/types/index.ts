@@ -29,7 +29,7 @@ export interface Frontmatter {
   works: Work[];
 }
 
-interface Work {
+export interface Work {
   date: string;
   title: string;
 }

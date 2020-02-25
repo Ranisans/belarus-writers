@@ -3,11 +3,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { makeStyles, createStyles, ThemeProvider } from '@material-ui/core/styles';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
-import { Typography, Grid } from '@material-ui/core';
+import { Typography, Grid, List, ListItem } from '@material-ui/core';
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
-import { Node, ImgNode } from '../types';
+import { Node, ImgNode, Work } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
 
@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    list: {
+      textAlign: 'left',
+    }
   });
 });
 
@@ -84,6 +87,27 @@ const Writer = (props: DataQlType) => {
           <Typography variant="body1">
             {getDate(birthDate, language)} - {getDate(deathDate, language)}
           </Typography>
+          <Grid container>
+            <Grid item xs={12} className={classes.list}>
+              <Typography variant="h3">
+                <BookmarksIcon /> Works
+              </Typography>
+              <List 
+                component="ul"
+                aria-label="works"
+              >
+                {works.map(({ date, title}: Work) => {
+                  return (
+                    <ListItem component="li">
+                      <Typography variant='body2'>
+                        {`${title} (${date})`}
+                      </Typography>
+                    </ListItem>
+                  );
+                })}
+              </List>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid
           item
