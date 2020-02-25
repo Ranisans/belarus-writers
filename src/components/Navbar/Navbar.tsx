@@ -9,20 +9,20 @@ import LinkDataType from './types';
 import theme from '../../../static/themes/theme';
 
 const drawerWidth = 240;
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(thisTheme => ({
   root: {
     display: 'flex',
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
+    [thisTheme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   },
-  toolbar: theme.mixins.toolbar,  
+  toolbar: thisTheme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: thisTheme.spacing(3),
   },
 }));
 

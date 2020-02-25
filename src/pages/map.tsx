@@ -8,8 +8,19 @@ import tabs from '../constants/tabsName';
 
 import Layout from '../components/Layout';
 import Map from '../components/Map';
+import { MapData } from '../types';
 
-const MapExample = ({ data }) => {
+interface PropTypes {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        map: MapData[];
+      };
+    };
+  };
+}
+
+const MapExample = ({ data }: PropTypes) => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.list}>
