@@ -25,6 +25,14 @@ export interface Frontmatter {
   placeOfBirth: string;
   image: string;
   gallery: Gallery[];
+  timeline: TimeLine[];
+}
+
+export interface TimeLine {
+  title: string;
+  description: string;
+  dateStart: string;
+  dateEnd: string;
 }
 
 export interface Gallery {

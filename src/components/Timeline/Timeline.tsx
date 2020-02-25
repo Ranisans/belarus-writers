@@ -1,31 +1,35 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 import {
   VerticalTimeline,
-  VerticalTimelineElement, VerticalTimelineElementProps,
+  VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import './Timeline.scss';
-import { TimelineModel } from '../../models/timelineModel';
+import { TimeLine } from '../../types';
 
 interface Props {
-  timelineData: TimelineModel[];
+  timelineData: TimeLine[];
 }
 
 const Timeline = ({ timelineData }: Props) => {
   const timelineElements: JSX.Element[] = timelineData.map(
-    (element: TimelineModel, key: number) => {
+    (element: TimeLine, key: number) => {
+      const date = `${element.dateStart} - ${element.dateEnd}`
       return (
         <VerticalTimelineElement
-          date={element.date}
+          date={date}
           key={key}
         >
-          <h3 className="vertical-timeline-element-title">{element.date}</h3>
+          <Typography variant="h2" className="vertical-timeline-element-title">
+            {date}
+          </Typography>
           {element.title && element.title.length ? (
-            <h4 className="vertical-timeline-element-subtitle">
+            <Typography variant="h3" className="vertical-timeline-element-subtitle">
               {element.title}
-            </h4>
+            </Typography>
           ) : null}
-          <p>{element.description}</p>
+          <Typography variant="body1">{element.description}</Typography>
         </VerticalTimelineElement>
       );
     }
