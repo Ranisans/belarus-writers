@@ -24,7 +24,7 @@ interface DataQlType {
 }
 
 const useStyles = makeStyles({
-  mainContainer: {
+  centurion: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -35,19 +35,18 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     height: '100%',
-    marginBottom: 50,
+    padding: '100px 0',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
-      '& div': {
-        maxWidth: '100%',
-      },
     },
   },
 
-  authorContainer: {
-    textAlign: 'center',
-  },
+  bottomSpace: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 80,
+  }
 });
 
 const getDate = (str: string, language: string) => {
@@ -80,11 +79,11 @@ const Writer = (props: DataQlType) => {
   return (
     <Layout>
       <SEO title={data.fullName} />
-      <Container component="div" className={classes.mainContainer}>
+      <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>
-          <Container component="div" className={classes.authorContainer}>
+          <Container component="div" className={classes.centurion}>
             <Typography variant="h1">{fullName}</Typography>
-            <Typography variant="body1" style={{ marginBottom: 30 }}>
+            <Typography variant="body1" style={{ marginBottom: 50 }}>
               {`${getDate(birthDate, language)} - ${getDate(
                 deathDate,
                 language
@@ -92,14 +91,16 @@ const Writer = (props: DataQlType) => {
             </Typography>
             <WorksList works={works} />
           </Container>
-          <Container>
+          <Container component="div">
             <Gallery images={gallery} allImages={allImgsGatsby} />
           </Container>
         </Container>
         <Timeline timelineData={timeline} />
-        {map.map(mapItem => {
-          return <Map data={mapItem} key={mapItem.title} />;
-        })}
+        <Container component="div" className={classes.bottomSpace}>
+          {map.map(mapItem => {
+            return <Map data={mapItem} key={mapItem.title} />;
+          })}
+        </Container>
       </Container>
     </Layout>
   );
