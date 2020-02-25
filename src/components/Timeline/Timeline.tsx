@@ -1,7 +1,8 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 import {
   VerticalTimeline,
-  VerticalTimelineElement, VerticalTimelineElementProps,
+  VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import './Timeline.scss';
@@ -19,13 +20,15 @@ const Timeline = ({ timelineData }: Props) => {
           date={element.date}
           key={key}
         >
-          <h3 className="vertical-timeline-element-title">{element.date}</h3>
+          <Typography variant="h2" className="vertical-timeline-element-title">
+            {element.date}
+          </Typography>
           {element.title && element.title.length ? (
-            <h4 className="vertical-timeline-element-subtitle">
+            <Typography variant="h3" className="vertical-timeline-element-subtitle">
               {element.title}
-            </h4>
+            </Typography>
           ) : null}
-          <p>{element.description}</p>
+          <Typography variant="body1">{element.description}</Typography>
         </VerticalTimelineElement>
       );
     }

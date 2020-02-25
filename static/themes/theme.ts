@@ -38,14 +38,14 @@ const theme = createMuiTheme({
       margin: '10px 0 30px',
     },
     h2: {
-      fontSize: '1.875rem',
+      fontSize: '2rem',
       lineHeight: '1.2',
       fontWeight: 'bold',
       color: '#3d4451',
       margin: '20px 0 20px',
     },
     h3: {
-      fontSize: '1.6rem',
+      fontSize: '1.8rem',
       lineHeight: '1.2',
       fontWeight: 'bold',
       color: '#3d4451',
