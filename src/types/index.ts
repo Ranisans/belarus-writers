@@ -26,10 +26,10 @@ export interface Frontmatter {
   image: string;
   gallery: Gallery[];
   timeline: TimeLine[];
-  works: Work[];
+  works: Works[];
 }
 
-export interface Work {
+export interface Works {
   date: string;
   title: string;
 }

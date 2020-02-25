@@ -7,7 +7,7 @@ import { Typography, Grid, List, ListItem } from '@material-ui/core';
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
-import { Node, ImgNode, Work } from '../types';
+import { Node, ImgNode, Works } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
 
@@ -57,6 +57,34 @@ const getDate = (str: string, language: string) => {
   });
   return formatter.format(date1);
 }
+interface Props {
+  works: Works[];
+}
+
+const WorksList = ({ works }: Props) => {
+  console.log(works)
+  return (
+    <>
+      <Typography variant="h3">
+        <BookmarksIcon /> Works
+      </Typography>
+      <List 
+        component="ul"
+        aria-label="works"
+      >
+        {works.map(({ date, title}: Works) => {
+          return (
+            <ListItem component="li">
+              <Typography variant='body2'>
+                {`${title} (${date})`}
+              </Typography>
+            </ListItem>
+          );
+        })}
+      </List>
+    </>
+  );
+    }
 
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
@@ -89,23 +117,7 @@ const Writer = (props: DataQlType) => {
           </Typography>
           <Grid container>
             <Grid item xs={12} className={classes.list}>
-              <Typography variant="h3">
-                <BookmarksIcon /> Works
-              </Typography>
-              <List 
-                component="ul"
-                aria-label="works"
-              >
-                {works.map(({ date, title}: Work) => {
-                  return (
-                    <ListItem component="li">
-                      <Typography variant='body2'>
-                        {`${title} (${date})`}
-                      </Typography>
-                    </ListItem>
-                  );
-                })}
-              </List>
+              {/* <WorksList works={works} /> */}
             </Grid>
           </Grid>
         </Grid>
@@ -123,7 +135,7 @@ const Writer = (props: DataQlType) => {
         <Timeline timelineData={timeline} />
       </div>
     </Layout>
-    // </ThemeProvider>
+    // </ThemeProvider> 
   );
 };
 export default Writer;
