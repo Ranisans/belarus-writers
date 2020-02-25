@@ -13,6 +13,7 @@ import WorksList from '../components/WorksList';
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
+import tabs from '../constants/tabsName';
 
 interface DataQlType {
   data: {
@@ -77,7 +78,7 @@ const Writer = (props: DataQlType) => {
   } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
   return (
-    <Layout>
+    <Layout tabIndex={tabs.styleGuide}>
       <SEO title={data.fullName} />
       <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>
