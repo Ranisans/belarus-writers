@@ -9,26 +9,27 @@ import Timeline from '../components/Timeline/Timeline';
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
+import tabs from '../constants/tabsName';
 
 interface DataQlType {
   data: {
     markdownRemark: Node;
     allImageSharp: {
       edges: Array<ImgNode>;
-    }
+    };
   };
 }
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(thisTheme => {
   return createStyles({
     primaryContainer: {
       justifyContent: 'space-between',
-      [theme.breakpoints.down('sm')]: {
+      [thisTheme.breakpoints.down('sm')]: {
         flexDirection: 'column',
         alignItems: 'center',
         '& div': {
           maxWidth: '100%',
-        }
+        },
       },
       height: '100vh',
     },
@@ -42,16 +43,16 @@ const useStyles = makeStyles((theme) => {
 });
 
 const getDate = (str: string, language: string) => {
-  let date = Date.parse(str);
+  const date = Date.parse(str);
   const date1 = new Date(date);
-  const lang = (language === 'by') ? 'ru' : language;
+  const lang = language === 'by' ? 'ru' : language;
   const formatter = new Intl.DateTimeFormat(lang, {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric"
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
   });
   return formatter.format(date1);
-}
+};
 
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
@@ -60,47 +61,30 @@ const Writer = (props: DataQlType) => {
   const { fullName, gallery, language, birthDate, deathDate, timeline } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
 
-  console.log(data);
-  console.log('timeline: ', timeline);
   return (
-    <Layout>
+    <Layout tabIndex={tabs.list}>
       <SEO title={data.fullName} />
-      <Grid 
-        container 
-        spacing={3} 
-        className={classes.primaryContainer}
-      >
-        <Grid 
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Typography variant="h1">
-            {fullName}
-          </Typography>
+      <Grid container spacing={3} className={classes.primaryContainer}>
+        <Grid item xs={6} className={classes.pageCenter}>
+          <Typography variant="h1">{fullName}</Typography>
           <Typography variant="body1">
-            {getDate(birthDate, language)} - {getDate(deathDate, language)}
+            {`${getDate(birthDate, language)} - ${getDate(
+              deathDate,
+              language
+            )}`}
           </Typography>
         </Grid>
-        <Grid
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Gallery images={gallery} allImages={allImgsGatsby}/>
+        <Grid item xs={6} className={classes.pageCenter}>
+          <Gallery images={gallery} allImages={allImgsGatsby} />
         </Grid>
       </Grid>
-      <Grid 
-        container 
-        spacing={3}
-      >
+      <Grid container spacing={3}>
         <Timeline timelineData={timeline} />
       </Grid>
     </Layout>
   );
 };
 export default Writer;
-
 
 export const dataQl = graphql`
   query ContentFulPost($page: String, $locale: String) {

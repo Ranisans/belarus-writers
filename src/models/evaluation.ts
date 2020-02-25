@@ -1,10 +1,10 @@
 export interface EvaluationModel {
-    title: string;
-    tasks: EvaluationTaskModel[];
-};
+  title: string;
+  tasks: EvaluationTaskModel[];
+}
 
 export interface EvaluationTaskModel {
-    title: string;
-    score: number;
-    done: boolean;
+  title: string;
+  score: number;
+  done: boolean;
 }
