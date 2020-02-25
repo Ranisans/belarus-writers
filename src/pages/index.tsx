@@ -8,6 +8,8 @@ import Layout from '../components/Layout';
 import {Edge} from '../types';
 import tabs from '../constants/tabsName';
 
+import Map from '../components/Map';
+
 const useStyles = makeStyles({
   container: {
     display: 'flex',
@@ -120,7 +122,7 @@ const Index = () => {
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout tabIndex={tabs.list}>
+      <Layout tabIndex={tabs.index}>
         <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
