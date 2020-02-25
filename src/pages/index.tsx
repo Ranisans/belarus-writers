@@ -120,7 +120,7 @@ const Index = () => {
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout tabIndex={tabs.list}>
+      <Layout tabIndex={tabs.index}>
         <h1 className={classes.title}>Писатели Беларуси</h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
