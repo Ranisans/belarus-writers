@@ -62,5 +62,12 @@ module.exports = {
         'react/jsx-wrap-multilines': 'off',
       },
     },
+    {
+      files: ['./src/components/Map.tsx'],
+      rules: {
+        'react/jsx-props-no-spreading': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+      },
+    },
   ],
 };

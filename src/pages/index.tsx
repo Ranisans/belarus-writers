@@ -8,6 +8,8 @@ import Layout from '../components/Layout';
 import {Edge} from '../types';
 import tabs from '../constants/tabsName';
 
+import Map from '../components/Map';
+
 const useStyles = makeStyles({
   container: {
     display: 'flex',
