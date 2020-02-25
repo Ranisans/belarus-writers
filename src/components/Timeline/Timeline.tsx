@@ -20,6 +20,7 @@ const Timeline = ({ timelineData }: Props) => {
         <VerticalTimelineElement
           date={date}
           key={key}
+          style={{ marginBottom: 40 }}
         >
           <Typography variant="h2" className="vertical-timeline-element-title">
             {date}

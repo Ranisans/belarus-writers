@@ -1,9 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, createStyles, ThemeProvider } from '@material-ui/core/styles';
-import BookmarksIcon from '@material-ui/icons/Bookmarks';
-import { Typography, Grid, List, ListItem } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { Typography, Container } from '@material-ui/core';
 
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
@@ -20,102 +19,93 @@ interface DataQlType {
     markdownRemark: Node;
     allImageSharp: {
       edges: Array<ImgNode>;
-    }
+    };
   };
 }
 
-const useStyles = makeStyles((theme) => {
-  return createStyles({
-    primaryContainer: {
-      justifyContent: 'space-between',
-      height: '100%',
-      marginBottom: 50,
-      [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        '& div': {
-          maxWidth: '100%',
-        }
-      },
-    },
-    pageCenter: {
-      display: 'flex',
+const useStyles = makeStyles({
+  mainContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  primaryContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '100%',
+    marginBottom: 50,
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
+      '& div': {
+        maxWidth: '100%',
+      },
     },
-    list: {
-      textAlign: 'left',
-    }
-  });
+  },
+
+  authorContainer: {
+    textAlign: 'center',
+  },
 });
 
 const getDate = (str: string, language: string) => {
-  let date = Date.parse(str);
+  const date = Date.parse(str);
   const date1 = new Date(date);
-  const lang = (language === 'by') ? 'ru' : language;
+  const lang = language === 'by' ? 'ru' : language;
   const formatter = new Intl.DateTimeFormat(lang, {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric"
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
   });
   return formatter.format(date1);
-}
+};
 
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
   const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline, works, map } = data;
+  const {
+    fullName,
+    gallery,
+    language,
+    birthDate,
+    deathDate,
+    timeline,
+    works,
+    map,
+  } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
   return (
     <Layout>
       <SEO title={data.fullName} />
-      <Grid 
-        container 
-        spacing={3}
-        className={classes.primaryContainer}
-      >
-        <Grid 
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Typography variant="h1">
-            {fullName}
-          </Typography>
-          <Typography variant="body1">
-            {getDate(birthDate, language)} - {getDate(deathDate, language)}
-          </Typography>
-          <Grid container>
-            <Grid item xs={12} className={classes.list}>
-              <WorksList works={works} />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid
-          item
-          xs={6}
-          className={classes.pageCenter}
-        >
-          <Gallery images={gallery} allImages={allImgsGatsby}/>
-        </Grid>
-      </Grid>
-      <div
-        className={classes.pageCenter}
-      >
+      <Container component="div" className={classes.mainContainer}>
+        <Container component="div" className={classes.primaryContainer}>
+          <Container component="div" className={classes.authorContainer}>
+            <Typography variant="h1">{fullName}</Typography>
+            <Typography variant="body1" style={{ marginBottom: 30 }}>
+              {`${getDate(birthDate, language)} - ${getDate(
+                deathDate,
+                language
+              )}`}
+            </Typography>
+            <WorksList works={works} />
+          </Container>
+          <Container>
+            <Gallery images={gallery} allImages={allImgsGatsby} />
+          </Container>
+        </Container>
         <Timeline timelineData={timeline} />
-        {/* {
-          map.map((mapItem) => {
-            return <Map data={mapItem} />
-          })
-        } */}
-      </div>
+        {map.map(mapItem => {
+          return <Map data={mapItem} key={mapItem.title} />;
+        })}
+      </Container>
     </Layout>
   );
 };
-export default Writer;
 
+export default Writer;
 
 export const dataQl = graphql`
   query ContentFulPost($page: String, $locale: String) {
