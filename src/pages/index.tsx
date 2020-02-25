@@ -97,13 +97,10 @@ const useStyles = makeStyles({
   }
 });
 
-<<<<<<< HEAD
 function getRandomIndex():number {
   return Math.floor(Math.random() * 12) + 1;
 }
 
-=======
->>>>>>> master
 const Index = () => {
   const information = useStaticQuery(graphql`
     query($locale: String) {
@@ -139,33 +136,6 @@ const Index = () => {
               белорусской литературы и ее широкое распространение.
             </Typography>
           </div>
-<<<<<<< HEAD
-          {
-            data.map((edge: Edge) => (
-              (edge.node.frontmatter.id === 12 && edge.node.frontmatter.language === 'ru') ? (
-                <div className={classes.columnWrapper} key={edge.node.frontmatter.id}>
-                  <div>
-                    <img
-                      className={classes.image}
-                      src={edge.node.frontmatter.image}
-                      alt={edge.node.frontmatter.fullName}
-                  />
-                  </div>
-                  <div className={classes.descriptionWrapper}>
-                    <Typography className={classes.author}>
-                      {edge.node.frontmatter.fullName}
-                    </Typography>
-                    <Typography className={classes.data}>
-                      {edge.node.frontmatter.birthDate} - {edge.node.frontmatter.deathDate}
-                    </Typography>
-                    <Button className={classes.btn}>Read more</Button>
-                  </div>
-                </div> 
-              ) : null
-              ))
-          }
-=======
-
           <div className={classes.columnWrapper}>
             <div>
               <img
@@ -184,7 +154,6 @@ const Index = () => {
               <Button className={classes.btn}>Read more</Button>
             </div>
           </div>
->>>>>>> master
         </div>
       </Layout>
     </MuiThemeProvider>
