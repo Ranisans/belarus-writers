@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -16,17 +16,28 @@ import LinguisticList from './LinguisticList';
 import LinkDataType from '../types';
 import theme from '../../../../static/themes/theme';
 
+const base = {
+  background: 'transparent',
+  boxShadow: 'none',
+  transition: 'background 1.5s ',
+};
+
 const useStyles = makeStyles(thisTheme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  appBar: {
-    zIndex: thisTheme.zIndex.drawer + 1,
+  base: {
+    ...base,
+  },
+  activeScroll: {
+    ...base,
+    background: '#000',
+    height: '70px',
   },
   menuButton: {
     marginRight: thisTheme.spacing(2),
-    [thisTheme.breakpoints.up('sm')]: {
+    [thisTheme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
@@ -39,7 +50,7 @@ const useStyles = makeStyles(thisTheme => ({
     },
   },
   tabs: {
-    [thisTheme.breakpoints.down('xs')]: {
+    [thisTheme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
@@ -53,9 +64,29 @@ interface PropType {
 
 const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
   const classes = useStyles(theme);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 0;
+    if (isScrolled !== scrolled) {
+      setScrolled(!scrolled);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll, true);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        position="fixed"
+        className={scrolled ? classes.activeScroll : classes.base}
+      >
         <Toolbar className={classes.toolBar}>
           <IconButton
             color="inherit"

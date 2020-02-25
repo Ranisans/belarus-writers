@@ -19,7 +19,7 @@ interface PropType {
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   drawerPaper: {
     width: drawerWidth,
   },
