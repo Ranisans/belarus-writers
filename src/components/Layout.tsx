@@ -29,7 +29,7 @@ const useStyles = makeStyles((/* theme: Theme */) =>
     },
 
     main: {
-      maxWidth: '1024px',
+      maxWidth: '1200px',
       margin: '0 auto',
       paddingBottom: 50,
     },

@@ -1,7 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, ThemeProvider } from '@material-ui/core/styles';
+import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import { Typography, Grid } from '@material-ui/core';
 import Layout from '../components/Layout';
 import Gallery from '../components/Gallery/Gallery';
@@ -23,6 +24,8 @@ const useStyles = makeStyles((theme) => {
   return createStyles({
     primaryContainer: {
       justifyContent: 'space-between',
+      height: '100%',
+      marginBottom: 50,
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
         alignItems: 'center',
@@ -30,7 +33,6 @@ const useStyles = makeStyles((theme) => {
           maxWidth: '100%',
         }
       },
-      height: '100vh',
     },
     pageCenter: {
       display: 'flex',
@@ -57,17 +59,18 @@ const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
   const { frontmatter: data } = props.data.markdownRemark;
-  const { fullName, gallery, language, birthDate, deathDate, timeline } = data;
+  const { fullName, gallery, language, birthDate, deathDate, timeline, works } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
 
-  console.log(data);
-  console.log('timeline: ', timeline);
+  console.log(props);
+  console.log('works: ', works);
   return (
+    // <ThemeProvider theme={theme}>
     <Layout>
       <SEO title={data.fullName} />
       <Grid 
         container 
-        spacing={3} 
+        spacing={3}
         className={classes.primaryContainer}
       >
         <Grid 
@@ -90,13 +93,13 @@ const Writer = (props: DataQlType) => {
           <Gallery images={gallery} allImages={allImgsGatsby}/>
         </Grid>
       </Grid>
-      <Grid 
-        container 
-        spacing={3}
+      <div
+        className={classes.pageCenter}
       >
         <Timeline timelineData={timeline} />
-      </Grid>
+      </div>
     </Layout>
+    // </ThemeProvider>
   );
 };
 export default Writer;
