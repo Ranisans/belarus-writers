@@ -19,13 +19,17 @@ import theme from '../../../../static/themes/theme';
 const base = {
   background: 'transparent',
   boxShadow: 'none',
-  transition: 'background 1.5s ',
+  transition:
+    'transform 400ms ease-out 100ms, padding 300ms ease-out, box-shadow 300ms ease-out, background 300ms ease-out',
 };
 
 const useStyles = makeStyles(thisTheme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
+    [thisTheme.breakpoints.down('sm')]: {
+      minHeight: '40px',
+    },
   },
   base: {
     ...base,
@@ -34,6 +38,11 @@ const useStyles = makeStyles(thisTheme => ({
     ...base,
     background: '#000',
     height: '70px',
+    boxShadow:
+      '0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)',
+    [thisTheme.breakpoints.down('sm')]: {
+      height: '45px',
+    },
   },
   menuButton: {
     marginRight: thisTheme.spacing(2),
@@ -44,9 +53,28 @@ const useStyles = makeStyles(thisTheme => ({
   link: {
     color: thisTheme.palette.secondary.main,
     textDecoration: 'none',
+    marginRight: '10px',
+    minWidth: '130px',
+
+    '&:before': {
+      content: "''",
+      position: 'absolute',
+      width: '100%',
+      height: '2px',
+      bottom: '0',
+      left: '0',
+      background: '#FFF',
+      visibility: 'hidden',
+      borderRadius: '5px',
+      transform: 'scaleX(0)',
+      transition: '.25s linear',
+    },
+
     '&:hover': {
-      color: thisTheme.palette.secondary.light,
-      transition: 'color .2s',
+      '&::before': {
+        visibility: 'visible',
+        transform: 'scaleX(1)',
+      },
     },
   },
   tabs: {
