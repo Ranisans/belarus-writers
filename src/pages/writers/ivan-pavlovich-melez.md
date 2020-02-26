@@ -9,15 +9,13 @@ deathDate: 1976-08-09T04:08:08.146Z
 placeOfBirth: 'Glinishchevo village, Khoiniki district, Gomel region, USSR'
 image: /img/Melej.jpg
 timeline:
-  - dateEnd: '1938'
-    dateStart: '1926'
+  - date: '1938'
     description: >-
       He graduated from high school in Khojniki. He entered the Moscow Institute
       of philosophy, literature and history, and was drafted into the Soviet
       army in his first year.
     title: 'School, unoiversity'
-  - dateEnd: '1945'
-    dateStart: '1940'
+  - date: '1940'
     description: >-
       He took part in the annexation of Bessarabia and Bukovina.
 
@@ -26,8 +24,7 @@ timeline:
       courses of political workers and was seconded to the 51st rifle division
       by a newspaper employee.
     title: Great Patriotic war
-  - dateEnd: '1945'
-    dateStart: '1945'
+  - date: '1945'
     description: >-
       He graduated from the faculty of Philology of BSU in absentia and entered
       graduate school. Simultaneously with his studies, he worked in the
@@ -36,14 +33,12 @@ timeline:
       well as in the editorial office of the literary magazine "Polymya", and
       was in the Central Committee of the CPB.
     title: First job
-  - dateEnd: '1974'
-    dateStart: '1974'
+  - date: '1974'
     description: >-
       In these years, he is the Deputy Chairman of the Board of the Union of
       writers of the Belarusian SSR.
     title: Work in culture
-  - dateEnd: 'August 9, 1976'
-    dateStart: '1921'
+  - date: 'August 9, 1976'
     description: Died of a heart attack. He was buried in the Eastern cemetery of Minsk.
     title: Death
 works:
