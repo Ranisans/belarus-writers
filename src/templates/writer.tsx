@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container } from '@material-ui/core';
 
@@ -65,6 +65,11 @@ const getDate = (str: string, language: string) => {
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
 
+  if (props.data.markdownRemark === null) {
+    navigate('/404');
+    return null;
+  }
+
   const { frontmatter: data } = props.data.markdownRemark;
   const {
     fullName,
@@ -78,7 +83,7 @@ const Writer = (props: DataQlType) => {
   } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
   return (
-    <Layout tabIndex={tabs.styleGuide}>
+    <Layout tabIndex={tabs.list}>
       <SEO title={data.fullName} />
       <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>
@@ -132,8 +137,7 @@ export const dataQl = graphql`
           title
         }
         timeline {
-          dateEnd
-          dateStart
+          date
           description
           title
         }
