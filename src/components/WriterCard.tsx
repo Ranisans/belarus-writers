@@ -117,7 +117,7 @@ const useStyles = makeStyles({
       zIndex: -1,
       height: '50%',
       width: 0,
-      backgroundColor: theme.palette.text.secondary,
+      backgroundColor: theme.palette.primary.main,
       transition: `width 1s ${timingFunc}`,
     },
   },
