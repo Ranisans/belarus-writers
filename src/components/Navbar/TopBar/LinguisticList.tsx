@@ -29,7 +29,6 @@ const LinguisticList = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <div>
       <IconButton

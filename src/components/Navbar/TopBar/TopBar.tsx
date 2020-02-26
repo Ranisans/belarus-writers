@@ -66,14 +66,14 @@ const useStyles = makeStyles(thisTheme => ({
       background: '#FFF',
       visibility: 'hidden',
       borderRadius: '5px',
-      transform: 'scaleX(0)',
+      // transform: 'scaleX(0)',
       transition: '.25s linear',
     },
 
     '&:hover': {
       '&::before': {
         visibility: 'visible',
-        transform: 'scaleX(1)',
+        // transform: 'scaleX(1)',
       },
     },
   },
