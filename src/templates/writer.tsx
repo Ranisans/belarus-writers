@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container } from '@material-ui/core';
 
@@ -64,6 +64,11 @@ const getDate = (str: string, language: string) => {
 
 const Writer = (props: DataQlType) => {
   const classes = useStyles(theme);
+
+  if (props.data.markdownRemark === null) {
+    navigate('/404');
+    return null;
+  }
 
   const { frontmatter: data } = props.data.markdownRemark;
   const {
