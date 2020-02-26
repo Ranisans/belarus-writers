@@ -15,7 +15,7 @@ interface Props {
 const Timeline = ({ timelineData }: Props) => {
   const timelineElements: JSX.Element[] = timelineData.map(
     (element: TimeLine, key: number) => {
-      const date = `${element.dateStart} - ${element.dateEnd}`;
+      const date = `${element.date}`;
       return (
         <VerticalTimelineElement date={date} key={key.toString()}>
           <Typography variant="h2" className="vertical-timeline-element-title">
