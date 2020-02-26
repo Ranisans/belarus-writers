@@ -49,22 +49,18 @@ const Gallery: React.FC<Images> = ({ images, allImages }) => {
   });
 
   const params = {
-    speed: 500,
+    slidesPerView: 1,
+    spaceBetween: 30,
     pagination: {
+      el: '.swiper-pagination',
       clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    scrollbar: {
-      el: '.swiper-scrollbar',
-      draggable: true,
-    },
-    keyboard: {
-      enabled: true,
-    },
-    loop: true,
+    updateOnWindowResize: true,
+    initialSlide: 0,
   };
 
   return (
