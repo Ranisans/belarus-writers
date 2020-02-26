@@ -42,6 +42,7 @@
     "react-map-gl": "^5.2.3",
     "react-styleguide-generator": "^1.4.0",
     "react-vertical-timeline-component": "^2.5.0",
+    "swiper": "^5.3.1",
     "uuid": "^3.2.1"
   },
   "keywords": [
