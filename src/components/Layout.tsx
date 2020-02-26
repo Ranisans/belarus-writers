@@ -36,6 +36,7 @@ const useStyles = makeStyles((/* theme: Theme */) =>
       margin: '0 auto',
       paddingBottom: 50,
       zIndex: 2,
+      marginBottom: '100px',
     },
   }));
 
