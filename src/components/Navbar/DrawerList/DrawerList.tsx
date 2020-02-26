@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hidden, Drawer, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import MobileDrawer from './MobileDrawer';
 import LinkDataType from '../types';
@@ -16,15 +16,15 @@ interface PropType {
 
 const drawerWidth = 180;
 
-const useStyles = makeStyles(themeCurrent => ({
-  drawerPaper: {
-    width: drawerWidth,
-    backgroundColor: themeCurrent.palette.background,
-  },
-  closeMenuButton: {
-    marginLeft: 'auto',
-  },
-}));
+const useStyles = makeStyles(themeThere => {
+  return createStyles({
+    drawerPaper: {
+      width: drawerWidth,
+      backgroundColor: themeThere.palette.background.default,
+      opacity: 0.9,
+    },
+  });
+});
 
 const DrawerList = ({
   categories,
@@ -50,7 +50,7 @@ const DrawerList = ({
         >
           <IconButton
             onClick={handleDrawerToggle}
-            className={classes.closeMenuButton}
+            style={{ marginLeft: 'auto' }}
           >
             <CloseIcon />
           </IconButton>
