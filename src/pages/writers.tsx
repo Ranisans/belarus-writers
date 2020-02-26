@@ -86,6 +86,7 @@ export const data = graphql`
       edges {
         node {
           frontmatter {
+            page
             fullName
             birthDate(formatString: "DD.MM.YYYY")
             deathDate(formatString: "DD.MM.YYYY")

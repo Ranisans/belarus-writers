@@ -18,6 +18,7 @@ export interface Node {
 
 export interface Frontmatter {
   id: number;
+  page: string;
   language: string;
   fullName: string;
   birthDate: string;
