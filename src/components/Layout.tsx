@@ -19,6 +19,7 @@ interface PropsType {
 const useStyles = makeStyles((/* theme: Theme */) =>
   createStyles({
     root: {
+      margin: '0',
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
@@ -29,9 +30,13 @@ const useStyles = makeStyles((/* theme: Theme */) =>
     },
 
     main: {
+      position: 'relative',
+      background: 'white',
+      top: '100px',
       maxWidth: '1024px',
       margin: '0 auto',
       paddingBottom: 50,
+      zIndex: '2',
     },
   }));
 
