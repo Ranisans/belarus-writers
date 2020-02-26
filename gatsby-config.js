@@ -27,7 +27,7 @@ module.exports = {
         name: 'Belarusian Writers',
         short_name: 'Belarusian_writers',
         start_url: '/',
-        icon: `${__dirname}/static/img/favicon.png`,
+        icon: `${__dirname}/static/img/favicon-32x32.png`,
       },
     },
     {
