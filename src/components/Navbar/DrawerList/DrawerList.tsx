@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Hidden,
-  Drawer,
-  IconButton
-} from '@material-ui/core';
+import { Hidden, Drawer, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,7 +30,7 @@ const DrawerList = ({
   handleDrawerToggle,
   mobileOpen,
 }: PropType) => {
-  const classes = useStyles(theme);
+  const classes = useStyles();
   return (
     <>
       <Hidden smUp implementation="css">

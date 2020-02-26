@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
-import { Edge } from '../types';
 import tabs from '../constants/tabsName';
 
 const useStyles = makeStyles({
@@ -97,10 +96,6 @@ const useStyles = makeStyles({
   },
 });
 
-function getRandomIndex(): number {
-  return Math.floor(Math.random() * 12) + 1;
-}
-
 const Index = () => {
   const information = useStaticQuery(graphql`
     query($locale: String) {
@@ -125,45 +120,10 @@ const Index = () => {
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
-              test for navbar Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Ab commodi deleniti dolorem facilis inventore
-              iste nisi numquam quam soluta voluptas. Delectus dolorem dolores
-              eaque excepturi magni minima molestiae possimus provident quae
-              ratione sunt temporibus unde, ut. A aut blanditiis commodi
-              consequatur dignissimos libero neque omnis, perferendis quis
-              repellat, similique tenetur. Adipisci aperiam aspernatur
-              consequatur, cum delectus doloremque fuga fugit ipsum porro
-              tempora? Accusantium, adipisci alias eaque est officiis repellat
-              saepe! Beatae corporis dicta dolores error ex excepturi expedita
-              ipsum, molestiae perspiciatis praesentium qui quisquam rerum saepe
-              voluptatibus voluptatum. Ab ad blanditiis consequuntur dignissimos
-              dolorem earum eos facere harum id incidunt ipsa minus natus
-              nesciunt nihil numquam porro quo, soluta suscipit tenetur totam? A
-              debitis explicabo magnam maiores reiciendis, rem vel. Debitis
-              earum eum iusto, odio quibusdam quos tempora tenetur! Animi beatae
-              cumque eaque facere incidunt quod, rem. A ab aliquam at deleniti
-              dolores esse ipsum nobis, odit perferendis reiciendis repellendus
-              saepe temporibus vel! Accusamus, alias dignissimos. Asperiores
-              consequatur doloribus et fuga illo laudantium modi quas, qui
-              ratione repudiandae rerum veniam? Adipisci at beatae culpa illum,
-              quam tenetur! Alias, aliquam aliquid aspernatur at delectus
-              deserunt dolore eius incidunt iure labore laudantium libero
-              mollitia nostrum, provident quae quis sunt velit veritatis. Ab,
-              dolore, enim. Adipisci at debitis dolor eaque fugiat magnam quidem
-              velit vero voluptates! At debitis eaque excepturi impedit maiores
-              quis sed suscipit ut voluptatum. Ad adipisci alias aspernatur
-              atque corporis delectus earum eius excepturi fuga illo incidunt
-              ipsam labore minus modi necessitatibus, nobis numquam officiis
-              optio porro possimus quasi rerum saepe sapiente sequi sunt tenetur
-              vel voluptatibus! Consequuntur dicta esse ipsa libero maxime modi,
-              molestiae numquam quia voluptate? Ad, at consequatur corporis
-              deleniti, distinctio doloribus ea facilis ipsum itaque iusto nemo
-              quaerat sed sunt tenetur voluptatibus. Debitis enim explicabo
-              facere, itaque iure minima nostrum, optio qui quidem sint ut
-              voluptate. Конец 19-го и особенно начало 20-го века ознаменовали
-              развитие белорусской литературы как совершенно отдельного
-              субъекта, в котором использовалась современная версия белорусского
-              языка. Многие известные работы в совершенно ином свете, а также
+              Конец 19-го и особенно начало 20-го века ознаменовали развитие
+              белорусской литературы как совершенно отдельного субъекта, в
+              котором использовалась современная версия белорусского языка.
+              Многие известные работы в совершенно ином свете, а также
               демонстрируют уникальные ценности, которые белорусская литература
               того времени может предложить читателю из свободного мира.
             </Typography>

@@ -2,7 +2,6 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {
   makeStyles,
-  // Theme,
   createStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
@@ -30,13 +29,13 @@ const useStyles = makeStyles((/* theme: Theme */) =>
     },
 
     main: {
-      position: 'relative',
+      position: 'relative' as 'relative',
       background: 'white',
       top: '100px',
       maxWidth: '1024px',
       margin: '0 auto',
       paddingBottom: 50,
-      zIndex: '2',
+      zIndex: 2,
     },
   }));
 

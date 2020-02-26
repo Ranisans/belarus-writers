@@ -47,6 +47,12 @@ module.exports = {
       },
     ],
     'react/jsx-curly-newline': 'off', // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+    'no-underscore-dangle': [0],
+    'react/jsx-wrap-multilines': [0],
+    'react/jsx-props-no-spreading': [0],
+    '@typescript-eslint/no-unused-vars': [2],
+    '@typescript-eslint/no-explicit-any': [0],
+    'no-console': [2],
   },
   overrides: [
     // Override some TypeScript rules just for .js files
@@ -60,6 +66,13 @@ module.exports = {
       files: ['./src/components/Search.tsx'],
       rules: {
         'react/jsx-wrap-multilines': 'off',
+      },
+    },
+    {
+      files: ['./src/components/Map.tsx'],
+      rules: {
+        'react/jsx-props-no-spreading': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
       },
     },
   ],

@@ -26,6 +26,13 @@ export interface Frontmatter {
   image: string;
   gallery: Gallery[];
   timeline: TimeLine[];
+  works: Works[];
+  map: MapData[];
+}
+
+export interface Works {
+  date: string;
+  title: string;
 }
 
 export interface TimeLine {
@@ -40,6 +47,12 @@ export interface Gallery {
   image: string;
 }
 
+export interface MapData {
+  lat: number;
+  lon: number;
+  title: string;
+  description: string;
+}
 export interface GatsbyImage extends GatsbyImageProps {
   id: string;
   fluid: Fluid;

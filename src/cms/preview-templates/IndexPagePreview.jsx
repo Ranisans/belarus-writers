@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const IndexPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS();
 
   if (data) {
