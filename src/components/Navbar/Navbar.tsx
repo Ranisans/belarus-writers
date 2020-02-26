@@ -2,6 +2,7 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'gatsby-plugin-intl';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
@@ -9,20 +10,49 @@ import LinkDataType from './types';
 import theme from '../../../static/themes/theme';
 
 const drawerWidth = 240;
-const useStyles = makeStyles(thisTheme => ({
-  root: {
-    display: 'flex',
+const useStyles = makeStyles(styleTheme => ({
+  root: { width: '100%', height: '100%' },
+  palette: {
+    primary: {
+      main: 'rgb(255, 255, 255) transparent',
+      contrastText: '#FFFFFF',
+    },
+  },
+  headerBg: {
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+    position: 'absolute',
+    backgroundSize: 'contain',
+    backgroundColor: '#FFFFFF',
+    backgroundRepeat: 'repeat',
+    backgroundPosition: 'center',
+    height: '250px',
+    width: '100%',
+    '&::before': {
+      content: '""',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1,
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(55,9,7,0.1)',
+      boxShadow: '0px 5px 10px -2px rgba(0,0,0,0.75)',
+    },
   },
   drawer: {
-    [thisTheme.breakpoints.up('sm')]: {
+    [styleTheme.breakpoints.up('md')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   },
-  toolbar: thisTheme.mixins.toolbar,
+  toolbar: styleTheme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: thisTheme.spacing(3),
+    padding: styleTheme.spacing(3),
   },
 }));
 
@@ -55,6 +85,18 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     },
   ];
 
+  const backgroundData = useStaticQuery(graphql`
+    query {
+      file(base: { eq: "background4.jpg" }) {
+        childImageSharp {
+          fixed(width: 1133) {
+            src
+          }
+        }
+      }
+    }
+  `);
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const classes = useStyles(theme);
@@ -65,6 +107,12 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
 
   return (
     <div className={classes.root}>
+      <div
+        className={classes.headerBg}
+        style={{
+          backgroundImage: `url(${backgroundData.file.childImageSharp.fixed.src})`,
+        }}
+      />
       <CssBaseline />
       <TopBar
         handleDrawerToggle={handleDrawerToggle}
