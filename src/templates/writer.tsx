@@ -78,7 +78,7 @@ const Writer = (props: DataQlType) => {
   } = data;
   const allImgsGatsby = props.data.allImageSharp.edges;
   return (
-    <Layout tabIndex={tabs.styleGuide}>
+    <Layout tabIndex={tabs.list}>
       <SEO title={data.fullName} />
       <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>

@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'gatsby-plugin-intl';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 import DrawerList from './DrawerList/DrawerList';
 import TopBar from './TopBar/TopBar';
@@ -18,30 +19,8 @@ const useStyles = makeStyles(styleTheme => ({
       contrastText: '#FFFFFF',
     },
   },
-  headerBg: {
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1,
-    position: 'absolute',
-    backgroundSize: 'contain',
-    backgroundColor: '#FFFFFF',
-    backgroundRepeat: 'repeat',
-    backgroundPosition: 'center',
-    height: '250px',
-    width: '100%',
-    '&::before': {
-      content: '""',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1,
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(55,9,7,0.1)',
-      boxShadow: '0px 5px 10px -2px rgba(0,0,0,0.75)',
-    },
+  shadow: {
+    boxShadow: '0px 5px 10px -2px rgba(0,0,0,0.75)',
   },
   drawer: {
     [styleTheme.breakpoints.up('md')]: {
@@ -87,11 +66,14 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
 
   const backgroundData = useStaticQuery(graphql`
     query {
-      file(base: { eq: "background4.jpg" }) {
-        childImageSharp {
-          fixed(width: 1133) {
-            src
-          }
+      imageSharp(fluid: { originalName: { eq: "bg.jpg" } }) {
+        fluid(srcSetBreakpoints: [400, 320], fit: COVER) {
+          src
+          srcSet
+          base64
+          sizes
+          aspectRatio
+          originalName
         }
       }
     }
@@ -104,14 +86,38 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const headerBg = {
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+    position: 'absolute',
+    backgroundSize: 'cover',
+    backgroundColor: theme.palette.background,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '0 0 ',
+    height: '250px',
+    width: '100%',
+    '&::before': {
+      content: '""',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1,
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      backgroundColor: theme.palette.primary.main,
+      boxShadow: '0px 5px 10px -2px rgba(0,0,0,0.75)',
+    },
+  };
 
   return (
     <div className={classes.root}>
-      <div
-        className={classes.headerBg}
-        style={{
-          backgroundImage: `url(${backgroundData.file.childImageSharp.fixed.src})`,
-        }}
+      <Img
+        fluid={backgroundData.imageSharp.fluid}
+        style={headerBg}
+        className={classes.shadow}
       />
       <CssBaseline />
       <TopBar

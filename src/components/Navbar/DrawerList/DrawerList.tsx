@@ -16,10 +16,10 @@ interface PropType {
 
 const drawerWidth = 180;
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(themeCurrent => ({
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: 'rgba(255,255,255,0.9)',
+    backgroundColor: themeCurrent.palette.background,
   },
   closeMenuButton: {
     marginLeft: 'auto',
@@ -32,7 +32,7 @@ const DrawerList = ({
   mobileOpen,
   value,
 }: PropType) => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   return (
     <>
       <Hidden smUp implementation="css">

@@ -6,22 +6,18 @@ import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 
 import LinkDataType from '../types';
+import theme from '../../../../static/themes/theme';
 
-const listItemStyle = {};
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(themeCurrent => ({
   link: {
     textDecoration: 'none',
   },
   listItemStyle: {
-    ...listItemStyle,
+    color: themeCurrent.palette.text.secondary,
   },
   selectedListItemStyle: {
-    ...listItemStyle,
-    '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0.3)',
-    },
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: themeCurrent.palette.primary.main,
+    opacity: 0.8,
   },
 }));
 
@@ -32,7 +28,7 @@ const MobileDrawer = ({
   value: number;
   categories: LinkDataType[];
 }) => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
 
   return (
     <div>
@@ -40,11 +36,7 @@ const MobileDrawer = ({
         {categories.map((element: LinkDataType, index) => (
           <Link className={classes.link} key={element.text} to={element.link}>
             <ListItem
-              className={
-                index === value
-                  ? classes.selectedListItemStyle
-                  : classes.listItemStyle
-              }
+              className={index === value ? classes.selectedListItemStyle : ''}
               button
             >
               <ListItemText primary={element.text} />
