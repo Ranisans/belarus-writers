@@ -148,7 +148,11 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
         </div>
         <div className={styles.textContainer}>
           <h2 className={styles.title}>{fullName}</h2>
-          <p className={styles.text}>{`${birthDate} - ${deathDate}`}</p>
+          <p className={styles.text}>
+            {deathDate !== null
+              ? `${birthDate} - ${deathDate}`
+              : `${birthDate} - `}
+          </p>
           <p className={styles.text}>{placeOfBirth}</p>
           <span className={styles.label}>{label}</span>
         </div>
