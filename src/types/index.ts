@@ -39,8 +39,7 @@ export interface Works {
 export interface TimeLine {
   title: string;
   description: string;
-  dateStart: string;
-  dateEnd: string;
+  date: string;
 }
 
 export interface Gallery {
