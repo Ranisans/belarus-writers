@@ -55,6 +55,6 @@ gallery:
   - alt: The series "Chernobyl" based on the book by Aleksievich
     image: /img/alexievich-chernobyl.jpg
 video:
-  - title: ''
-    videoURL: 'https://www.youtube.com/watch?v=hsAADM21bx8'
+  - title: 'Svetlana Aleksievich received the 2015 Nobel Prize in Literature'
+    videoURL: 'https://www.youtube.com/watch?v=n6NR0QXBu5k&t'
 ---

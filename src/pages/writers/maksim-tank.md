@@ -1,6 +1,5 @@
 ---
 layout: writer
-id: 2
 page: maksim_tank
 language: en
 fullName: Maksim Tank (Jaŭhien Skurko)
@@ -49,11 +48,11 @@ works:
   - date: '1964'
     title: '«The Gulp of Water»'
 gallery:
-  - alt: image1
+  - alt: Monument to Maxim Tank in Madel
     image: /img/maksim-tank-monument.jpg
-  - alt: image2
+  - alt: The protocol of the arrest of Maxim Tank
     image: /img/maksim-tank-protocol.jpg
-  - alt: image3
+  - alt: Biography of Maxim Tank
     image: /img/maksim-tank-biography.jpg
 video:
   - title: 'Maksim Tank  (1912 — 1995)'
