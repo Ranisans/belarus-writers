@@ -1,6 +1,5 @@
 ---
 layout: writer
-id: 1
 page: ivan_melez
 language: en
 fullName: Ivan Pavlovich Melez
