@@ -2,7 +2,7 @@
 layout: writer
 id: 1
 page: ivan_shamyakin
-language: ru
+language: en
 fullName: Иван Петрович Шамякин
 birthDate: 1921-01-30T05:08:08.088Z
 deathDate: 2004-10-14T04:08:08.146Z
