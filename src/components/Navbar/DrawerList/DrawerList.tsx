@@ -11,17 +11,18 @@ interface PropType {
   categories: LinkDataType[];
   handleDrawerToggle: any;
   mobileOpen: any;
+  value: number;
 }
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const useStyles = makeStyles(() => ({
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: 'rgba(255,255,255,0.9)',
   },
   closeMenuButton: {
-    marginRight: 'auto',
-    marginLeft: 0,
+    marginLeft: 'auto',
   },
 }));
 
@@ -29,6 +30,7 @@ const DrawerList = ({
   categories,
   handleDrawerToggle,
   mobileOpen,
+  value,
 }: PropType) => {
   const classes = useStyles();
   return (
@@ -52,7 +54,7 @@ const DrawerList = ({
           >
             <CloseIcon />
           </IconButton>
-          <MobileDrawer categories={categories} />
+          <MobileDrawer value={value} categories={categories} />
         </Drawer>
       </Hidden>
     </>

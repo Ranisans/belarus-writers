@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
+import TranslateIcon from '@material-ui/icons/Translate';
 
 const languageName = {
   en: 'English',
@@ -38,6 +39,7 @@ const LinguisticList = () => {
         onClick={handleClick}
         color="secondary"
       >
+        <TranslateIcon />
         <MoreVertIcon />
       </IconButton>
       <Menu

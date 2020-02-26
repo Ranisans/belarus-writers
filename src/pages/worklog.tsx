@@ -12,7 +12,6 @@ const useStyles = makeStyles({
     overflow: 'hidden',
   },
   section: {
-    margin: '50px 0',
     // borderTop: '1px solid #ccc'
   },
 });
