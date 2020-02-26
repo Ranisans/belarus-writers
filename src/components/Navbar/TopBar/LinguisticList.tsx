@@ -32,7 +32,6 @@ const LinguisticList = () => {
   };
   return (
     <div>
-
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
