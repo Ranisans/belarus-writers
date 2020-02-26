@@ -11,31 +11,31 @@ timeline:
   - date: '1966-1971'
     description: >-
       She worked as a teacher, history and German language teacher in the schools of the Mozyr district, journalist of the newspaper «Prypyatskaya Pravda» 
-    title: ''
+    title: 'Work before university'
   - date: '1972'
     description: >-
-      graduated from the faculty of journalism  Belarusian State University
-    title: ''
+      graduated from the faculty of journalism  Belarusian State University, started work in the "Lighthouse of Communism" - a regional newspaper in Birch of the Brest region.
+    title: 'University'
   - date: '1973-1976'
     description: >-
       worked in the Belarusian «Rural newspaper»
-    title: ''
+    title: '«Rural newspaper»'
   - date: '1976—1984'
     description: >-
       Head of the essay and journalism department of the Neman magazine
-    title: ''
+    title: 'Neman magazine'
   - date: '1983'
     description: >-
       admitted to the Union of Writers of the USSR
-    title: ''
+    title: 'UW of the USSR'
   - date: '2015'
     description: >-
       Nobel Prize in Literature - "for her polyphonic writings, a monument to suffering and courage in our time" 
-    title: ''
+    title: 'Nobel Prize in Literature'
   - date: '2019'
     description: >-
       was elected chairman of the Belarusian PEN Center.
-    title: ''
+    title: 'Belarusian PEN Center'
 works:
   - date: '1985'
     title: '«The Unwomanly Face of War»'
@@ -48,11 +48,11 @@ works:
   - date: '2013'
     title: '«Secondhand Time: The Last of the Soviets»'
 gallery:
-  - alt: image1
+  - alt: Nobel Prize in Literature
     image: /img/alexievich-nobel.jpg
-  - alt: image2
+  - alt: Voices of Utopia
     image: /img/alexievich-belarussian.jpg
-  - alt: image3
+  - alt: The series "Chernobyl" based on the book by Aleksievich
     image: /img/alexievich-chernobyl.jpg
 video:
   - title: ''
