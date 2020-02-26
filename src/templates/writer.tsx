@@ -90,18 +90,22 @@ const Writer = (props: DataQlType) => {
                 language
               )}`}
             </Typography>
-            <WorksList works={works} />
+            {works !== null ? <WorksList works={works} /> : null}
           </Container>
-          <Container component="div">
-            <Gallery images={gallery} allImages={allImgsGatsby} />
+          {gallery !== null ? (
+            <Container component="div">
+              <Gallery images={gallery} allImages={allImgsGatsby} />
+            </Container>
+          ) : null}
+        </Container>
+        {timeline !== null ? <Timeline timelineData={timeline} /> : null}
+        {map !== null ? (
+          <Container component="div" className={classes.bottomSpace}>
+            {map.map(mapItem => {
+              return <Map data={mapItem} key={mapItem.title} />;
+            })}
           </Container>
-        </Container>
-        <Timeline timelineData={timeline} />
-        <Container component="div" className={classes.bottomSpace}>
-          {map.map(mapItem => {
-            return <Map data={mapItem} key={mapItem.title} />;
-          })}
-        </Container>
+        ) : null}
       </Container>
     </Layout>
   );
