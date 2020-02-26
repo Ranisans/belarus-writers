@@ -11,11 +11,11 @@ const ptSans = {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: 'rgb(232, 103, 107)',
+      main: '#E8676B',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: 'rgb(255, 255, 255)',
+      main: '#FFFFFF',
       contrastText: '#3d4451',
     },
     text: {

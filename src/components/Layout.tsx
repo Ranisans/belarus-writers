@@ -34,7 +34,7 @@ const useStyles = makeStyles((/* theme: Theme */) =>
       top: '100px',
       maxWidth: '1024px',
       margin: '0 auto',
-      paddingBottom: 50,
+      padding: '50px 0',
       zIndex: 2,
       marginBottom: '100px',
     },

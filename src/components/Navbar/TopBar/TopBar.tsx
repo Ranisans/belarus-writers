@@ -36,7 +36,7 @@ const useStyles = makeStyles(thisTheme => ({
   },
   activeScroll: {
     ...base,
-    background: '#000',
+    background: thisTheme.palette.primary.main,
     height: '70px',
     boxShadow:
       '0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)',
@@ -66,14 +66,14 @@ const useStyles = makeStyles(thisTheme => ({
       background: '#FFF',
       visibility: 'hidden',
       borderRadius: '5px',
-      transform: 'scaleX(0)',
+      // transform: 'scaleX(0)',
       transition: '.25s linear',
     },
 
     '&:hover': {
       '&::before': {
         visibility: 'visible',
-        transform: 'scaleX(1)',
+        // transform: 'scaleX(1)',
       },
     },
   },
