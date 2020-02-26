@@ -132,7 +132,6 @@ const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
                   label={category.text}
                   className={classes.link}
                   key={category.text}
-                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...({ component: Link, to: `${category.link}` } as any)}
                 />
               ))}
