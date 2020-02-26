@@ -28,11 +28,11 @@ timeline:
     description: >-
       was editor in chief of the major Belarusian literature magazine Polymia.
     title: '«Polymia»'
-  - data: '1966-1990'
+  - date: '1966-1990'
     description: >-
       worked as the first secretary, then chairman of the Union of Writers of Belarus.
     title: 'chairman of the Union of Writers of Belarus'
-  - data: 'c 1972'
+  - date: '1972'
     description: >-
       Academician of the Academy of Sciences of the Belarusian SSR.
     title: 'Academician of the Belarusian SSR'
