@@ -4,8 +4,7 @@ page: svetlana_alexievich
 language: en
 fullName: Svetlana Alexandrovna Alexievich
 birthDate: 1948-03-31T04:08:08.146Z
-deathDate: 1948-03-31T04:08:08.146Z
-placeOfBirth: 'in the west Ukrainian town of Stanislav, USSR'
+placeOfBirth: 'town of Stanislav, USSR'
 image: /img/alexievich-portrait.jpg
 timeline:
   - date: '1966-1971'
@@ -48,12 +47,12 @@ works:
   - date: '2013'
     title: '«Secondhand Time: The Last of the Soviets»'
 gallery:
-  - alt: Nobel Prize in Literature
-    image: /img/alexievich-nobel.jpg
   - alt: Voices of Utopia
     image: /img/alexievich-belarussian.jpg
   - alt: The series "Chernobyl" based on the book by Aleksievich
     image: /img/alexievich-chernobyl.jpg
+  - alt: Nobel Prize in Literature
+    image: /img/alexievich-nobel.jpg
 video:
   - title: 'Svetlana Aleksievich received the 2015 Nobel Prize in Literature'
     videoURL: 'https://www.youtube.com/watch?v=n6NR0QXBu5k&t'
