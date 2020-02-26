@@ -5,7 +5,7 @@ language: en
 fullName: Adam Mickiewicz
 birthDate: 1798-12-24T11:41:24.920Z
 deathDate: 1855-11-26T11:41:24.949Z
-placeOfBirth: 'Аarm Zaoss, near the town of Novogrudok, Russian Empire'
+placeOfBirth: 'Farm Zaoss, near the town of Novogrudok, Russian Empire'
 image: /img/Adam_Mickiewicz.jpg
 timeline:
   - date: '1798'
