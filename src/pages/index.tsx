@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -98,21 +98,21 @@ const useStyles = makeStyles({
   },
 });
 
-const Index = () => {
-  const information = useStaticQuery(graphql`
-    query($locale: String) {
-      markdownRemark(frontmatter: { language: { eq: $locale } }) {
-        frontmatter {
-          fullName
-          birthDate(formatString: "YYYY")
-          deathDate(formatString: "YYYY")
-          image
-        }
-      }
-    }
-  `);
+interface WriterProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        fullName: string;
+        birthDate: string;
+        deathDate: string;
+        image: string;
+      };
+    };
+  };
+}
 
-  const data = information.markdownRemark.frontmatter;
+const Index = ({ data }: WriterProps) => {
+  const writerData = data.markdownRemark.frontmatter;
   const intl = useIntl();
   const classes = useStyles();
   return (
@@ -134,18 +134,18 @@ const Index = () => {
             <div>
               <img
                 className={classes.image}
-                src={data.image}
-                alt={data.fullName}
+                src={writerData.image}
+                alt={writerData.fullName}
               />
             </div>
             <div className={classes.descriptionWrapper}>
               <Typography className={classes.author}>
-                {data.fullName}
+                {writerData.fullName}
               </Typography>
               <Typography className={classes.data}>
-                {data.deathDate !== null
-                  ? `${data.birthDate} - ${data.deathDate}`
-                  : `${data.deathDate} - `}
+                {writerData.deathDate !== null
+                  ? `${writerData.birthDate} - ${writerData.deathDate}`
+                  : `${writerData.deathDate} - `}
               </Typography>
               <Button className={classes.btn}>
                 {intl.formatMessage({ id: 'indexPageText.buttonText' })}
@@ -159,3 +159,16 @@ const Index = () => {
 };
 
 export default Index;
+
+export const data = graphql`
+  query IndexPage($locale: String) {
+    markdownRemark(frontmatter: { language: { eq: $locale } }) {
+      frontmatter {
+        fullName
+        birthDate(formatString: "YYYY")
+        deathDate(formatString: "YYYY")
+        image
+      }
+    }
+  }
+`;
