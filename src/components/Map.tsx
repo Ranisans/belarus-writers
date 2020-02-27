@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     outline: 'none',
   },
   popup: {
-    maxWidth: 300,
+    maxWidth: '90%',
 
     '& h2': {
       margin: '0 0 10px 0',
@@ -68,8 +68,9 @@ const Map: React.FC<MapProps> = ({
           closeOnClick={false}
           closeButton
           anchor="bottom"
+          className={styles.popup}
         >
-          <div className={styles.popup}>
+          <div>
             <h2>{title}</h2>
             <p>{description}</p>
           </div>
@@ -80,5 +81,3 @@ const Map: React.FC<MapProps> = ({
 };
 
 export default Map;
-
-// музей ивана меляжа: latitude={51.936076} longitude={29.65986}
