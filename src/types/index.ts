@@ -65,3 +65,24 @@ export interface Fluid extends FluidObject {
 export interface ImgNode {
   node: GatsbyImage;
 }
+
+export interface WorklogModel {
+  name: string;
+  worklog: TaskModel[];
+}
+
+export interface TaskModel {
+  title: string;
+  hours: number;
+}
+
+export interface EvaluationModel {
+  title: string;
+  tasks: EvaluationTaskModel[];
+}
+
+export interface EvaluationTaskModel {
+  title: string;
+  score: number;
+  done: boolean;
+}

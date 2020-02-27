@@ -1,8 +1,9 @@
 import React from 'react';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { useIntl } from 'gatsby-plugin-intl';
+
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
 import tabs from '../constants/tabsName';
@@ -84,6 +85,7 @@ const useStyles = makeStyles({
     fontSize: '1rem',
     border: `2px solid ${theme.palette.primary.main}`,
     color: theme.palette.secondary.contrastText,
+    textDecoration: 'none',
     '@media (max-width: 780px)': {
       padding: '3px 20px',
     },
@@ -96,60 +98,62 @@ const useStyles = makeStyles({
   },
 });
 
-const Index = () => {
-  const information = useStaticQuery(graphql`
-    query($locale: String) {
-      markdownRemark(frontmatter: { language: { eq: $locale } }) {
-        frontmatter {
-          fullName
-          birthDate(formatString: "YYYY")
-          deathDate(formatString: "YYYY")
-          image
-        }
-      }
-    }
-  `);
+interface WriterProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        page: string;
+        fullName: string;
+        birthDate: string;
+        deathDate: string;
+        image: string;
+      };
+    };
+  };
+}
 
-  const data = information.markdownRemark.frontmatter;
-
+const Index = ({ data }: WriterProps) => {
+  const writerData = data.markdownRemark.frontmatter;
+  const intl = useIntl();
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
-        <h1 className={classes.title}>Писатели Беларуси</h1>
+        <Typography variant="h1" className={classes.title}>
+          {intl.formatMessage({ id: 'indexPageText.title' })}
+        </Typography>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
-              Конец 19-го и особенно начало 20-го века ознаменовали развитие
-              белорусской литературы как совершенно отдельного субъекта, в
-              котором использовалась современная версия белорусского языка.
-              Многие известные работы в совершенно ином свете, а также
-              демонстрируют уникальные ценности, которые белорусская литература
-              того времени может предложить читателю из свободного мира.
+              {intl.formatMessage({ id: 'indexPageText.partOne' })}
             </Typography>
             <Typography className={classes.paragraph}>
-              Современная литературная жизнь сосредоточена в Минске.
-              Издательский дом, который возник в 2014 году как частная
-              инициатива некоторых белорусских издателей и авторов, направлен на
-              популяризацию белорусской литературы и ее широкое распространение.
+              {intl.formatMessage({ id: 'indexPageText.partTwo' })}
             </Typography>
           </div>
           <div className={classes.columnWrapper}>
             <div>
               <img
                 className={classes.image}
-                src={data.image}
-                alt={data.fullName}
+                src={writerData.image}
+                alt={writerData.fullName}
               />
             </div>
             <div className={classes.descriptionWrapper}>
               <Typography className={classes.author}>
-                {data.fullName}
+                {writerData.fullName}
               </Typography>
               <Typography className={classes.data}>
-                {`${data.birthDate} - ${data.deathDate}`}
+                {writerData.deathDate !== null
+                  ? `${writerData.birthDate} - ${writerData.deathDate}`
+                  : `${writerData.deathDate} - `}
               </Typography>
-              <Button className={classes.btn}>Read more</Button>
+              <Link
+                className={classes.btn}
+                to={`/${intl.locale}/writer/${writerData.page}`}
+              >
+                {intl.formatMessage({ id: 'indexPageText.buttonText' })}
+              </Link>
             </div>
           </div>
         </div>
@@ -159,3 +163,17 @@ const Index = () => {
 };
 
 export default Index;
+
+export const data = graphql`
+  query IndexPage($locale: String) {
+    markdownRemark(frontmatter: { language: { eq: $locale } }) {
+      frontmatter {
+        page
+        fullName
+        birthDate(formatString: "YYYY")
+        deathDate(formatString: "YYYY")
+        image
+      }
+    }
+  }
+`;

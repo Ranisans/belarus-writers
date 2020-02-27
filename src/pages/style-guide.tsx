@@ -6,6 +6,7 @@ import {
   Container,
   ButtonGroup,
   Button,
+  Typography,
 } from '@material-ui/core';
 
 import Layout from '../components/Layout';
@@ -30,7 +31,7 @@ const useStyles = makeStyles(thisTheme => {
       },
     },
     btnsGroup: {
-      marginBottom: '25px',
+      marginBottom: '40px',
     },
     btn: {
       color: thisTheme.palette.primary.main,
@@ -67,7 +68,7 @@ const StyleGuide = () => {
     <Layout tabIndex={tabs.styleGuide}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <h1>StyleGuide</h1>
+        <Typography variant="h1">StyleGuide</Typography>
         <ButtonGroup
           variant="text"
           color="primary"

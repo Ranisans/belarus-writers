@@ -1,4 +1,4 @@
-import { WorklogModel } from '../models/worklogModel';
+import { WorklogModel } from '../types';
 
 const worklogData: WorklogModel[] = [
   {

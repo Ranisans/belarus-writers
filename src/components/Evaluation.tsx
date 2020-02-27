@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import evaluation from '../data/evaluation';
-import { EvaluationModel, EvaluationTaskModel } from '../models/evaluation';
+import { EvaluationModel, EvaluationTaskModel } from '../types';
 
 const useStyles = makeStyles({
   label: {},
