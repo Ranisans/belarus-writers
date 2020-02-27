@@ -48,6 +48,30 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     marginBottom: 80,
   },
+
+  txtDelay: {
+    transform: 'translateX(400px)',
+    opacity: 0,
+    animationDelay: '1s',
+    animation: '$slidingTxt 1s ease',
+    animationFillMode: 'forwards',
+  },
+
+  slidingText: {
+    opacity: 0,
+    animation: '$slidingTxt 1s ease',
+    animationFillMode: 'forwards',
+  },
+  '@keyframes slidingTxt': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100px)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+  },
 });
 
 const getDate = (str: string, language: string) => {
@@ -88,14 +112,18 @@ const Writer = (props: DataQlType) => {
       <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>
           <Container component="div" className={classes.centurion}>
-            <Typography variant="h1">{fullName}</Typography>
-            <Typography variant="body1" style={{ marginBottom: 50 }}>
-              {deathDate !== null
-                ? `${getDate(birthDate, language)} - ${getDate(
-                    deathDate,
-                    language
-                  )}`
-                : `${getDate(birthDate, language)} - `}
+            <Typography variant="h1" className={classes.slidingText}>
+              {fullName}
+            </Typography>
+            <Typography
+              variant="body1"
+              style={{ marginBottom: 50 }}
+              className={classes.txtDelay}
+            >
+              {`${getDate(birthDate, language)} - ${getDate(
+                deathDate,
+                language
+              )}`}
             </Typography>
             {works !== null ? <WorksList works={works} /> : null}
           </Container>
