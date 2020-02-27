@@ -6,7 +6,7 @@ fullName: Ivan Pavlovich Melez
 birthDate: 1921-02-08T05:08:08.088Z
 deathDate: 1976-08-09T04:08:08.146Z
 placeOfBirth: 'Glinishchevo village, Khoiniki district, Gomel region, USSR'
-image: /img/Melej.jpg
+image: /img/melez.jpg
 timeline:
   - date: '1938'
     description: >-
