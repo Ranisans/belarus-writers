@@ -80,5 +80,3 @@ const Map: React.FC<MapProps> = ({
 };
 
 export default Map;
-
-// музей ивана меляжа: latitude={51.936076} longitude={29.65986}
