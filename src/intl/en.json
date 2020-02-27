@@ -6,7 +6,7 @@
   "styleGuideTitle": "Our Style Guide",
   "navbar": {
     "main": "Main",
-    "list": "List",
+    "list": "Authors",
     "team": "Team",
     "workLog": "Work Log",
     "styleGuide": "Style Guide"
@@ -21,5 +21,11 @@
   "writers": {
     "header": "Writers",
     "error": "Nothing found"
+  },
+  "indexPageText": {
+    "title": "Writers of Belarus",
+    "buttonText": "Read More",
+    "partOne": "The end of the 19th and especially the beginning of the 20th century marked the development of Belarusian literature as a completely separate subject, which used the modern version of the Belarusian language. Many well-known works in a completely different light, and also demonstrate the unique values that Belarusian literature of that time can offer the reader from the free world.",
+    "partTwo": "Modern literary life is concentrated in Minsk. The publishing house, which arose in 2014 as a private initiative of some Belarusian publishers and authors, is aimed at popularizing Belarusian literature and its wide distribution."
   }
 }

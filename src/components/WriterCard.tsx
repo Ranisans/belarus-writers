@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'gatsby-plugin-intl';
+import { Link } from 'gatsby';
+
 import theme from '../../static/themes/theme';
 
 import { Edge } from '../types';
@@ -115,7 +117,7 @@ const useStyles = makeStyles({
       zIndex: -1,
       height: '50%',
       width: 0,
-      backgroundColor: theme.palette.text.secondary,
+      backgroundColor: theme.palette.primary.main,
       transition: `width 1s ${timingFunc}`,
     },
   },
@@ -127,6 +129,7 @@ interface WriterCardProps {
 
 const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
   const {
+    page,
     fullName,
     birthDate,
     deathDate,
@@ -139,19 +142,21 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.imgContainer}>
-        <img className={styles.img} src={image} alt={fullName} />
-      </div>
-      <div className={styles.textContainer}>
-        <h2 className={styles.title}>{fullName}</h2>
-        <p className={styles.text}>
-          {birthDate}
-          {' - '}
-          {deathDate}
-        </p>
-        <p className={styles.text}>{placeOfBirth}</p>
-        <span className={styles.label}>{label}</span>
-      </div>
+      <Link to={`/${intl.locale}/writer/${page}`}>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src={image} alt={fullName} />
+        </div>
+        <div className={styles.textContainer}>
+          <h2 className={styles.title}>{fullName}</h2>
+          <p className={styles.text}>
+            {deathDate !== null
+              ? `${birthDate} - ${deathDate}`
+              : `${birthDate} - `}
+          </p>
+          <p className={styles.text}>{placeOfBirth}</p>
+          <span className={styles.label}>{label}</span>
+        </div>
+      </Link>
     </div>
   );
 };

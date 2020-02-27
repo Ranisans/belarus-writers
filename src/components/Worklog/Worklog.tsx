@@ -1,9 +1,9 @@
 import React from 'react';
-import worklogData from '../../data/worklog';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import worklogData from '../../data/worklog';
 import Legend from './Legend';
 import Chart from './Chart';
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     '@media (min-width: 980px)': {
       flex: '0 0 50%',
       maxWidth: '50%',
-      marginBottom: '30px'
+      marginBottom: '30px',
     },
     padding: '1rem !important',
     '&:nth-child(odd)': {
@@ -74,13 +74,13 @@ const Worklog = () => {
     const label: string[] = [];
     const data: number[] = [];
 
-    item.worklog.map(log => {
+    item.worklog.forEach(log => {
       label.push(log.title);
       data.push(log.hours);
     });
 
     return (
-      <div className={styles.chartOuter} key={index}>
+      <div className={styles.chartOuter} key={index.toString()}>
         <div className={styles.chartWrapper}>
           <h3 className={styles.h3}>{title}</h3>
           <Grid container spacing={3}>

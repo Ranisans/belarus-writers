@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 module.exports = {
   siteMetadata: {
     title: 'Belarusian Writers',
@@ -18,6 +19,15 @@ module.exports = {
         defaultLanguage: `en`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.tsx`),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Belarusian Writers',
+        short_name: 'Belarusian_writers',
+        start_url: '/',
+        icon: `${__dirname}/static/img/favicon-32x32.png`,
       },
     },
     {

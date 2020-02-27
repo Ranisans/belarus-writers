@@ -18,6 +18,7 @@ export interface Node {
 
 export interface Frontmatter {
   id: number;
+  page: string;
   language: string;
   fullName: string;
   birthDate: string;
@@ -26,13 +27,19 @@ export interface Frontmatter {
   image: string;
   gallery: Gallery[];
   timeline: TimeLine[];
+  works: Works[];
+  map: MapData[];
+}
+
+export interface Works {
+  date: string;
+  title: string;
 }
 
 export interface TimeLine {
   title: string;
   description: string;
-  dateStart: string;
-  dateEnd: string;
+  date: string;
 }
 
 export interface Gallery {
@@ -57,4 +64,25 @@ export interface Fluid extends FluidObject {
 
 export interface ImgNode {
   node: GatsbyImage;
+}
+
+export interface WorklogModel {
+  name: string;
+  worklog: TaskModel[];
+}
+
+export interface TaskModel {
+  title: string;
+  hours: number;
+}
+
+export interface EvaluationModel {
+  title: string;
+  tasks: EvaluationTaskModel[];
+}
+
+export interface EvaluationTaskModel {
+  title: string;
+  score: number;
+  done: boolean;
 }

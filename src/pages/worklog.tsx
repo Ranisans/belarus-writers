@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Container } from '@material-ui/core';
+import { CssBaseline, Container, Typography } from '@material-ui/core';
 
 import Layout from '../components/Layout';
 import WorkLog from '../components/Worklog/Worklog';
@@ -10,10 +10,6 @@ import tabs from '../constants/tabsName';
 const useStyles = makeStyles({
   root: {
     overflow: 'hidden',
-  },
-  section: {
-    margin: '50px 0',
-    // borderTop: '1px solid #ccc'
   },
 });
 
@@ -25,11 +21,11 @@ const WorkLogPage = () => {
       <Layout tabIndex={tabs.workLog}>
         <CssBaseline />
         <Container maxWidth="lg">
-          <section className={styles.section}>
-            <h1>WorkLog</h1>
+          <section>
+            <Typography variant="h1">WorkLog</Typography>
             <WorkLog />
           </section>
-          <section className={styles.section}>
+          <section>
             <h2>Difficulties </h2>
             <ul>
               <li>Main 1-3 difficulties for the team during implementation</li>
@@ -37,7 +33,7 @@ const WorkLogPage = () => {
               <li>Main 1-3 difficulties for the team during implementation</li>
             </ul>
           </section>
-          <section className={styles.section}>
+          <section>
             <h2>Self-evaluation</h2>
             <Evaluation />
           </section>
