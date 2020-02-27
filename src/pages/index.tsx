@@ -119,9 +119,9 @@ const Index = ({ data }: WriterProps) => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
-        <h1 className={classes.title}>
+        <Typography variant="h1" className={classes.title}>
           {intl.formatMessage({ id: 'indexPageText.title' })}
-        </h1>
+        </Typography>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
