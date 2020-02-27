@@ -50,7 +50,7 @@ timeline:
       Miscavige found a family. His wife was Tselina Shimanovskaya, the daughter
       of a pianist whose poet visited salons while in St. Petersburg. 6 children
       were born in the union.
-    title: Семья
+    title: Family
   - date: '1855'
     description: >-
       Miscavige went to Constantinople, cherishing plans for the formation of a
