@@ -3,8 +3,8 @@ layout: writer
 page: ales_adamovich
 language: en
 fullName: ' Ales Adamovich'
-birthDate: 2020-02-27T11:05:01.843Z
-deathDate: 2020-02-27T11:05:01.944Z
+birthDate: 1927-09-02T20:00:00.000Z
+deathDate: 1994-01-25T20:00:00.000Z
 placeOfBirth: ' Konyukhi village, Gres district, Minsk region'
 image: /img/adamovich.jpg
 timeline:
