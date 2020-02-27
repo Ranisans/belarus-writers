@@ -48,17 +48,16 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     marginBottom: 80,
   },
-
-  txtDelay: {
-    transform: 'translateX(400px)',
+  slidingHeader: {
     opacity: 0,
-    animationDelay: '1s',
     animation: '$slidingTxt 1s ease',
     animationFillMode: 'forwards',
   },
-
-  slidingText: {
+  slidingDates: {
+    marginBottom: 50,
+    transform: 'translateX(400px)',
     opacity: 0,
+    animationDelay: '0.5s',
     animation: '$slidingTxt 1s ease',
     animationFillMode: 'forwards',
   },
@@ -112,18 +111,16 @@ const Writer = (props: DataQlType) => {
       <Container component="div" className={classes.centurion}>
         <Container component="div" className={classes.primaryContainer}>
           <Container component="div" className={classes.centurion}>
-            <Typography variant="h1" className={classes.slidingText}>
+            <Typography variant="h1" className={classes.slidingHeader}>
               {fullName}
             </Typography>
-            <Typography
-              variant="body1"
-              style={{ marginBottom: 50 }}
-              className={classes.txtDelay}
-            >
-              {`${getDate(birthDate, language)} - ${getDate(
-                deathDate,
-                language
-              )}`}
+            <Typography variant="body1" className={classes.slidingDates}>
+              {deathDate !== null
+                ? `${getDate(birthDate, language)} - ${getDate(
+                    deathDate,
+                    language
+                  )}`
+                : `${getDate(birthDate, language)} - `}
             </Typography>
             {works !== null ? <WorksList works={works} /> : null}
           </Container>
