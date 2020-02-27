@@ -3,6 +3,8 @@ import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { useStaticQuery, graphql } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { useIntl } from 'gatsby-plugin-intl';
+
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
 import tabs from '../constants/tabsName';
@@ -111,27 +113,21 @@ const Index = () => {
   `);
 
   const data = information.markdownRemark.frontmatter;
-
+  const intl = useIntl();
   const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
-        <h1 className={classes.title}>Писатели Беларуси</h1>
+        <h1 className={classes.title}>
+          {intl.formatMessage({ id: 'indexPageText.title' })}
+        </h1>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
             <Typography className={classes.paragraph}>
-              Конец 19-го и особенно начало 20-го века ознаменовали развитие
-              белорусской литературы как совершенно отдельного субъекта, в
-              котором использовалась современная версия белорусского языка.
-              Многие известные работы в совершенно ином свете, а также
-              демонстрируют уникальные ценности, которые белорусская литература
-              того времени может предложить читателю из свободного мира.
+              {intl.formatMessage({ id: 'indexPageText.partOne' })}
             </Typography>
             <Typography className={classes.paragraph}>
-              Современная литературная жизнь сосредоточена в Минске.
-              Издательский дом, который возник в 2014 году как частная
-              инициатива некоторых белорусских издателей и авторов, направлен на
-              популяризацию белорусской литературы и ее широкое распространение.
+              {intl.formatMessage({ id: 'indexPageText.partTwo' })}
             </Typography>
           </div>
           <div className={classes.columnWrapper}>
@@ -151,7 +147,9 @@ const Index = () => {
                   ? `${data.birthDate} - ${data.deathDate}`
                   : `${data.deathDate} - `}
               </Typography>
-              <Button className={classes.btn}>Read more</Button>
+              <Button className={classes.btn}>
+                {intl.formatMessage({ id: 'indexPageText.buttonText' })}
+              </Button>
             </div>
           </div>
         </div>
