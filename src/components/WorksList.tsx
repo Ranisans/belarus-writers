@@ -77,7 +77,7 @@ const WorksList = ({ works }: Props) => {
               }}
             >
               <div className={classes.bookMark} />
-              <Typography variant="body2">{`${item.title} (${item.date})`}</Typography>
+              <Typography variant="body1">{`${item.title} (${item.date})`}</Typography>
             </ListItem>
           );
         })}

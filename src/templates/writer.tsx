@@ -50,7 +50,7 @@ const useStyles = makeStyles({
   },
   slidingHeader: {
     opacity: 0,
-    animation: '$slidingTxt 1s ease',
+    animation: '$slidingTxt 0.5s ease',
     animationFillMode: 'forwards',
   },
   slidingDates: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     transform: 'translateX(400px)',
     opacity: 0,
     animationDelay: '0.5s',
-    animation: '$slidingTxt 1s ease',
+    animation: '$slidingTxt 0.5s ease',
     animationFillMode: 'forwards',
   },
   '@keyframes slidingTxt': {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
@@ -57,7 +58,9 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.list}>
         <div className={styles.root}>
-          <h2 className={styles.header}>{header}</h2>
+          <Typography variant="h2" className={styles.header}>
+            {header}
+          </Typography>
           <Search
             query={query}
             handleChange={handleChange}

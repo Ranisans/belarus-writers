@@ -116,10 +116,12 @@ const Index = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Layout tabIndex={tabs.index}>
-        <h1 className={classes.title}>Писатели Беларуси</h1>
+        <Typography variant="h1" className={classes.title}>
+          Писатели Беларуси
+        </Typography>
         <div className={classes.container}>
           <div className={classes.columnWrapper}>
-            <Typography className={classes.paragraph}>
+            <Typography variant="body1" className={classes.paragraph}>
               Конец 19-го и особенно начало 20-го века ознаменовали развитие
               белорусской литературы как совершенно отдельного субъекта, в
               котором использовалась современная версия белорусского языка.
@@ -127,7 +129,7 @@ const Index = () => {
               демонстрируют уникальные ценности, которые белорусская литература
               того времени может предложить читателю из свободного мира.
             </Typography>
-            <Typography className={classes.paragraph}>
+            <Typography variant="body1" className={classes.paragraph}>
               Современная литературная жизнь сосредоточена в Минске.
               Издательский дом, который возник в 2014 году как частная
               инициатива некоторых белорусских издателей и авторов, направлен на
