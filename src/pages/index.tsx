@@ -147,7 +147,9 @@ const Index = () => {
                 {data.fullName}
               </Typography>
               <Typography className={classes.data}>
-                {`${data.birthDate} - ${data.deathDate}`}
+                {data.deathDate !== null
+                  ? `${data.birthDate} - ${data.deathDate}`
+                  : `${data.deathDate} - `}
               </Typography>
               <Button className={classes.btn}>Read more</Button>
             </div>

@@ -90,10 +90,12 @@ const Writer = (props: DataQlType) => {
           <Container component="div" className={classes.centurion}>
             <Typography variant="h1">{fullName}</Typography>
             <Typography variant="body1" style={{ marginBottom: 50 }}>
-              {`${getDate(birthDate, language)} - ${getDate(
-                deathDate,
-                language
-              )}`}
+              {deathDate !== null
+                ? `${getDate(birthDate, language)} - ${getDate(
+                    deathDate,
+                    language
+                  )}`
+                : `${getDate(birthDate, language)} - `}
             </Typography>
             {works !== null ? <WorksList works={works} /> : null}
           </Container>
