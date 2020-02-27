@@ -65,7 +65,7 @@ gallery:
     image: /img/Plaque_Petrus_Brovki.jpg
 video:
   - title: 'Пятрусь Броўка: лірыка жыцця "вольнага" паэта'
-    videoURL: 'https://www.youtube.com/watch?v=7xHGTr4EbK4'
+    videoURL: 'https://www.youtube.com/embed/7xHGTr4EbK4'
 map:
   - description: Petrus Brovka street in Minsk
     lat: 53.913263

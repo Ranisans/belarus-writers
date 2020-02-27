@@ -57,6 +57,6 @@ gallery:
     image: /img/alexievich-nobel.jpg
 video:
   - title: Svetlana Aleksievich received the 2015 Nobel Prize in Literature
-    videoURL: 'https://www.youtube.com/watch?v=n6NR0QXBu5k&t'
+    videoURL: 'https://www.youtube.com/embed/n6NR0QXBu5k&t'
 ---
 

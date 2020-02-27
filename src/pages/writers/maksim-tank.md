@@ -55,7 +55,7 @@ gallery:
     image: /img/maksim-tank-biography.jpg
 video:
   - title: Maksim Tank  (1912 — 1995)
-    videoURL: 'https://www.youtube.com/watch?v=hsAADM21bx8'
+    videoURL: 'https://www.youtube.com/embed/hsAADM21bx8'
 map:
   - description: The name of the writer is the Belarusian State Pedagogical University.
     lat: 53.894678

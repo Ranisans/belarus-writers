@@ -64,7 +64,7 @@ gallery:
     image: /img/melez_molodoi.jpg
 video:
   - title: 'Ivan Melezh: interrupted chronicle'
-    videoURL: 'https://www.youtube.com/watch?v=I-0ezESiCCw'
+    videoURL: 'https://www.youtube.com/embed/I-0ezESiCCw'
 map:
   - description: >-
       In 1983, a memorial Museum and a bust were opened in the village of

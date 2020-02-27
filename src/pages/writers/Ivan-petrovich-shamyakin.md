@@ -67,7 +67,7 @@ video:
   - title: >-
       For the 95th anniversary of Ivan Shamyakin: from rural teacher to Chairman
       of the Supreme Council of the BSSR
-    videoURL: 'https://www.youtube.com/watch?v=fQ9P0Jft2Os'
+    videoURL: 'https://www.youtube.com/embed/fQ9P0Jft2Os'
 map:
   - description: Ivan Shamyakin street in Minsk
     lat: 53.892973

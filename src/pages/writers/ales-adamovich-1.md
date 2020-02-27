@@ -51,7 +51,7 @@ gallery:
     image: /img/ales-5.jpg
 video:
   - title: 'Ales Adamovich: Partisan War'
-    videoURL: 'https://www.youtube.com/watch?v=OEhVsW-SiEM'
+    videoURL: 'https://www.youtube.com/embed/OEhVsW-SiEM'
 map:
   - description: >-
       The bust of the Belarusian writer Ales Adamovich was opened in the Glush
