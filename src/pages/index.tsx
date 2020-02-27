@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import theme from '../../static/themes/theme';
@@ -86,6 +85,7 @@ const useStyles = makeStyles({
     fontSize: '1rem',
     border: `2px solid ${theme.palette.primary.main}`,
     color: theme.palette.secondary.contrastText,
+    textDecoration: 'none',
     '@media (max-width: 780px)': {
       padding: '3px 20px',
     },
@@ -102,6 +102,7 @@ interface WriterProps {
   data: {
     markdownRemark: {
       frontmatter: {
+        page: string;
         fullName: string;
         birthDate: string;
         deathDate: string;
@@ -147,9 +148,12 @@ const Index = ({ data }: WriterProps) => {
                   ? `${writerData.birthDate} - ${writerData.deathDate}`
                   : `${writerData.deathDate} - `}
               </Typography>
-              <Button className={classes.btn}>
+              <Link
+                className={classes.btn}
+                to={`/${intl.locale}/writer/${writerData.page}`}
+              >
                 {intl.formatMessage({ id: 'indexPageText.buttonText' })}
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -164,6 +168,7 @@ export const data = graphql`
   query IndexPage($locale: String) {
     markdownRemark(frontmatter: { language: { eq: $locale } }) {
       frontmatter {
+        page
         fullName
         birthDate(formatString: "YYYY")
         deathDate(formatString: "YYYY")
