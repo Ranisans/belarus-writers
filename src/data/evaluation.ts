@@ -1,4 +1,4 @@
-import { EvaluationModel } from '../models/evaluation';
+import { EvaluationModel } from '../types';
 
 const evaluation: EvaluationModel[] = [
   {
