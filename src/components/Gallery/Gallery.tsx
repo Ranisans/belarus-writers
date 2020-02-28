@@ -21,8 +21,8 @@ interface Image {
 const useStyles = makeStyles(thisTheme => {
   return createStyles({
     img: {
-      width: 540,
-      height: 650,
+      width: '100%',
+      height: '100%',
       [thisTheme.breakpoints.down('xs')]: {
         maxWidth: 540,
         width: '100%',
