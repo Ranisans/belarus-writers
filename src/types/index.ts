@@ -29,6 +29,7 @@ export interface Frontmatter {
   timeline: TimeLine[];
   works: Works[];
   map: MapData[];
+  video: VideoData[];
 }
 
 export interface Works {
