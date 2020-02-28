@@ -18,6 +18,9 @@ const useStyles = makeStyles(themeCurrent => ({
   selectedListItemStyle: {
     backgroundColor: themeCurrent.palette.primary.main,
     opacity: 0.8,
+    '&:hover': {
+      backgroundColor: themeCurrent.palette.primary.main,
+    },
   },
 }));
 
