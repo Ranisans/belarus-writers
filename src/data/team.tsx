@@ -1,4 +1,4 @@
-import { TeamMemberModel } from '../models/teamMemberModel';
+import { TeamMemberModel } from '../types';
 
 const team: TeamMemberModel[] = [
   {

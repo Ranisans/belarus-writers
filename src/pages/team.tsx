@@ -7,8 +7,8 @@ import Layout from '../components/Layout';
 import tabs from '../constants/tabsName';
 
 import team from '../data/team';
-import { TeamMemberModel } from '../models/teamMemberModel';
 import theme from '../../static/themes/theme';
+import { TeamMemberModel } from '../types';
 
 const useStyles = makeStyles({
   root: {
