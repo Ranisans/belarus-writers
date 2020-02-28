@@ -1,9 +1,5 @@
 import React from 'react';
-import { VideoData } from '../types';
-
-interface VideoProps {
-  video: VideoData;
-}
+import { VideoProps } from '../types';
 
 const Video: React.FC<VideoProps> = ({ video: { videoURL, title } }) => {
   return (
