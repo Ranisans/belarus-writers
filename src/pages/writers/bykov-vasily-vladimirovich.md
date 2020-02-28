@@ -55,7 +55,7 @@ gallery:
     image: /img/bikov_4.jpg
 video:
   - title: Vasil Bykov - the national hero of Belarus
-    videoURL: 'https://www.youtube.com/watch?v=rnt3qMC-rdY'
+    videoURL: 'https://www.youtube.com/embed/rnt3qMC-rdY'
 map:
   - description: 'Bykova street, Kobrin'
     lat: 52.233602

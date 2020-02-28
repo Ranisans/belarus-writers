@@ -54,7 +54,7 @@ gallery:
     image: /img/nil-7.jpg
 video:
   - title: Nil Hilevich
-    videoURL: 'https://www.youtube.com/watch?v=sWPk3sk6m6k'
+    videoURL: 'https://www.youtube.com/embed/sWPk3sk6m6k'
 map:
   - description: >-
       Monument to the last national poet of Belarus Nil Hilevich at his grave in
