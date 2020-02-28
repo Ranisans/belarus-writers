@@ -29,12 +29,7 @@ export interface Frontmatter {
   timeline: TimeLine[];
   works: Works[];
   map: MapData[];
-  video: Video[];
-}
-
-interface Video {
-  title: string;
-  videoURL: string;
+  video: VideoData[];
 }
 
 export interface Works {
@@ -59,6 +54,12 @@ export interface MapData {
   title: string;
   description: string;
 }
+
+export interface VideoData {
+  videoURL: string;
+  title: string;
+}
+
 export interface GatsbyImage extends GatsbyImageProps {
   id: string;
   fluid: Fluid;
@@ -91,4 +92,12 @@ export interface EvaluationTaskModel {
   title: string;
   score: number;
   done: boolean;
+}
+
+export interface TeamMemberModel {
+  id: string;
+  nickname: string;
+  avatar: string;
+  name: string;
+  description: string;
 }

@@ -82,6 +82,6 @@ video:
   - title: >-
       Śladami Mickiewicza - Białoruś (Zaosie, Nowogródek, Świteź, Bolcienniki,
       Bieniakonie)
-    videoURL: 'https://www.youtube.com/watch?v=AJfHTjzZu0w'
+    videoURL: 'https://www.youtube.com/embed/AJfHTjzZu0w'
 ---
 

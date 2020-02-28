@@ -69,7 +69,7 @@ const worklogData: WorklogModel[] = [
     ],
   },
   {
-    name: 'Айнур Шауэрман',
+    name: 'Aynur Shauerman',
     worklog: [
       {
         title: 'Сбор данных по писателю Username 11 и Username 12',
