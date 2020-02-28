@@ -52,7 +52,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     },
     {
       text: intl.formatMessage({ id: 'navbar.team' }),
-      link: `/${intl.locale}/`,
+      link: `/${intl.locale}/team`,
     },
     {
       text: intl.formatMessage({ id: 'navbar.workLog' }),
