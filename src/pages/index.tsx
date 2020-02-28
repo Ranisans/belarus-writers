@@ -6,7 +6,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 
 import theme from '../../static/themes/theme';
 import Layout from '../components/Layout';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 const useStyles = makeStyles({
   container: {

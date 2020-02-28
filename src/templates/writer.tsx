@@ -14,7 +14,7 @@ import Video from '../components/Video';
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 interface DataQlType {
   data: {
