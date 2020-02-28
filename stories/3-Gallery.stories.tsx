@@ -7,52 +7,48 @@ import Gallery from '../src/components/Gallery/Gallery';
 // import img1 from '../static/img/ales-2.jpg';
 // import img2 from '../static/img/Adam_Mickiewicz_by_Józef_Oleszkiewicz.jpg';
 
-const img1 = require('../static/img/ales-2.jpg');
-const img2 = require('../static/img/Adam_Mickiewicz_by_Józef_Oleszkiewicz.jpg');
-console.log('img1: ', img1)
-console.log('img1: ', img1)
-
 export default {
   title: 'Gallery',
   component: Gallery,
 };
 
-const mockImages = [
-  { alt: img1, image: `/img/${img1}` },
-  { alt: img2, image: `/img/${img2}` },
-];
+// const mockImages = [
+//   { alt: img1, image: `/img/${img1}` },
+//   { alt: img2, image: `/img/${img2}` },
+// ];
 
-const mockAllImages = [
-  {
-    node: {
-      id: 'img1',
-      fluid: {
-        originalName: img1,
-        src: img1,
-        base64: '',
-        aspectRatio: 0.8,
-        srcSet: img1,
-        sizes: '(max-width: 450px) 100vw, 450px',
-      },
-    },
-  },
-  {
-    node: {
-      id: 'img2',
-      fluid: {
-        originalName: img2,
-        src: img2,
-        base64: '',
-        aspectRatio: 0.8,
-        srcSet: img2,
-        sizes: '(max-width: 450px) 100vw, 450px',
-      },
-    },
-  },
-];
+// const mockAllImages = [
+//   {
+//     node: {
+//       id: 'img1',
+//       fluid: {
+//         originalName: img1,
+//         src: img1,
+//         base64: '',
+//         aspectRatio: 0.8,
+//         srcSet: img1,
+//         sizes: '(max-width: 450px) 100vw, 450px',
+//       },
+//     },
+//   },
+//   {
+//     node: {
+//       id: 'img2',
+//       fluid: {
+//         originalName: img2,
+//         src: img2,
+//         base64: '',
+//         aspectRatio: 0.8,
+//         srcSet: img2,
+//         sizes: '(max-width: 450px) 100vw, 450px',
+//       },
+//     },
+//   },
+// ];
 
 export const GalleryComponent = () => (
   <ThemeProvider theme={theme}>
-    <Gallery images={mockImages} allImages={mockAllImages} />
+    11111111111111111111
+    {/* <Gallery images={mockImages} allImages={mockAllImages} /> */}
   </ThemeProvider>
 );

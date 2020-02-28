@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Card, Typography, Link } from '@material-ui/core';
 
 import { GitHub } from '@material-ui/icons';
@@ -7,7 +7,6 @@ import Layout from '../components/Layout';
 import tabs from '../constants/tabsName';
 
 import team from '../data/team';
-import theme from '../../static/themes/theme';
 import { TeamMemberModel } from '../types';
 
 const useStyles = makeStyles({
@@ -93,15 +92,13 @@ const TeamPage = () => {
   });
 
   return (
-    <MuiThemeProvider theme={theme}>
-      <Layout tabIndex={tabs.workLog}>
-        <Container maxWidth="lg">
-          <Grid container spacing={10}>
-            {members}
-          </Grid>
-        </Container>
-      </Layout>
-    </MuiThemeProvider>
+    <Layout tabIndex={tabs.workLog}>
+      <Container maxWidth="lg">
+        <Grid container spacing={10}>
+          {members}
+        </Grid>
+      </Container>
+    </Layout>
   );
 };
 
