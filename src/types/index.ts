@@ -55,6 +55,10 @@ export interface MapData {
   description: string;
 }
 
+export interface VideoProps {
+  video: VideoData;
+}
+
 export interface VideoData {
   videoURL: string;
   title: string;
