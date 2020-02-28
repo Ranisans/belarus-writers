@@ -9,7 +9,7 @@ import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
 import Map from '../components/Map';
 import WorksList from '../components/WorksList';
-import Video from '../components/Video/Video';
+import Video from '../components/Video';
 
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';

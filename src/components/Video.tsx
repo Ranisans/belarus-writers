@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoData } from '../../types';
+import { VideoData } from '../types';
 
 interface VideoProps {
   video: VideoData;
@@ -7,7 +7,7 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({ video: { videoURL, title } }) => {
   return (
-    <div className="video" style={{ margin: '0 auto' }}>
+    <div className="video">
       <iframe
         width="600px"
         height="335px"
