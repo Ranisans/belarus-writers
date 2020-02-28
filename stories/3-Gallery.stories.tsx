@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../static/themes/theme';
 import Gallery from '../src/components/Gallery/Gallery';
-import img1 from '../static/img/ales-2.jpg';
-import img2 from '../static/img/Adam_Mickiewicz_by_Józef_Oleszkiewicz.jpg';
+// import img1 from '../static/img/ales-2.jpg';
+// import img2 from '../static/img/Adam_Mickiewicz_by_Józef_Oleszkiewicz.jpg';
+
+const img1 = require('../static/img/ales-2.jpg');
+const img2 = require('../static/img/Adam_Mickiewicz_by_Józef_Oleszkiewicz.jpg');
+console.log('img1: ', img1)
+console.log('img1: ', img1)
 
 export default {
   title: 'Gallery',

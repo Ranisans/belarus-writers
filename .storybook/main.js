@@ -1,12 +1,12 @@
 const path = require('path');
 const SRC_PATH = path.join(__dirname, '../src');
 const STORIES_PATH = path.join(__dirname, '../stories');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   stories: ['../stories/**/*.stories.tsx'],
   addons: ['@storybook/addon-actions', '@storybook/addon-links'],
-  webpackFinal: async config => {
+  webpackFinal: async (config, { configType }) => {
+    console.log('configType: ', configType);
     config.resolve.extensions.push('.ts');
     config.resolve.extensions.push('.tsx');
     config.module.rules.push(
