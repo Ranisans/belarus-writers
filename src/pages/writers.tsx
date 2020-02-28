@@ -7,7 +7,7 @@ import theme from '../../static/themes/theme';
 
 import { Data } from '../types';
 import useSearch from '../hooks';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 import Layout from '../components/Layout';
 import WriterCard from '../components/WriterCard';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 const NotFoundPage = () => (
   <Layout tabIndex={tabs.index}>
