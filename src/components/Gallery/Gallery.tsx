@@ -34,7 +34,6 @@ const useStyles = makeStyles(thisTheme => {
 
 const Gallery: React.FC<Images> = ({ images, allImages }) => {
   const classes = useStyles(theme);
-
   const galleryImgs: Array<GatsbyImage> = [];
   allImages.forEach(edge => {
     images.forEach(el => {
