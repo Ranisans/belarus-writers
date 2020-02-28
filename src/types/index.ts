@@ -69,10 +69,6 @@ export interface GatsbyImage extends GatsbyImageProps {
   fluid: Fluid;
 }
 
-export interface VideoProps {
-  video: VideoData;
-}
-
 export interface Fluid extends FluidObject {
   originalName: string;
 }
