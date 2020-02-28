@@ -17,7 +17,7 @@ import {
 import Palette from '../components/Palette';
 import Typos from '../components/Styleguide/Typos';
 import Instruction from '../components/Styleguide/Instruction';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 import theme from '../../static/themes/theme';
 

@@ -6,7 +6,7 @@ fullName: Adam Mickiewicz
 birthDate: 1798-12-24T11:41:24.920Z
 deathDate: 1855-11-26T11:41:24.949Z
 placeOfBirth: 'Farm Zaoss, near the town of Novogrudok, Russian Empire'
-image: /img/Adam_Mickiewicz.jpg
+image: /img/mizkevich.jpg
 timeline:
   - date: '1798'
     description: >-
@@ -50,7 +50,7 @@ timeline:
       Miscavige found a family. His wife was Tselina Shimanovskaya, the daughter
       of a pianist whose poet visited salons while in St. Petersburg. 6 children
       were born in the union.
-    title: Семья
+    title: Family
   - date: '1855'
     description: >-
       Miscavige went to Constantinople, cherishing plans for the formation of a
@@ -82,6 +82,6 @@ video:
   - title: >-
       Śladami Mickiewicza - Białoruś (Zaosie, Nowogródek, Świteź, Bolcienniki,
       Bieniakonie)
-    videoURL: 'https://www.youtube.com/watch?v=AJfHTjzZu0w'
+    videoURL: 'https://www.youtube.com/embed/AJfHTjzZu0w'
 ---
 

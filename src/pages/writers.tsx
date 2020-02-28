@@ -6,8 +6,8 @@ import { useIntl } from 'gatsby-plugin-intl';
 import theme from '../../static/themes/theme';
 
 import { Data } from '../types';
-import { useInput, useFilter } from '../hooks';
-import tabs from '../constants/tabsName';
+import useSearch from '../hooks';
+import tabs from '../data/tabsName';
 
 import Layout from '../components/Layout';
 import WriterCard from '../components/WriterCard';
@@ -45,8 +45,7 @@ interface WritersProps {
 
 const Writers: React.FC<WritersProps> = ({ data }) => {
   const initEdges = data.allMarkdownRemark.edges;
-  const [query, handleChange] = useInput();
-  const [edges, handleSubmit] = useFilter(initEdges, query);
+  const [query, edges, handleChange] = useSearch(initEdges);
   const styles = useStyles();
   const intl = useIntl();
   const [header, error] = [
@@ -61,11 +60,7 @@ const Writers: React.FC<WritersProps> = ({ data }) => {
           <Typography variant="h2" className={styles.header}>
             {header}
           </Typography>
-          <Search
-            query={query}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
+          <Search query={query} handleChange={handleChange} />
           <div className={styles.projects}>
             {edges.length === 0 ? (
               <div className={styles.error}>{error}</div>

@@ -52,7 +52,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     },
     {
       text: intl.formatMessage({ id: 'navbar.team' }),
-      link: `/${intl.locale}/`,
+      link: `/${intl.locale}/team`,
     },
     {
       text: intl.formatMessage({ id: 'navbar.workLog' }),
@@ -67,7 +67,11 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
   const backgroundData = useStaticQuery(graphql`
     query {
       imageSharp(fluid: { originalName: { eq: "bg.jpg" } }) {
-        fluid(srcSetBreakpoints: [400, 320], fit: COVER) {
+        fluid(
+          srcSetBreakpoints: [1800, 1200, 800, 400, 320]
+          fit: COVER
+          maxWidth: 1800
+        ) {
           src
           srcSet
           base64
