@@ -39,7 +39,7 @@ interface PropTypes {
   activeTab: number;
 }
 
-function ResponsiveDrawer({ activeTab }: PropTypes) {
+function Navbar({ activeTab }: PropTypes) {
   const intl = useIntl();
   const categories: LinkDataType[] = [
     {
@@ -144,4 +144,4 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
   );
 }
 
-export default ResponsiveDrawer;
+export default Navbar;

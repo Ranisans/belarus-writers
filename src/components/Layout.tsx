@@ -15,7 +15,7 @@ interface PropsType {
   tabIndex: number;
 }
 
-const useStyles = makeStyles((/* theme: Theme */) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       margin: '0',
@@ -38,9 +38,10 @@ const useStyles = makeStyles((/* theme: Theme */) =>
       zIndex: 2,
       marginBottom: '100px',
     },
-  }));
+  })
+);
 
-const TemplateWrapper = ({ children, tabIndex }: PropsType) => {
+const Layout = ({ children, tabIndex }: PropsType) => {
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
@@ -56,4 +57,4 @@ const TemplateWrapper = ({ children, tabIndex }: PropsType) => {
   );
 };
 
-export default TemplateWrapper;
+export default Layout;

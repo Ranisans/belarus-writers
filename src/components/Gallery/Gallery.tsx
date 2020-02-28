@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import { GatsbyImage, ImgNode } from '../../types';
 import theme from '../../../static/themes/theme';
 
-import './Gallery.scss';
+import './GalleryStyle.scss';
 
 interface Images {
   images: Array<Image>;
