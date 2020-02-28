@@ -5,10 +5,10 @@ const STORIES_PATH = path.join(__dirname, '../stories');
 module.exports = {
   stories: ['../stories/**/*.stories.tsx'],
   addons: ['@storybook/addon-actions', '@storybook/addon-links'],
-  webpackFinal: async (config, { configType }) => {
-    console.log('configType: ', configType);
+  webpackFinal: async config => {
     config.resolve.extensions.push('.ts');
     config.resolve.extensions.push('.tsx');
+    config.resolve.extensions.push('.js');
     config.module.rules.push(
       {
         test: /\.(ts|tsx)$/,
