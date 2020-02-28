@@ -27,7 +27,14 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader',
+        loader: 'sass-loader',
+        options: {
+          includePaths: [
+            path.resolve(__dirname, '../node_modules'),
+            path.resolve(__dirname, '../../../../node_modules'),
+            path.resolve(__dirname, '../src/components'),
+          ],
+        },
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
