@@ -20,39 +20,26 @@ const useStyles = makeStyles({
 interface SearchProps {
   query: string;
   handleChange: (e: FormEvent) => void;
-  handleSubmit: (e: FormEvent) => void;
 }
 
-const Search: React.FC<SearchProps> = ({
-  query,
-  handleChange,
-  handleSubmit,
-}) => {
+const Search: React.FC<SearchProps> = ({ query, handleChange }) => {
   const styles = useStyles();
 
-  const localOnChange = (e: FormEvent) => {
-    handleChange(e);
-    handleSubmit(e);
-  };
-
   return (
-    <form className={styles.root} onSubmit={handleSubmit}>
+    <div className={styles.root}>
       <Input
         className={styles.input}
         value={query}
-        onChange={localOnChange}
+        onChange={handleChange}
         endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={handleSubmit}
-            >
+          <InputAdornment position="end" disablePointerEvents>
+            <IconButton aria-label="toggle password visibility">
               <SearchIcon />
             </IconButton>
           </InputAdornment>
         }
       />
-    </form>
+    </div>
   );
 };
 
