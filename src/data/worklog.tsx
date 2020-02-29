@@ -98,21 +98,25 @@ const worklogData: WorklogModel[] = [
     name: 'Oksana	Fainitskaya',
     worklog: [
       {
-        title: 'Создание компоненты Timeline',
-        hours: 4.5,
+        title: 'Создание компонента Timeline',
+        hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 7 и Username 8',
-        hours: 2,
+        title: 'Сбор данных по писателям Якуб Колас и Янка Брыль',
+        hours: 4,
       },
       {
         title: 'Создание страницы "Журнал работ"',
-        hours: 6,
+        hours: 8,
       },
       {
         title: 'Создание страницы "Команда"',
         hours: 4,
       },
+      {
+        title: 'Оптимизация изображений и адаптация их для галлереи',
+        hours: 1
+      }
     ],
   },
   {
