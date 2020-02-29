@@ -14,6 +14,20 @@ interface ChartProps {
   data: number[];
 }
 
+function getHoursWord(hour: number): string {
+  if (hour === 1) {
+    return 'час';
+  } else if (hour > 1 && hour < 5) {
+    return 'часа';
+  } else {
+    if (hour < 21) {
+      return 'часов';
+    } else {
+      return getHoursWord(hour % 10);
+    }
+  }
+}
+
 function customTooltips(this: any, tooltipModel: ChartTooltipModel) {
   const tooltipId = 'chartjs-tooltip';
   let tooltipEl = document.getElementById(tooltipId);
@@ -36,11 +50,18 @@ function customTooltips(this: any, tooltipModel: ChartTooltipModel) {
     tooltipEl.classList.add('no-transform');
   }
 
-  const tooltipData = tooltipModel.body[0].lines[0].split(':');
-  const h = tooltipData[1] === '1' ? 'hour' : 'hours';
-  const tooltip = `${tooltipData[0]}: ${tooltipData[1]}&nbsp;${h}`;
-  tooltipEl.innerHTML = tooltip;
+  const tooltipStr = tooltipModel.body[0].lines[0];
+  const lastDotsIndex = tooltipStr.lastIndexOf(':');
+  const tooltipLabel = tooltipStr.substr(0, lastDotsIndex);
+  let tooltip = tooltipLabel;
+  const tooltipValue = Number(tooltipStr.substr(lastDotsIndex + 1).trim());
 
+  if (!isNaN(tooltipValue) && isFinite(tooltipValue)) {
+    const h = getHoursWord(tooltipValue);
+    tooltip += `: ${tooltipValue}&nbsp;${h}`;
+  }
+
+  tooltipEl.innerHTML = tooltip;
   const position = this._chart.canvas.getBoundingClientRect();
 
   tooltipEl.style.opacity = '1';

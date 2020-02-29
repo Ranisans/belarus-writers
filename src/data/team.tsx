@@ -2,11 +2,11 @@ import { TeamMemberModel } from '../types';
 
 const team: TeamMemberModel[] = [
   {
-    id: '1',
-    nickname: 'aykuli',
-    avatar: 'https://avatars0.githubusercontent.com/u/49780822?s=400&v=4',
-    name: 'Aynur Shauerman',
-    description: 'Frontend Developer',
+    id: '4',
+    nickname: 'Ranisans',
+    avatar: 'https://avatars3.githubusercontent.com/u/8532376?s=400&v=4',
+    name: 'Ruslan Dudenich',
+    description: 'Team Lead / Frontend Developer',
   },
   {
     id: '2',
@@ -16,17 +16,10 @@ const team: TeamMemberModel[] = [
     description: 'Frontend Developer',
   },
   {
-    id: '3',
-    nickname: 'annakulai',
-    avatar: 'https://avatars2.githubusercontent.com/u/40909482?s=460&v=4',
-    name: 'Anna Kulai',
-    description: 'Frontend Developer',
-  },
-  {
-    id: '4',
-    nickname: 'Ranisans',
-    avatar: 'https://avatars3.githubusercontent.com/u/8532376?s=400&v=4',
-    name: 'Ruslan Dudenich',
+    id: '1',
+    nickname: 'aykuli',
+    avatar: 'https://avatars0.githubusercontent.com/u/49780822?s=400&v=4',
+    name: 'Aynur Shauerman',
     description: 'Frontend Developer',
   },
   {
@@ -34,6 +27,13 @@ const team: TeamMemberModel[] = [
     nickname: 'fainz777',
     avatar: 'https://avatars1.githubusercontent.com/u/2943284?s=400&v=4',
     name: 'Oksana Fainitskaya',
+    description: 'Frontend Developer',
+  },
+  {
+    id: '3',
+    nickname: 'annakulai',
+    avatar: 'https://avatars2.githubusercontent.com/u/40909482?s=460&v=4',
+    name: 'Anna Kulai',
     description: 'Frontend Developer',
   },
   {
