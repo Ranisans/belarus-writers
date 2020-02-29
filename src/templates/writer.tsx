@@ -50,6 +50,7 @@ const useStyles = makeStyles({
     marginBottom: 80,
   },
   videoContainer: {
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 80,

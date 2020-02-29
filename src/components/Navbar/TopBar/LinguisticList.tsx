@@ -46,6 +46,7 @@ const LinguisticList = () => {
         keepMounted
         open={open}
         onClose={handleClose}
+        disableScrollLock
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,

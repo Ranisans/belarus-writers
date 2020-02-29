@@ -58,11 +58,11 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
       text: intl.formatMessage({ id: 'navbar.workLog' }),
       link: `/${intl.locale}/worklog`,
     },
-    {
-      text: intl.formatMessage({ id: 'navbar.styleGuide' }),
-      link: `/${intl.locale}/style-guide`,
-    },
   ];
+  const styleGuideLink: LinkDataType = {
+    text: intl.formatMessage({ id: 'navbar.styleGuide' }),
+    link: `https://aykuli.github.io/belarus-writers-storybook`,
+  };
 
   const backgroundData = useStaticQuery(graphql`
     query {
@@ -128,6 +128,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
         handleDrawerToggle={handleDrawerToggle}
         value={activeTab}
         categories={categories}
+        styleGuideLink={styleGuideLink}
       />
       <nav className={classes.drawer}>
         <DrawerList
