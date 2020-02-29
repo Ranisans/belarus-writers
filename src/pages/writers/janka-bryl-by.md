@@ -1,7 +1,7 @@
 ---
 layout: writer
 page: janka_bryl
-language: by
+language: be
 fullName: Янка Брыль
 birthDate: 1917-08-04
 deathDate: 2006-07-25

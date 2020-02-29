@@ -8,7 +8,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 const languageName = {
   en: 'English',
   ru: 'Русский',
-  by: 'Беларускi',
+  be: 'Беларускi',
 };
 
 interface LanguageItemTypes {
