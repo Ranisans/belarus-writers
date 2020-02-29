@@ -82,7 +82,7 @@ const useStyles = makeStyles({
 const getDate = (str: string, language: string) => {
   const date = Date.parse(str);
   const date1 = new Date(date);
-  const lang = language === 'by' ? 'ru' : language;
+  const lang = language === 'be' ? 'ru' : language;
   const formatter = new Intl.DateTimeFormat(lang, {
     year: 'numeric',
     month: 'numeric',

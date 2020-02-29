@@ -27,9 +27,11 @@ const useStyles = makeStyles(themeCurrent => ({
 const MobileDrawer = ({
   value,
   categories,
+  styleGuideLink,
 }: {
   value: number;
   categories: LinkDataType[];
+  styleGuideLink: LinkDataType;
 }) => {
   const classes = useStyles(theme);
 
@@ -46,6 +48,14 @@ const MobileDrawer = ({
             </ListItem>
           </Link>
         ))}
+        <ListItem
+          button
+          onClick={() => {
+            window.open(styleGuideLink.link, '_blank');
+          }}
+        >
+          <ListItemText primary={styleGuideLink.text} />
+        </ListItem>
       </List>
     </div>
   );
