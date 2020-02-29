@@ -131,7 +131,7 @@ const evaluation: EvaluationModel[] = [
         done: false,
       },
       {
-        title: 'Violations <a href="https://github.com/rolling-scopes-school/docs/blob/master/docs/stage2.md" target="_blank">stage2-tasks-requirements</a>',
+        title: 'Violations stage2-tasks-requirements',
         score: -50,
         done: false,
         upTo: true
