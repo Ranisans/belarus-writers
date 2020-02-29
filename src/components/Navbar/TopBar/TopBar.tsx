@@ -19,14 +19,16 @@ import theme from '../../../../static/themes/theme';
 const base = {
   background: 'transparent',
   boxShadow: 'none',
+  padding: '10px 0 10px 0',
   transition:
-    'transform 400ms ease-out 100ms, padding 300ms ease-out, box-shadow 300ms ease-out, background 300ms ease-out',
+    'transform 400ms ease-out 100ms, padding 300ms ease-out, box-shadow 300ms ease-out, background 700ms ease-out',
 };
 
 const useStyles = makeStyles(thisTheme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
+    minHeight: '60px',
     [thisTheme.breakpoints.down('sm')]: {
       minHeight: '40px',
     },
@@ -37,7 +39,8 @@ const useStyles = makeStyles(thisTheme => ({
   activeScroll: {
     ...base,
     background: thisTheme.palette.primary.main,
-    height: '70px',
+    height: '60px',
+    padding: '0',
     boxShadow:
       '0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)',
     [thisTheme.breakpoints.down('sm')]: {
@@ -66,14 +69,14 @@ const useStyles = makeStyles(thisTheme => ({
       background: '#FFF',
       visibility: 'hidden',
       borderRadius: '5px',
-      // transform: 'scaleX(0)',
+      transform: 'scaleX(0)',
       transition: '.25s linear',
     },
 
     '&:hover': {
       '&::before': {
         visibility: 'visible',
-        // transform: 'scaleX(1)',
+        transform: 'scaleX(1)',
       },
     },
   },
@@ -150,7 +153,7 @@ const TopBar = ({
               />
             </Tabs>
           </Typography>
-          <LinguisticList />
+          <LinguisticList scrolled={scrolled} />
         </Toolbar>
       </AppBar>
     </>

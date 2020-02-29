@@ -45,6 +45,10 @@ const worklogData: WorklogModel[] = [
         title: 'Создание компоненты Video',
         hours: 5,
       },
+      {
+        title: 'Разбор архитектуры проекта, тестирование компонентов',
+        hours: 15,
+      },
     ],
   },
   {
