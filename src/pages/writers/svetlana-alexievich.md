@@ -4,7 +4,6 @@ page: svetlana_alexievich
 language: en
 fullName: Svetlana Alexandrovna Alexievich
 birthDate: 1948-03-31T04:08:08.146Z
-deathDate: 2020-02-27T13:41:58.138Z
 placeOfBirth: 'town of Stanislav, USSR'
 image: /img/sveta.jpg
 timeline:
@@ -57,6 +56,6 @@ gallery:
     image: /img/alexievich-nobel.jpg
 video:
   - title: Svetlana Aleksievich received the 2015 Nobel Prize in Literature
-    videoURL: 'https://www.youtube.com/embed/n6NR0QXBu5k&t'
+    videoURL: 'https://www.youtube.com/embed/n6NR0QXBu5k'
 ---
 
