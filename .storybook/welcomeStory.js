@@ -4,8 +4,9 @@ import { Typography, Link } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../static/themes/theme';
+import './styles-assets/arrow.scss';
 
-storiesOf('Welcome', module).add('to Storybook of Culture Portal', () => (
+storiesOf('Welcome', module).add('to Storybook', () => (
   <ThemeProvider theme={theme}>
     <Typography variant="h1" style={{ margin: 30 }} color="primary">
       {`Storybook of `}
@@ -16,5 +17,13 @@ storiesOf('Welcome', module).add('to Storybook of Culture Portal', () => (
     <Typography variant="body1" style={{ marginLeft: 30 }}>
       Here you can see components used in this project.
     </Typography>
+
+    <div className="row__child bird-details">
+      <div className="arrow__wrap">
+        <div className="arrow__text">
+          <div className="arrow" />
+        </div>
+      </div>
+    </div>
   </ThemeProvider>
 ));
