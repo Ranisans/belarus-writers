@@ -94,7 +94,7 @@ const TeamPage = () => {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout tabIndex={tabs.workLog}>
+      <Layout tabIndex={tabs.team}>
         <Container maxWidth="lg">
           <Grid container spacing={10}>
             {members}
