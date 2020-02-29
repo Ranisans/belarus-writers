@@ -21,7 +21,7 @@ const worklogData: WorklogModel[] = [
         hours: 3,
       },
       {
-        title: 'Сбор данных по писателю Username 1 и Username 2',
+        title: 'Сбор данных по писателю Адам Мицкевич и Пётр Бровка',
         hours: 2,
       },
       {
@@ -38,7 +38,7 @@ const worklogData: WorklogModel[] = [
         hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 3 и Username 4',
+        title: 'Сбор данных по писателю Василий Быков и Янка Купала',
         hours: 2,
       },
       {
@@ -55,7 +55,7 @@ const worklogData: WorklogModel[] = [
         hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 5 и Username 6',
+        title: 'Сбор данных по писателю Нил Гилевич и Алесь Адамович',
         hours: 2,
       },
       {
@@ -135,7 +135,7 @@ const worklogData: WorklogModel[] = [
         hours: 6,
       },
       {
-        title: 'Сбор данных по писателю Username 9 и Username 10',
+        title: 'Сбор данных по писателю Светлана Алексеич и Иван Мележ',
         hours: 2,
       },
       {
