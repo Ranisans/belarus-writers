@@ -15,14 +15,15 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: theme.typography.fontFamily,
-    padding: '5px',
+    padding: 5,
 
     animationName: '$blinker',
     animationDuration: '1s',
     animationTimingFunction: 'linear',
     animationIterationCount: '1',
-    '@media (max-width: 780px)': {
-      padding: '20px',
+    [theme.breakpoints.up('md')]: {
+      padding: 20,
+      marginBottom: 50,
     },
     boxSizing: 'border-box',
   },
@@ -35,21 +36,21 @@ const useStyles = makeStyles({
   title: {
     textDecoration: 'uppercase',
     textAlign: 'center',
-    '@media (max-width: 780px)': {
-      margin: '0',
-    },
   },
 
   paragraph: {
-    margin: '0',
-    padding: '0',
+    margin: 0,
+    padding: 0,
     textIndent: '1.5em',
     textAlign: 'justify',
   },
 
   columnWrapper: {
-    maxWidth: '400px',
-    padding: '15px',
+    maxWidth: 400,
+    padding: 15,
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '100%',
+    },
   },
 
   descriptionWrapper: {
@@ -86,8 +87,9 @@ const useStyles = makeStyles({
     border: `2px solid ${theme.palette.primary.main}`,
     color: theme.palette.secondary.contrastText,
     textDecoration: 'none',
-    '@media (max-width: 780px)': {
+    [theme.breakpoints.down('xs')]: {
       padding: '3px 20px',
+      color: 'orange',
     },
 
     '&:hover': {

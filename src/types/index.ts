@@ -96,6 +96,7 @@ export interface EvaluationTaskModel {
   title: string;
   score: number;
   done: boolean;
+  upTo?: boolean;
 }
 
 export interface TeamMemberModel {

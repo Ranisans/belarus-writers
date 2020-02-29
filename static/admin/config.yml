@@ -27,7 +27,7 @@ collections:
         options:
           - { label: 'English', value: 'en' }
           - { label: 'Русский', value: 'ru' }
-          - { label: 'Беларускi', value: 'by' }
+          - { label: 'Беларускi', value: 'be' }
       - { label: 'Full Name', name: 'fullName', widget: 'string' }
       - { label: 'Birth Date', name: 'birthDate', widget: 'date' }
       - { label: 'Death Date', name: 'deathDate', widget: 'date' }

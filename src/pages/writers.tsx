@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     fontSize: '4rem',
     textAlign: 'center',
 
-    '@media (max-width: 560px)': {
+    [theme.breakpoints.down('xs')]: {
       fontSize: '3rem',
     },
   },

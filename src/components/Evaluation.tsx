@@ -14,6 +14,15 @@ const useStyles = makeStyles({
   },
 });
 
+const getLabel = (task: EvaluationTaskModel) => {
+  return (
+    <>
+      <b>{`${task.upTo ? 'up to' : ''} ${task.score}`}</b>
+      {`: ${task.title}`}
+    </>
+  );
+};
+
 const getTasks = (tasks: EvaluationTaskModel[]) => {
   const styles = useStyles();
   let score = 0;
@@ -23,6 +32,9 @@ const getTasks = (tasks: EvaluationTaskModel[]) => {
     if (task.done) {
       score += task.score;
     }
+
+    const label = getLabel(task);
+
     elems.push(
       <div key={index.toString()}>
         <FormControlLabel
@@ -33,7 +45,7 @@ const getTasks = (tasks: EvaluationTaskModel[]) => {
               className={styles.checkbox}
             />
           }
-          label={task.title}
+          label={label}
         />
       </div>
     );

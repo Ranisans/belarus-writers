@@ -136,6 +136,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
           categories={categories}
+          styleGuideLink={styleGuideLink}
         />
       </nav>
       <div className={classes.content}>

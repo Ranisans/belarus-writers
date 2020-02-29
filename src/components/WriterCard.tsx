@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 import { useIntl } from 'gatsby-plugin-intl';
 import { Link } from 'gatsby';
 
@@ -76,21 +77,13 @@ const useStyles = makeStyles({
   title: {
     margin: 0,
     textAlign: 'center',
-    fontFamily: '"Din", sans-serif',
-    fontSize: '2.1875rem',
     fontWeight: 700,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     color: theme.palette.text.primary,
-
-    '@media (max-width: 840px)': {
-      fontSize: '1.125rem',
-    },
   },
 
   text: {
-    fontFamily: '"Din", sans-serif',
-    fontSize: ' 0.75rem',
     fontWeight: 700,
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -102,8 +95,6 @@ const useStyles = makeStyles({
   label: {
     position: 'relative',
     transform: 'translateY(-10px)',
-    fontFamily: '"Din", sans-serif',
-    fontSize: '1rem',
     letterSpacing: 1.5,
     color: theme.palette.text.primary,
     visibility: 'hidden',
@@ -147,14 +138,20 @@ const WriterCard: React.FC<WriterCardProps> = ({ edge }) => {
           <img className={styles.img} src={image} alt={fullName} />
         </div>
         <div className={styles.textContainer}>
-          <h2 className={styles.title}>{fullName}</h2>
-          <p className={styles.text}>
+          <Typography variant="h2" className={styles.title}>
+            {fullName}
+          </Typography>
+          <Typography variant="body1" className={styles.text}>
             {deathDate !== null
               ? `${birthDate} - ${deathDate}`
               : `${birthDate} - `}
-          </p>
-          <p className={styles.text}>{placeOfBirth}</p>
-          <span className={styles.label}>{label}</span>
+          </Typography>
+          <Typography variant="body1" className={styles.text}>
+            {placeOfBirth}
+          </Typography>
+          <Typography variant="body2" className={styles.label}>
+            {label}
+          </Typography>
         </div>
       </Link>
     </div>
