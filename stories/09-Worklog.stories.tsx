@@ -1,16 +1,16 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
+import WorklogComponent from '../src/components/Worklog/Worklog';
 import theme from '../static/themes/theme';
-import Typos from '../src/components/Styleguide/Typos';
 
 export default {
-  title: 'Typography',
-  component: Typos,
+  title: 'Worklog',
+  component: WorklogComponent,
 };
 
-export const Typography = () => (
+export const Worklog = () => (
   <ThemeProvider theme={theme}>
-    <Typos />
+    <WorklogComponent />
   </ThemeProvider>
 );

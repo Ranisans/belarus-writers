@@ -6,7 +6,7 @@ import SearchComponent from '../src/components/Search';
 import theme from '../static/themes/theme';
 
 export default {
-  title: 'Search Input',
+  title: 'Input',
   component: SearchComponent,
 };
 

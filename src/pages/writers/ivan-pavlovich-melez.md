@@ -67,7 +67,7 @@ video:
     videoURL: 'https://www.youtube.com/embed/I-0ezESiCCw'
 map:
   - description: >-
-      In 1983, a memorial Museum and a bust were opened in the village of
+      Memorial Museum and a bust were opened in the village of
       Glinishche, the birthplace of Ivan Pavlovich Melezh.
     lat: 51.936076
     lon: 29.65986
