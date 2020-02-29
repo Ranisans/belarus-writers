@@ -5,24 +5,28 @@ const worklogData: WorklogModel[] = [
     name: 'Ruslan Dudenich',
     worklog: [
       {
-        title: 'Создать файлы для перевода Navbar и Footer',
-        hours: 3,
-      },
-      {
-        title: 'Сбор данных по писателю Username 1 и Username 2',
-        hours: 2,
-      },
-      {
         title: 'Разработка структуры приложения',
         hours: 2,
       },
       {
-        title: 'Продумать структуру данных',
+        title: 'Развернуть стартовый проект на Netlify',
+        hours: 4,
+      },
+      {
+        title: 'Настройка среды разработки: gatsby, eslint, prettier, hasky',
         hours: 1,
       },
       {
-        title: 'Развернуть стартовый проект на Netlify',
-        hours: 4,
+        title: 'Создание шаблона страницы писателя',
+        hours: 3,
+      },
+      {
+        title: 'Сбор данных по писателю Адам Мицкевич и Пётр Бровка',
+        hours: 2,
+      },
+      {
+        title: 'Создание компонентов Seo, Redirect, страницы 404',
+        hours: 2,
       },
     ],
   },
@@ -30,19 +34,15 @@ const worklogData: WorklogModel[] = [
     name: 'Yauheni	Vaniushyn',
     worklog: [
       {
-        title: 'Создать Navbar',
+        title: 'Создание Navbar',
         hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Янка Купала и Василь Быков',
+        title: 'Сбор данных по писателю Василий Быков и Янка Купала',
         hours: 2,
       },
       {
-        title: 'Создать страницу участников проекта',
-        hours: 6,
-      },
-      {
-        title: 'Создать компонент Youtube',
+        title: 'Создание компоненты Video',
         hours: 5,
       },
       {
@@ -55,37 +55,46 @@ const worklogData: WorklogModel[] = [
     name: 'Gregory	Fomenko',
     worklog: [
       {
-        title: 'Создать страницу со списком писателей и поиском',
+        title: 'Создание страницы со списком писателей и поиском',
         hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 5 и Username 6',
+        title: 'Сбор данных по писателю Нил Гилевич и Алесь Адамович',
         hours: 2,
       },
       {
-        title: 'Создание компонетна фото-галлереи',
+        title: 'Создание компонеты Map',
         hours: 4,
-      },
-      {
-        title: 'Создание главной страницы',
-        hours: 6,
       },
     ],
   },
   {
-    name: 'Айнур Шауэрман',
+    name: 'Aynur Shauerman',
     worklog: [
       {
-        title: 'Сбор данных по писателю Username 11 и Username 12',
+        title:
+          'Сбор данных по писателям Иван Павлович Мележ и Иван Петрович Шамякин',
         hours: 2,
       },
       {
-        title: 'Создание страницы поиска',
-        hours: 8,
+        title: 'Настройка темы сайта',
+        hours: 15,
       },
       {
-        title: 'Создать страницу Styleguid',
-        hours: 6,
+        title: 'Создание storybook',
+        hours: 20,
+      },
+      {
+        title: 'Страница писателя: стилизация и компоновка',
+        hours: 10,
+      },
+      {
+        title: 'Gatsby-image',
+        hours: 10,
+      },
+      {
+        title: 'Создание компоненты Gallery',
+        hours: 10,
       },
     ],
   },
@@ -93,40 +102,48 @@ const worklogData: WorklogModel[] = [
     name: 'Oksana	Fainitskaya',
     worklog: [
       {
-        title: 'Создать компонент Timeline',
-        hours: 4.5,
+        title: 'Создание компонента Timeline',
+        hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 7 и Username 8',
-        hours: 2,
-      },
-      {
-        title: 'Создание страницы Worklog',
-        hours: 6,
-      },
-      {
-        title: 'Создание компонента карты',
+        title: 'Сбор данных по писателям Якуб Колас и Янка Брыль',
         hours: 4,
       },
+      {
+        title: 'Создание страницы "Журнал работ"',
+        hours: 8,
+      },
+      {
+        title: 'Создание страницы "Команда"',
+        hours: 4,
+      },
+      {
+        title: 'Оптимизация изображений и адаптация их для галлереи',
+        hours: 1
+      }
     ],
   },
   {
     name: 'Anna Kulai',
     worklog: [
       {
-        title: 'Создать Footer',
+        title: 'Создание компоненты Footer',
         hours: 3,
       },
       {
-        title: 'Создать Layout',
+        title: 'Создатние компоненты Layout',
         hours: 4,
       },
       {
-        title: 'Создать список писателей (12 человек)',
+        title: 'Создатние списка писателей (12 человек)',
         hours: 6,
       },
       {
-        title: 'Сбор данных по писателю Username 9 и Username 10',
+        title: 'Сбор данных по писателю Светлана Алексеич и Иван Мележ',
+        hours: 2,
+      },
+      {
+        title: 'Создание главной страницы',
         hours: 2,
       },
     ],

@@ -5,7 +5,7 @@ import { CssBaseline, Container, Typography } from '@material-ui/core';
 import Layout from '../components/Layout';
 import WorkLog from '../components/Worklog/Worklog';
 import Evaluation from '../components/Evaluation';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 const useStyles = makeStyles({
   root: {

@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/styles';
 const languageName = {
   en: 'English',
   ru: 'Русский',
-  by: 'Беларускi',
+  be: 'Беларускi',
 };
 
 const icon = {
@@ -75,6 +75,7 @@ const LinguisticList = ({ scrolled }: { scrolled: boolean }) => {
         keepMounted
         open={open}
         onClose={handleClose}
+        disableScrollLock
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,

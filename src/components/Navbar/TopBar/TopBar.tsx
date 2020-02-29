@@ -89,11 +89,17 @@ const useStyles = makeStyles(thisTheme => ({
 
 interface PropType {
   categories: LinkDataType[];
+  styleGuideLink: LinkDataType;
   handleDrawerToggle: () => void;
   value: number;
 }
 
-const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
+const TopBar = ({
+  categories,
+  styleGuideLink,
+  handleDrawerToggle,
+  value,
+}: PropType) => {
   const classes = useStyles(theme);
 
   const [scrolled, setScrolled] = useState(false);
@@ -138,6 +144,13 @@ const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
                   {...({ component: Link, to: `${category.link}` } as any)}
                 />
               ))}
+              <Tab
+                label={styleGuideLink.text}
+                className={classes.link}
+                onClick={() => {
+                  window.open(styleGuideLink.link, '_blank');
+                }}
+              />
             </Tabs>
           </Typography>
           <LinguisticList scrolled={scrolled} />

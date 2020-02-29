@@ -6,7 +6,7 @@ fullName: Ivan Pavlovich Melez
 birthDate: 1921-02-08T05:08:08.088Z
 deathDate: 1976-08-09T04:08:08.146Z
 placeOfBirth: 'Glinishchevo village, Khoiniki district, Gomel region, USSR'
-image: /img/Melej.jpg
+image: /img/melez.jpg
 timeline:
   - date: '1938'
     description: >-
@@ -64,7 +64,7 @@ gallery:
     image: /img/melez_molodoi.jpg
 video:
   - title: 'Ivan Melezh: interrupted chronicle'
-    videoURL: 'https://www.youtube.com/watch?v=I-0ezESiCCw'
+    videoURL: 'https://www.youtube.com/embed/I-0ezESiCCw'
 map:
   - description: >-
       In 1983, a memorial Museum and a bust were opened in the village of

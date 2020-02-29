@@ -18,15 +18,20 @@ const useStyles = makeStyles(themeCurrent => ({
   selectedListItemStyle: {
     backgroundColor: themeCurrent.palette.primary.main,
     opacity: 0.8,
+    '&:hover': {
+      backgroundColor: themeCurrent.palette.primary.main,
+    },
   },
 }));
 
 const MobileDrawer = ({
   value,
   categories,
+  styleGuideLink,
 }: {
   value: number;
   categories: LinkDataType[];
+  styleGuideLink: LinkDataType;
 }) => {
   const classes = useStyles(theme);
 
@@ -43,6 +48,14 @@ const MobileDrawer = ({
             </ListItem>
           </Link>
         ))}
+        <ListItem
+          button
+          onClick={() => {
+            window.open(styleGuideLink.link, '_blank');
+          }}
+        >
+          <ListItemText primary={styleGuideLink.text} />
+        </ListItem>
       </List>
     </div>
   );

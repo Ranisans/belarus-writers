@@ -9,6 +9,7 @@ import theme from '../../../../static/themes/theme';
 
 interface PropType {
   categories: LinkDataType[];
+  styleGuideLink: LinkDataType;
   handleDrawerToggle: any;
   mobileOpen: any;
   value: number;
@@ -28,6 +29,7 @@ const useStyles = makeStyles(themeThere => {
 
 const DrawerList = ({
   categories,
+  styleGuideLink,
   handleDrawerToggle,
   mobileOpen,
   value,
@@ -54,7 +56,11 @@ const DrawerList = ({
           >
             <CloseIcon />
           </IconButton>
-          <MobileDrawer value={value} categories={categories} />
+          <MobileDrawer
+            value={value}
+            categories={categories}
+            styleGuideLink={styleGuideLink}
+          />
         </Drawer>
       </Hidden>
     </>

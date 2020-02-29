@@ -52,22 +52,26 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
     },
     {
       text: intl.formatMessage({ id: 'navbar.team' }),
-      link: `/${intl.locale}/`,
+      link: `/${intl.locale}/team`,
     },
     {
       text: intl.formatMessage({ id: 'navbar.workLog' }),
       link: `/${intl.locale}/worklog`,
     },
-    {
-      text: intl.formatMessage({ id: 'navbar.styleGuide' }),
-      link: `/${intl.locale}/style-guide`,
-    },
   ];
+  const styleGuideLink: LinkDataType = {
+    text: intl.formatMessage({ id: 'navbar.styleGuide' }),
+    link: `https://aykuli.github.io/belarus-writers-storybook`,
+  };
 
   const backgroundData = useStaticQuery(graphql`
     query {
       imageSharp(fluid: { originalName: { eq: "bg.jpg" } }) {
-        fluid(srcSetBreakpoints: [400, 320], fit: COVER) {
+        fluid(
+          srcSetBreakpoints: [1800, 1200, 800, 400, 320]
+          fit: COVER
+          maxWidth: 1800
+        ) {
           src
           srcSet
           base64
@@ -124,6 +128,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
         handleDrawerToggle={handleDrawerToggle}
         value={activeTab}
         categories={categories}
+        styleGuideLink={styleGuideLink}
       />
       <nav className={classes.drawer}>
         <DrawerList
@@ -131,6 +136,7 @@ function ResponsiveDrawer({ activeTab }: PropTypes) {
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
           categories={categories}
+          styleGuideLink={styleGuideLink}
         />
       </nav>
       <div className={classes.content}>

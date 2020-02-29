@@ -15,12 +15,13 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/intl`,
-        languages: [`en`, `ru`, `by`],
+        languages: [`en`, `ru`, `be`],
         defaultLanguage: `en`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.tsx`),
       },
     },
+
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -45,19 +46,28 @@ module.exports = {
         name: 'pages',
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 600,
+              ratio: 1.77,
+              height: 335,
+              related: false,
+              noIframerder: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
           {
             resolve: 'gatsby-remark-relative-images',
             options: {

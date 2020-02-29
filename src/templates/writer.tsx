@@ -9,11 +9,12 @@ import Gallery from '../components/Gallery/Gallery';
 import Timeline from '../components/Timeline/Timeline';
 import Map from '../components/Map';
 import WorksList from '../components/WorksList';
+import Video from '../components/Video';
 
 import { Node, ImgNode } from '../types';
 import SEO from '../components/Seo';
 import theme from '../../static/themes/theme';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 interface DataQlType {
   data: {
@@ -48,6 +49,11 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     marginBottom: 80,
   },
+  videoContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 80,
+  },
   slidingHeader: {
     opacity: 0,
     animation: '$slidingTxt 0.5s ease',
@@ -76,7 +82,7 @@ const useStyles = makeStyles({
 const getDate = (str: string, language: string) => {
   const date = Date.parse(str);
   const date1 = new Date(date);
-  const lang = language === 'by' ? 'ru' : language;
+  const lang = language === 'be' ? 'ru' : language;
   const formatter = new Intl.DateTimeFormat(lang, {
     year: 'numeric',
     month: 'numeric',
@@ -94,6 +100,7 @@ const Writer = (props: DataQlType) => {
   }
 
   const { frontmatter: data } = props.data.markdownRemark;
+
   const {
     fullName,
     gallery,
@@ -103,8 +110,11 @@ const Writer = (props: DataQlType) => {
     timeline,
     works,
     map,
+    video,
   } = data;
+
   const allImgsGatsby = props.data.allImageSharp.edges;
+
   return (
     <Layout tabIndex={tabs.list}>
       <SEO title={data.fullName} />
@@ -131,6 +141,13 @@ const Writer = (props: DataQlType) => {
           ) : null}
         </Container>
         {timeline !== null ? <Timeline timelineData={timeline} /> : null}
+        {video !== null ? (
+          <Container component="div" className={classes.videoContainer}>
+            {video.map(videoItem => {
+              return <Video video={videoItem} key={videoItem.title} />;
+            })}
+          </Container>
+        ) : null}
         {map !== null ? (
           <Container component="div" className={classes.bottomSpace}>
             {map.map(mapItem => {
@@ -173,6 +190,10 @@ export const dataQl = graphql`
           lat
           lon
           title
+        }
+        video {
+          title
+          videoURL
         }
       }
     }
