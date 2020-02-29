@@ -5,7 +5,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import SearchComponent from '../src/components/Search';
 import theme from '../static/themes/theme';
 
-export const Search = () => (
+export default {
+  title: 'Search Input',
+  component: SearchComponent,
+};
+
+export const Input = () => (
   <ThemeProvider theme={theme}>
     <SearchComponent query="" handleChange={() => 0} />
   </ThemeProvider>

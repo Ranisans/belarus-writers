@@ -1,11 +1,16 @@
-// /* eslint-disable import/prefer-default-export */
+// // /* eslint-disable import/prefer-default-export */
 // import React from 'react';
 // import { ThemeProvider } from '@material-ui/core/styles';
 
-// import WriterCard from '../src/components/WriterCard';
+// import WriterCard from '../src/pages/team';
 // import theme from '../static/themes/theme';
 // import imgSrc from '../static/img/melez.jpg';
 // import { Edge } from '../src/types';
+
+// export default {
+//   title: 'Writer Card',
+//   component: WriterCard,
+// };
 
 // const edge: Edge = {
 //   node: {
@@ -32,6 +37,7 @@
 //   return (
 //     <ThemeProvider theme={theme}>
 //       <WriterCard edge={edge} />
+//       222222222222222222
 //     </ThemeProvider>
 //   );
 // };

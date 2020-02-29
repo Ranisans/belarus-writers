@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Card, Typography, Link } from '@material-ui/core';
 
 import { GitHub } from '@material-ui/icons';
-import Layout from '../components/Layout';
-import tabs from '../data/tabsName';
+// import Layout from '../components/Layout';
+// import tabs from '../data/tabsName';
 
 import team from '../data/team';
 import { TeamMemberModel } from '../types';
@@ -92,13 +92,13 @@ const TeamPage = () => {
   });
 
   return (
-    <Layout tabIndex={tabs.workLog}>
-      <Container maxWidth="lg">
-        <Grid container spacing={10}>
-          {members}
-        </Grid>
-      </Container>
-    </Layout>
+    // <Layout tabIndex={tabs.workLog}>
+    <Container maxWidth="lg">
+      <Grid container spacing={10}>
+        {members}
+      </Grid>
+    </Container>
+    // </Layout>
   );
 };
 

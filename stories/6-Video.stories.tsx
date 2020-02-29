@@ -2,18 +2,23 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Video from '../src/components/Video';
+import VideoComponent from '../src/components/Video';
 import theme from '../static/themes/theme';
+
+export default {
+  title: 'Video',
+  component: VideoComponent,
+};
 
 const video = {
   videoURL: 'https://www.youtube.com/embed/I-0ezESiCCw',
   title: 'Иван Мележ: прерванная хроника',
 };
 
-export const Search = () => {
+export const Video = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Video video={video} />
+      <VideoComponent video={video} />
     </ThemeProvider>
   );
 };
