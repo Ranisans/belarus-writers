@@ -4,7 +4,7 @@ import { Container, Grid, Card, Typography, Link } from '@material-ui/core';
 
 import { GitHub } from '@material-ui/icons';
 import Layout from '../components/Layout';
-import tabs from '../constants/tabsName';
+import tabs from '../data/tabsName';
 
 import team from '../data/team';
 import { TeamMemberModel } from '../types';
