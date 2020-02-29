@@ -13,7 +13,6 @@ const useStyles = makeStyles({
   },
   input: {
     color: theme.palette.text.secondary,
-    fontFamily: '"Din", sans-serif',
   },
 });
 

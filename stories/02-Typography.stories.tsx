@@ -1,4 +1,5 @@
 import React from 'react';
+import { text } from '@storybook/addon-knobs/react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Typography, Tooltip } from '@material-ui/core';
 
@@ -8,6 +9,19 @@ export default {
   title: 'Typography',
   component: Typography,
 };
+
+export const CustomHeader = () => (
+  <ThemeProvider theme={theme}>
+    <Tooltip
+      title="font-size: 1rem, color: rgb(61, 68, 81)"
+      placement="top-start"
+    >
+      <Typography variant={text('h1...h6', 'h1')} display="block">
+        button text
+      </Typography>
+    </Tooltip>
+  </ThemeProvider>
+);
 
 export const HeaderH1 = () => (
   <ThemeProvider theme={theme}>
@@ -102,6 +116,25 @@ export const ButtonText = () => (
       placement="top-start"
     >
       <Typography variant="button" display="block">
+        button text
+      </Typography>
+    </Tooltip>
+  </ThemeProvider>
+);
+
+export const CustomText = () => (
+  <ThemeProvider theme={theme}>
+    <Tooltip
+      title="font-size: 1rem, color: rgb(61, 68, 81)"
+      placement="top-start"
+    >
+      <Typography
+        variant={text(
+          'body1/body2/overline/caption/button/inherit',
+          'overline'
+        )}
+        display="block"
+      >
         button text
       </Typography>
     </Tooltip>
