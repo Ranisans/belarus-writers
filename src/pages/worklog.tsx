@@ -5,6 +5,7 @@ import { CssBaseline, Container, Typography } from '@material-ui/core';
 import Layout from '../components/Layout';
 import WorkLog from '../components/Worklog/Worklog';
 import Evaluation from '../components/Evaluation';
+import Difficulties from '../components/Difficulties';
 import tabs from '../data/tabsName';
 
 const useStyles = makeStyles({
@@ -27,11 +28,7 @@ const WorkLogPage = () => {
           </section>
           <section>
             <h2>Difficulties </h2>
-            <ul>
-              <li>Main 1-3 difficulties for the team during implementation</li>
-              <li>Main 1-3 difficulties for the team during implementation</li>
-              <li>Main 1-3 difficulties for the team during implementation</li>
-            </ul>
+            <Difficulties />
           </section>
           <section>
             <h2>Self-evaluation</h2>
