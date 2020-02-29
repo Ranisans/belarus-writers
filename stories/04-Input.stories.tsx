@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useState } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { withActions, action } from '@storybook/addon-actions';
 
 import SearchComponent from '../src/components/Search';
 import theme from '../static/themes/theme';
@@ -14,12 +15,15 @@ interface InputProp {
 export default {
   title: 'Input',
   component: SearchComponent,
+  decorators: [withActions('change')],
 };
 
 export const Input = () => {
   const [input, setinput] = useState('');
   const handleChange = ({ target: { value } }: InputProp) => {
     setinput(value);
+    action('change', value);
+    console.log('111111111111111')
   };
 
   return (

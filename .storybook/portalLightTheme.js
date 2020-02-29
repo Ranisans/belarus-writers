@@ -10,7 +10,7 @@ export default create({
   // UI
   appBg: 'white',
   appContentBg: '#FFFFFF',
-  appBorderColor: '#E8676B',
+  appBorderColor: 'silver',
   appBorderRadius: 4,
 
   // Typography

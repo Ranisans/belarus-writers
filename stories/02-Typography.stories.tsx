@@ -17,7 +17,7 @@ export const CustomHeader = () => (
       placement="top-start"
     >
       <Typography variant={text('h1...h6', 'h1')} display="block">
-        button text
+        Custom text
       </Typography>
     </Tooltip>
   </ThemeProvider>
@@ -135,7 +135,7 @@ export const CustomText = () => (
         )}
         display="block"
       >
-        button text
+        Custom text
       </Typography>
     </Tooltip>
   </ThemeProvider>
