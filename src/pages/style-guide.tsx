@@ -32,6 +32,8 @@ const useStyles = makeStyles(thisTheme => {
     },
     btnsGroup: {
       marginBottom: '40px',
+      display: 'flex',
+      flexWrap: 'wrap',
     },
     btn: {
       color: thisTheme.palette.primary.main,
