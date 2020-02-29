@@ -2,6 +2,7 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { Typography, List, ListItem } from '@material-ui/core';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import theme from '../../static/themes/theme';
 
 import { Works } from '../types';
@@ -61,9 +62,7 @@ const WorksList = ({ works }: Props) => {
   const classes = useStyles(theme);
   return (
     <>
-      <Typography variant="h3" className={classes.listLabel}>
-        Works
-      </Typography>
+      <ImportContactsIcon style={{ fontSize: '40px' }} />
       <List component="ul" aria-label="works" className={classes.list}>
         {works.map((item, i) => {
           const delay = 1.5 + 0.1 * i;

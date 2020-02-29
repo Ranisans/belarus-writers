@@ -113,9 +113,6 @@ const TopBar = ({
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll, true);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
   }, [scrolled]);
 
   return (
