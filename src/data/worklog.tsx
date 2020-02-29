@@ -34,7 +34,7 @@ const worklogData: WorklogModel[] = [
         hours: 5,
       },
       {
-        title: 'Сбор данных по писателю Username 3 и Username 4',
+        title: 'Сбор данных по писателю Янка Купала и Василь Быков',
         hours: 2,
       },
       {
@@ -44,6 +44,10 @@ const worklogData: WorklogModel[] = [
       {
         title: 'Создать компонент Youtube',
         hours: 5,
+      },
+      {
+        title: 'Разбор архитектуры проекта, тестирование компонентов',
+        hours: 15,
       },
     ],
   },
