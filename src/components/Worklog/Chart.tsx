@@ -17,15 +17,14 @@ interface ChartProps {
 function getHoursWord(hour: number): string {
   if (hour === 1) {
     return 'час';
-  } else if (hour > 1 && hour < 5) {
-    return 'часа';
-  } else {
-    if (hour < 21) {
-      return 'часов';
-    } else {
-      return getHoursWord(hour % 10);
-    }
   }
+  if (hour > 1 && hour < 5) {
+    return 'часа';
+  }
+  if (hour < 21) {
+    return 'часов';
+  }
+  return getHoursWord(hour % 10);
 }
 
 function customTooltips(this: any, tooltipModel: ChartTooltipModel) {
@@ -56,7 +55,7 @@ function customTooltips(this: any, tooltipModel: ChartTooltipModel) {
   let tooltip = tooltipLabel;
   const tooltipValue = Number(tooltipStr.substr(lastDotsIndex + 1).trim());
 
-  if (!isNaN(tooltipValue) && isFinite(tooltipValue)) {
+  if (!Number.isNaN(tooltipValue) && Number.isFinite(tooltipValue)) {
     const h = getHoursWord(tooltipValue);
     tooltip += `: ${tooltipValue}&nbsp;${h}`;
   }

@@ -1,10 +1,10 @@
 import React from 'react';
-import difficulties from '../data/difficulties';
 import { Typography } from '@material-ui/core';
+import difficulties from '../data/difficulties';
 
 const Difficulties = () => {
-  const difficultiesItems = difficulties.map((item: string) => (
-    <li>
+  const difficultiesItems = difficulties.map((item: string, i: number) => (
+    <li key={i.toString()}>
       <Typography variant="body1">{item}</Typography>
     </li>
   ));

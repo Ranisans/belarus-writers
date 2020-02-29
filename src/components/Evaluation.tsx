@@ -17,10 +17,8 @@ const useStyles = makeStyles({
 const getLabel = (task: EvaluationTaskModel) => {
   return (
     <>
-      <b>
-        {task.upTo ? 'up to' : ''} {task.score}
-      </b>
-      : {task.title}
+      <b>{`${task.upTo ? 'up to' : ''} ${task.score}`}</b>
+      {`: ${task.title}`}
     </>
   );
 };
