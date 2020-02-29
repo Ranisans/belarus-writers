@@ -70,6 +70,7 @@ const evaluation: EvaluationModel[] = [
           'Design (typography, icons, colors, links + buttons + input are styled)',
         score: 20,
         done: true,
+        upTo: true,
       },
       {
         title: 'Material-ui / bootstrap is used',
@@ -110,6 +111,7 @@ const evaluation: EvaluationModel[] = [
         title: 'Outstanding design',
         score: 20,
         done: true,
+        upTo: true
       },
       {
         title:
@@ -124,23 +126,24 @@ const evaluation: EvaluationModel[] = [
     tasks: [
       {
         title:
-          'if there are less than 5 commits from each active team member. Everyone should merge their own PRs',
+          'There are less than 5 commits from each active team member. Everyone should merge their own PRs',
         score: -50,
         done: false,
       },
       {
-        title: 'up to -50 points for violations stage2-tasks-requirements',
+        title: 'Violations <a href="https://github.com/rolling-scopes-school/docs/blob/master/docs/stage2.md" target="_blank">stage2-tasks-requirements</a>',
         score: -50,
         done: false,
+        upTo: true
       },
       {
-        title: 'if there is no worklog for team',
+        title: 'There is no worklog for team',
         score: -40,
         done: false,
       },
       {
-        title: 'too primitive (ugly for 2020) design / UX',
-        score: -40,
+        title: 'Too primitive (ugly for 2020) design / UX',
+        score: -20,
         done: false,
       },
     ],
