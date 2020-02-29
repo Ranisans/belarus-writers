@@ -104,9 +104,6 @@ const TopBar = ({ categories, handleDrawerToggle, value }: PropType) => {
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll, true);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
   }, [scrolled]);
 
   return (
