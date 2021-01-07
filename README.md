@@ -1,5 +1,7 @@
 # [Cultural Portal "Writers of Belarus"](https://belarus-writers.netlify.com/en/writer/yakub_kolas)
 
+- [Deploy](https://belarusian-writers.netlify.app/)
+
 - [Task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codejam-culture-portal.md) within the course [React from Rollig Scopes School](https://rs.school/react/)
 
 - [Main repository](https://github.com/Ranisans/belarus-writers)
